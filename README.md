@@ -1,6 +1,6 @@
-Substance Article
+Lens Article
 =====
 
-This is a reference implementation of the [Substance Document Model](). It features basic content types such as paragraphs, headings, images and code blocks.
+The Lens Article Format is an implementation the [Substance Document Model](http://githu.com/substance-article) dedicated to scientific content. It features basic content types such as paragraphs, headings, and various figure types such as images, tables and videos complete with captions and cross-references.
 
-Use this as a starting point for rolling your own Substance based document-format.
+The document defintions can be extended easily, so you can either create your own flavour or contribute to the Lens Article Format directly.
