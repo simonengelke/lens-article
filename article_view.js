@@ -147,7 +147,7 @@ ArticleView.Prototype = function() {
   //
 
   this.render = function() {
-    this.$el.html(html.tpl('editor', this.controller));
+    this.$el.html(html.tpl('article', this.controller));
     this.$('#document .surface').replaceWith(this.surface.render().el);
 
     // Wait a second

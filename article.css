@@ -47,7 +47,8 @@
   overflow: auto;
 }
 
-.node-toggles {
+
+/*.node-toggles {
   display: none;
   z-index: 4000;
   position: absolute;
@@ -66,7 +67,6 @@
   height: 40px;
   display: block;
   line-height: 40px;
-  /*background: rgba(0,0,0,0.05);*/
   color: rgba(255,255,255,0.8);
   padding: 0 20px;
   position: relative;
@@ -80,7 +80,6 @@
 .node-toggles .insert-node span {
   display: block;
   height: 20px;
-  /*border: 1px solid #fff;*/
   float: right;
 }
 
@@ -97,10 +96,15 @@
 .node-toggles .insert-node:hover {
   background: rgba(0,0,0, 1);
 }
+*/
+
+/* Annotations
+-------------------------------------------------------------------------------*/
+
 
 /* Annotation toggles */
 
-.annotation-toggles {
+/*.annotation-toggles {
   z-index: 4000;
   display: none;
   position: absolute;
@@ -159,7 +163,6 @@
   background: rgba(231, 88, 46, 0.25);
 }
 
-/* Hover states */
 .annotation-toggles .annotation-toggle.question:hover {
   background: rgba(11, 157, 217, 0.30);  
 }
@@ -170,4 +173,112 @@
 
 .annotation-toggles .annotation-toggle.error:hover {
   background: rgba(231, 88, 46, 0.35);
+}*/
+
+
+
+
+
+
+/* Annotations
+// TODO: this should be moved outside the surface
+-------------------------------------------------------------------------------*/
+
+#document span.annotation {
+  -webkit-transition-property: background, color;
+  -moz-transition-property: background, color;
+  transition-property: background, color;
+
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  transition-duration: 0.1s;
 }
+
+span.annotation.formula_reference, span.publication_reference {
+  padding-left: 3px; padding-right: 3px;
+}
+
+#document span.emphasis, #document em {
+  font-style: italic;
+}
+
+#document span.superscript, #document span.subscript, #document sup, #document sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+  font-size: 12px;
+}
+
+#document span.subscript, #document sub {
+  top: 0.4em;
+}
+
+#document span.strong, #document strong {
+  font-weight: bold;
+}
+
+#document span.underline {
+  text-decoration: underline;
+}
+
+
+.content-node .idea { background-color: rgba(102, 182, 32, 0.3); }
+.content-node .question { background-color: rgba(16, 167, 222, 0.3); }
+.content-node .error { background-color: rgba(237, 96, 48, 0.3); }
+.content-node .link { color: #DC4A1D; text-decoration: underline;}
+
+/* Inline Code Annotations */
+
+.content-node .code {
+  font-family: Consolas, "Liberation Mono", Courier, monospace; background: #eee; font-size: 15px
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* Highlighted states */
+
+.content-node .idea.highlight { background-color: rgba(102, 182, 32, 0.6); }
+.content-node .question.highlight { background-color: rgba(16, 167, 222, 0.6);}
+.content-node .error.highlight { background-color: rgba(237, 96, 48, 0.6); }
+
+/* Selected states */
+
+.content-node .content span.selected { background: rgba(0,0,0,0.08); }
+.content-node .content .idea.selected { background-color: rgba(102, 182, 32, 0.4); }
+.content-node .content .question.selected { background-color: rgba(16, 167, 222, 0.4);}
+.content-node .content .error.selected { background-color: rgba(237, 96, 48, 0.4); }
+
+/* Em, Strong, Link */
+
+.content-node .emphasis { font-style: italic; }
+.content-node .link { background-color: #00CFEA; }
+.content-node .strong { font-weight: bold; }
+
+
+/* Figure Reference */
+
+.content-node .figure_reference {
+  background: rgba(145, 187, 4, 0.15);
+  border-bottom: 1px solid rgba(145, 187, 4, 0.8);
+  color: #495A11;
+  cursor: pointer;
+}
+
+.content-node .citation_reference { 
+  background: rgba(11, 157, 217, 0.075);
+  color: #1B6685;
+  border-bottom: 1px solid rgba(11, 157, 217, 0.4);
+  cursor: pointer;
+}
+
+
+.content-node .figure_reference.active { background-color: rgba(145, 187, 4, 0.35); }
+.content-node .citation_reference.active { background-color: rgba(11, 157, 217, 0.30); }
+
+.content-node .figure_reference.selected { background: rgba(145, 187, 4, 0.7); }
+.content-node .citation_reference.selected { background: rgba(11, 157, 217, 0.6); }
+
+/* Cross Reference */
+
+.content-node .cross_reference { color: #1B6685; cursor: pointer; }
+.content-node .cross_reference.active { color: rgba(11, 157, 217, 1); cursor: pointer; }
+

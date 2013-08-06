@@ -170,7 +170,33 @@ Article.annotations = {
     "parent": "annotation",
     "properties": {
     }
+  },
+
+  // Greenish figure references in the text
+
+  "figure_reference": {
+    "parent": "annotation",
+    "properties": {
+      "target": "figure"
+    }
+  },
+
+  // Blueish citation references in the text
+
+  "citation_reference": {
+    "parent": "annotation",
+    "properties": {
+      "target": "content"
+    }
+  },
+
+  "cross_reference": {
+    "parent": "annotation",
+    "properties": {
+      "target": "content"
+    }
   }
+
 };
 
 // Custom type definitions
