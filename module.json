@@ -1,9 +1,9 @@
 {
-  "name":"substance-article",
+  "name":"lens-article",
   "private":true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/substance/article.git"
+    "url": "https://github.com/elifesciences/lens-article.git"
   },
   "dependencies":{
     "underscore":"",
