@@ -216,6 +216,23 @@ Article.types = {
     }
   },
 
+  // Abstract Figure Type
+  // --------
+
+  "figure": {
+    "properties": {
+    }
+  },
+
+
+  // Abstract Citation Type
+  // --------
+
+  "citation": {
+    "properties": {
+    }
+  },
+
   // Document
   // --------
 
