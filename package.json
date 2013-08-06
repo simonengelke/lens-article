@@ -1,11 +1,19 @@
 {
-  "name": "substance-article",
-  "version": "0.1.0-alpha",
+  "name": "lens-article",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elifesciences/lens-article.git"
+  },
   "dependencies": {
     "underscore": "1.5.x",
-    "substance-document": "git+https://github.com/substance/document.git#master",
-    "substance-util": "git+https://github.com/substance/util.git#master",
-    "substance-application": "git+https://github.com/substance/application.git#master"
+    "substance-document": "git+https://github.com/substance/document.git#0.5.x",
+    "substance-util": "git+https://github.com/substance/util.git#0.2.x",
+    "substance-application": "git+https://github.com/substance/application.git#0.1.x"
+  },
+  "version": "0.2.0",
+  "engines": {
+    "node": ">=0.8.x",
+    "npm": ">=1.1.x"
   }
 }
