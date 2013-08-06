@@ -10,7 +10,7 @@ var View = require("substance-application").View;
 // Lens.Article.View
 // ==========================================================================
 //
-// The Substance Document Editor
+// The Substance Article Editor / Viewer
 
 var ArticleView = function(controller) {
   View.call(this);
@@ -30,7 +30,9 @@ var ArticleView = function(controller) {
   // --------
 
   // A Substance.Document.Writer instance is provided by the controller
-  this.surface = new Surface(this.controller.writer);
+  this.surface = new Surface(this.controller.writer, {
+    editable: false
+  });
 
   this.$el.delegate('.image-files', 'change', _.bind(this.handleFileSelect, this));
 };
@@ -106,15 +108,6 @@ ArticleView.Prototype = function() {
     }
   };
 
-
-  // Insert a new image
-  // --------
-  //
-
-  this.insertImage = function(type, data) {
-    this.surface.insertImage(type, data);
-  };
-
   // Insert a fresh new node
   // --------
   //
@@ -156,6 +149,15 @@ ArticleView.Prototype = function() {
   this.render = function() {
     this.$el.html(html.tpl('editor', this.controller));
     this.$('#document .surface').replaceWith(this.surface.render().el);
+
+    // Wait a second
+    _.delay(function() {
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
+      // Show doc when typesetting math is done
+      // MathJax.Hub.Queue(displayDoc);
+    }, 20);
+
     return this;
   };
 

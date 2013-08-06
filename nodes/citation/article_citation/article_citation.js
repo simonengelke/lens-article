@@ -20,7 +20,7 @@ ArticleCitation.type = {
   "properties": {
     "title": "string",
     "authors": ["array", "string"],
-    "doi": "string"
+    "doi": "string",
     "source": "string",
     "volume": "string",
     "fpage": "string",
@@ -34,7 +34,7 @@ ArticleCitation.type = {
 // -----------------
 //
 
-ArticleCitation.description {
+ArticleCitation.description = {
   "name": "A journal article citation.",
   "remarks": [
     "This element can be used to describe typical journal article citations."
@@ -45,7 +45,7 @@ ArticleCitation.description {
     "source": "Usually the journal name",
     "volume": "Issue number",
     "fpage": "First page",
-    "fpage": "Last page",
+    "lpage": "Last page",
     "citation_urls": "A list of links for accessing the article on the web"
   }
 };
@@ -64,7 +64,7 @@ ArticleCitation.example = {
     "BJ Haas",
     "PT LoVerde"
   ],
-  "doi": "http://dx.doi.org/10.1038/nature08160"
+  "doi": "http://dx.doi.org/10.1038/nature08160",
   "source": "Nature",
   "volume": "460",
   "fpage": "352",
@@ -79,10 +79,9 @@ ArticleCitation.Prototype = function() {
   // Falls back to the DOI url
   // Always returns an array;
   this.urls = function() {
-    return this.properties.citation_urls.length > 0
-            ? this.properties.citation_urls
-            : [this.properties.doi]
-  }
+    return this.properties.citation_urls.length > 0 ? this.properties.citation_urls
+                                                    : [this.properties.doi];
+  };
 };
 
 ArticleCitation.Prototype.prototype = Publication.prototype;
@@ -102,7 +101,7 @@ _.each(ArticleCitation.type.properties, function(prop, key) {
   };
 });
 
-Object.defineProperties(Citation.prototype, getters);
+Object.defineProperties(ArticleCitation.prototype, getters);
 
 
 module.exports = ArticleCitation;
