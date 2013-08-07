@@ -1,0 +1,45 @@
+/* Table */ 
+
+.article .resources .table-wrapper {
+  width: 100%;
+  overflow: auto;
+}
+
+.article .resources table {
+  position: relative;
+  
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 20px;
+  margin: 0 auto;
+}
+
+.article .resources thead tr {
+  background: #eee;
+}
+
+
+.article .resources thead td {
+  font-weight: bold;
+}
+
+/* Table sub tags */
+.article .resources table sub {
+   vertical-align: baseline;
+   position: relative;
+   top: 0.4em;
+   font-size: 11px;
+}
+
+.article .resources table td {
+  padding: 5px;
+  font-size: 12px;
+  border: 1px solid lightgrey;
+}
+
+.article .resources .table .footers {
+  padding: 0 20px;
+  padding-top: 10px;
+  font-size: 12px;
+  background: #fff;
+}

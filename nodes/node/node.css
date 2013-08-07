@@ -1,12 +1,149 @@
 /* Node
 -------------------------------------------------------------------------------*/
 
-.content-node.node {
+.content-node {
   padding: 20px 0px;
   background: #ccc;
 }
 
-.content-node.node .content {
-  min-height: 28px;
+
+/*.content-node {
+  border-color: rgba(0,0,0, 0.2);
+  position: relative;
+  background: white;
+
+  word-wrap: break-word;
 }
 
+.document .content-node .focus {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  width: 50px;
+  color: #888;
+  border-top: 1px solid #eee;
+}
+
+.document .content-node .focus-figures {
+  width: 50px;
+  height: 70px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+}
+
+.document .content-node .focus i {
+  padding-top: 15px;
+  display: block;
+  font-size: 18px;
+  text-align: center;
+}
+
+.document .content-node .focus-publications {
+  width: 50px;
+  height: 70px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+}
+
+.document .content-node .focus-figures:hover, .document .content-node .focus-figures.active {
+  color: rgba(145, 187, 4, 1.0);
+}
+
+.document .content-node .focus-publications:hover, .document .content-node .focus-publications.active {
+  color: rgba(11, 157, 217, 1);
+}
+
+.article.figure .content-node.active .focus-figures {
+  color: rgba(145, 187, 4, 1.0);
+}
+
+.article.publication .content-node.active .focus-publications {
+  color: rgba(11, 157, 217, 1);
+}
+
+.document .content-node .focus.anchor {
+  cursor: pointer;
+}
+
+.document .content-node.active .focus.anchor, .document .content-node .focus.anchor:hover {
+  color: black;
+}
+
+.resources .content-node .focus.anchor i {
+  display: none;
+}
+
+.document .content-node .focus .arrow {
+  display: none;
+}
+
+.document .content-node .focus .stripe {
+  opacity: 0;
+  position: absolute;
+  right: -3px;
+  width: 3px;
+  top: 0px;
+  bottom: 0px;
+  background: black;
+}
+
+#container .article .document .content-node.active .focus.anchor .stripe {
+  background: black;
+}
+
+.document .content-node .focus .arrow {
+  position: absolute;
+  top: 30px;
+  right: -13px;
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid black;
+}
+
+.article.figure .content-node.active .focus .focus-figures .arrow {
+  border-left: 10px solid rgba(145, 187, 4, 1.0);
+  display: block;
+}
+
+.article.publication .content-node.active .focus .focus-publications .arrow {
+  border-left: 10px solid rgba(11, 157, 217, 1);
+  display: block;
+}
+
+.article.figure .content-node.active .focus .stripe {
+  background: rgba(145, 187, 4, 1.0);
+  opacity: 1;
+}
+
+.article.publication .content-node.active .focus .stripe {
+  background: rgba(11, 157, 217, 1);
+}
+
+.article.publication .content-node.active .focus.anchor .stripe {
+  background: black;
+}
+
+.document .content-node:hover .focus .stripe {
+}
+
+.document .content-node.active .focus .stripe {
+  display: block;
+  opacity: 1;
+}
+
+.document .content-node .focus:hover {
+}
+
+
+.content-node.active .focus {
+  opacity: 1.0;
+}*/
