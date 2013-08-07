@@ -230,10 +230,17 @@ var ArticleController = function(document) {
 
 };
 
+
 ArticleController.Prototype = function() {
 
   this.createView = function() {
+    // Remove when transition has completed
     this.writer = new Document.Writer(this.__document);
+
+    this.content = new Document.Writer(this.__document, {view: "content"});
+    this.figures = new Document.Writer(this.__document, {view: "figures"});
+    this.citations = new Document.Writer(this.__document, {view: "citations"});
+
     var view = new ArticleView(this);
     this.view = view;
     var surface = view.surface;

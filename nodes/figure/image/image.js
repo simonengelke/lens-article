@@ -1,9 +1,9 @@
 "use strict";
 
-var Node = require("../node");
+var Figure = require("../figure");
 
 var Image = function(node) {
-  Node.call(this, node);
+  Figure.call(this, node);
 };
 
 Image.type = {
@@ -54,7 +54,7 @@ Image.Prototype = function() {
 
 };
 
-Image.Prototype.prototype = Node.prototype;
+Image.Prototype.prototype = Figure.prototype;
 Image.prototype = new Image.Prototype();
 
 
@@ -72,6 +72,5 @@ _.each(Image.type.properties, function(prop, key) {
 });
 
 Object.defineProperties(Image.prototype, getters);
-
 
 module.exports = Image;

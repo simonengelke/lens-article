@@ -3,7 +3,7 @@
 var _ = require('underscore');
 var util = require('substance-util');
 var html = util.html;
-var Node = require("../node");
+var FigureView = require("../figure_view");
 
 // Substance.Image.View
 // ==========================================================================
@@ -11,14 +11,15 @@ var Node = require("../node");
 // TODO: 
 
 var ImageView = function(node) {
-  Node.View.call(this, node);
-
+  FigureView.call(this, node);
 
   this.$el.addClass('image');
   this.$el.attr('id', this.node.id);
 };
 
 ImageView.Prototype = function() {
+
+  var __super__ = util.prototype(this);
 
   // Rendering
   // =============================
@@ -54,7 +55,12 @@ ImageView.Prototype = function() {
   // </script>
 
   this.render = function() {
+      
+    // Render generic figure-related stuff
+    // --------
     
+     __super__.render.call(this);
+
     // Render the formula
     // --------
 
@@ -68,16 +74,9 @@ ImageView.Prototype = function() {
     this.stopListening();
   };
 
-  this.delete = function(pos, length) {
-    var content = this.$('.content')[0];
-    var spans = content.childNodes;
-    for (var i = length - 1; i >= 0; i--) {
-      content.removeChild(spans[pos+i]);
-    }
-  };
 };
 
-ImageView.Prototype.prototype = Node.View.prototype;
+ImageView.Prototype.prototype = FigureView.prototype;
 ImageView.prototype = new ImageView.Prototype();
 
 module.exports = ImageView;

@@ -35,8 +35,14 @@ var ArticleView = function(controller) {
   });
 
   // A Surface for the figures view
-  this.figures = new Surface(this.controller.writer, {
-    view: 'figures',
+  // Uses the figures writer, provided by the controller
+  this.figures = new Surface(this.controller.figures, {
+    editable: false
+  });
+
+  // A Surface for the figures view
+  // Uses the figures writer, provided by the controller
+  this.citations = new Surface(this.controller.citations, {
     editable: false
   });
 
@@ -113,23 +119,6 @@ ArticleView.Prototype = function() {
     }
   };
 
-  // Insert a fresh new node
-  // --------
-  //
-
-  this.insertNode = function(type, data) {
-    this.surface.insertNode(type, data);
-  };
-
-
-  // Brings up the node insertion toggles
-  // --------
-  //
-
-  this.toggleNodeInserter = function() {
-    this.surface.toggleNodeInserter();
-  };
-
   // Clear selection
   // --------
   //
@@ -154,10 +143,11 @@ ArticleView.Prototype = function() {
   this.render = function() {
     this.$el.html(html.tpl('article', this.controller));
 
-    console.log("LE SURFACE", this.surface.render().el);
     this.$('.document').html(this.surface.render().el);
 
-    this.$('.resources .figures').html('MEEH');
+    // Figures
+    this.$('.resources').append(this.figures.render().el);
+    this.$('.resources').append(this.citations.render().el);
 
     // Wait a second
     _.delay(function() {

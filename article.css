@@ -43,13 +43,11 @@ Main content panel
 }
 
 
-
-
 /*
 Resources Panel 
 --------------------------------------- */
 
-/*.article .resources {
+.article .resources {
   float: right;
   line-height: 20px;
   width: 45%;
@@ -59,16 +57,27 @@ Resources Panel
   overflow: hidden;
 }
 
-.article .resources .content-node.publication {
-  padding-left: 60px;
+.article .resources .surface.figures {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
-.article .resources .content-node:hover {
+.article .resources .surface.citations {
+  display: none;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
-.article .resources .content-node.active {
-  cursor: auto;
-}
 
 .article .resources .resources-header {
   display: none;
@@ -85,88 +94,6 @@ Resources Panel
   color: black;
 }
 
-.article .resources .content-wrapper {
-  position: absolute;
-  top: 50px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin-left: 5px;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.resources .content-wrapper .content-node img.thumbnail {
-  padding: 20px;
-  background: #fff;
-  max-width: 100%;
-  max-height: 500px;
-  cursor: -webkit-zoom-in;
-}
-
-.resources .content-wrapper video {
-  padding: 10px;
-  max-width: 100%;
-  max-height: 500px;
-}
-
-
-.article .resources .resource-types {
-  overflow: hidden;
-  height: 40px;
-  position: absolute;
-  right: 20px;
-  left: 5px;
-  top: 0px;
-  z-index: 3000;
-}
-
-.article.focus-mode .resources .resource-types {
-  opacity: 0.5
-}
-
-.article .resources .resource-types a {
-  color: #444;
-}
-
-.article .resources .resource-types .resource-type:hover {
-  color: #222;
-  background: rgba(0,0,0,0.05);
-}
-
-.article .resources .resource-types.toc .toc {
-  color: rgba(255,255,255,0.9);
-  background: #5c6570;
-}
-
-.article .resources .resource-types.figure .figure {
-  color: rgba(255,255,255,0.9);
-  background: #5c6570;
-}
-
-.article .resources .resource-types.publication .publication {
-  color: rgba(255,255,255,0.9);
-  background: #5c6570;
-}
-
-.article .resources .resource-types.info .info {
-  color: rgba(255,255,255,0.9);
-  background: #5c6570;
-}
-
-.article .resources .resource-types .resource-type {
-  cursor: pointer;
-  float: left;
-  padding: 0 10px;
-  line-height: 40px;
-  font-size: 16px;
-  color: #333;
-  font-family: 'Avenir LT W01 85 Heavy', 'Montserrat', 'Source Sans Pro';
-}
-
-.article .resources .resource-types .resource-type:hover {
-
-}
 
 .article .resources .content-node .reference-count {
   font-size: 13px;
@@ -176,22 +103,7 @@ Resources Panel
   color: #999;
   top: 40px;
   text-align: right;
-}*/
-
-
-
-
-
-/*#document .surface {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  overflow: auto;
-}*/
-
-
+}
 
 /* Annotations
 -------------------------------------------------------------------------------*/

@@ -8,17 +8,20 @@
   padding: 0px;
 }
 
-.content-node.image div.image-char {
-  /*width: 100%;*/
-}
+/*.content-node.image div.image-char {
+}*/
 
-.content-node.image div.selected .overlay {
+/*.content-node.image div.selected .overlay {
   position: absolute;
   top: 0px;
   bottom: 0px;
   left: 0px;
   right: 0px;
   background: rgba(0,169, 255, 0.25);
+}*/
+
+.content-node.image .image-wrapper {
+  padding: 20px;
 }
 
 .content-node.image div img {

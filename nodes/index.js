@@ -3,7 +3,7 @@
 module.exports = {
   "paragraph": require('./paragraph'),
   "heading": require('./heading'),
-  "image": require('./image'),
+  "image": require('./figure/image'),
   "formula": require('./formula'),
   "codeblock": require('./codeblock')
 };
