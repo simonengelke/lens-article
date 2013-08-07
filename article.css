@@ -1,190 +1,202 @@
 /* Article
 -------------------------------------------------------------------------------*/
 
-#document {
-  position: fixed;
-  left: 340px;
-  top: 0px;
-  bottom: 0px;
-  overflow: auto;
-  width: 720px;
-  background: #fff;
-  font-size: 19px;
-  line-height: 28px;
+.article {
+  height: 100%;
 }
 
-/* Introduction */
+/* Surface specific styles */
 
-.document-settings {
-  position: absolute;
-  overflow: auto;
-  font-size: 16px;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  width: 300px;
-  padding: 20px;
+.content-node {
+  margin: 0px;
+  /*margin: 0 60px; -> causes the scrollbar to disappear */
 }
 
-.document-settings ul {
-  font-size: 13px;
-  margin-left: 20px;
+
+/*
+Main content panel
+--------------------------------------- */
+
+
+.article .document {
+  line-height: 28.5px;
+  font-size: 18px;
+  position: relative;
+  float: left;
+  overflow: visible;
+  height: 100%;
+  width: 55%;
 }
 
-.document-settings h2 {
-  font-size: 15px;
-  color: #777;
-  text-transform: uppercase;
-}
-
-#document .surface {
+.article .document .surface.content {
   position: absolute;
   top: 0px;
   bottom: 0px;
-  left: 0px;
-  right: 0px;
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.article .document .surface.content .nodes {
+  margin-right: 15px;
+  background: #FFFFFF;
 }
 
 
-/*.node-toggles {
+
+
+/*
+Resources Panel 
+--------------------------------------- */
+
+/*.article .resources {
+  float: right;
+  line-height: 20px;
+  width: 45%;
+  background: #F5F5F5;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.article .resources .content-node.publication {
+  padding-left: 60px;
+}
+
+.article .resources .content-node:hover {
+}
+
+.article .resources .content-node.active {
+  cursor: auto;
+}
+
+.article .resources .resources-header {
   display: none;
-  z-index: 4000;
+  position: fixed;
+  font-weight: bold;
+  font-size: 14px;
+  top: 80px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.article .resources .resources-header a {
+  font-weight: bold;
+  color: black;
+}
+
+.article .resources .content-wrapper {
   position: absolute;
-  top: 100px;
-  left: 200px;
-  width: 200px;
+  top: 50px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-left: 5px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.resources .content-wrapper .content-node img.thumbnail {
+  padding: 20px;
+  background: #fff;
+  max-width: 100%;
+  max-height: 500px;
+  cursor: -webkit-zoom-in;
+}
+
+.resources .content-wrapper video {
+  padding: 10px;
+  max-width: 100%;
+  max-height: 500px;
+}
+
+
+.article .resources .resource-types {
+  overflow: hidden;
+  height: 40px;
+  position: absolute;
   right: 20px;
-  padding: 0px;
-  background: #2A2A2A;
+  left: 5px;
+  top: 0px;
+  z-index: 3000;
+}
+
+.article.focus-mode .resources .resource-types {
+  opacity: 0.5
+}
+
+.article .resources .resource-types a {
+  color: #444;
+}
+
+.article .resources .resource-types .resource-type:hover {
+  color: #222;
+  background: rgba(0,0,0,0.05);
+}
+
+.article .resources .resource-types.toc .toc {
+  color: rgba(255,255,255,0.9);
+  background: #5c6570;
+}
+
+.article .resources .resource-types.figure .figure {
+  color: rgba(255,255,255,0.9);
+  background: #5c6570;
+}
+
+.article .resources .resource-types.publication .publication {
+  color: rgba(255,255,255,0.9);
+  background: #5c6570;
+}
+
+.article .resources .resource-types.info .info {
+  color: rgba(255,255,255,0.9);
+  background: #5c6570;
+}
+
+.article .resources .resource-types .resource-type {
+  cursor: pointer;
+  float: left;
+  padding: 0 10px;
+  line-height: 40px;
+  font-size: 16px;
+  color: #333;
   font-family: 'Avenir LT W01 85 Heavy', 'Montserrat', 'Source Sans Pro';
 }
 
-.node-toggles .insert-node {
-  cursor: pointer;
-  font-size: 14px;
-  height: 40px;
-  display: block;
-  line-height: 40px;
-  color: rgba(255,255,255,0.8);
-  padding: 0 20px;
-  position: relative;
+.article .resources .resource-types .resource-type:hover {
+
 }
 
-
-.node-toggles .insert-node i {
-  padding-right: 10px;
-}
-
-.node-toggles .insert-node span {
-  display: block;
-  height: 20px;
-  float: right;
-}
-
-.node-toggles .insert-node.image input {
-  cursor: pointer;
-  opacity: 0;
+.article .resources .content-node .reference-count {
+  font-size: 13px;
   position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
-}
-
-.node-toggles .insert-node:hover {
-  background: rgba(0,0,0, 1);
-}
-*/
-
-/* Annotations
--------------------------------------------------------------------------------*/
-
-
-/* Annotation toggles */
-
-/*.annotation-toggles {
-  z-index: 4000;
-  display: none;
-  position: absolute;
-  top: 0px;
-  left: 0px;
   right: 20px;
-  height: 50px;
-  padding: 10px 60px;
-  background: rgba(255,255,255,1);
-  overflow: auto;
-}
 
-.annotation-toggles .styles {
-  height: 30px;
-  float: left;
-  width: 200px;
-  overflow: auto;
-}
-
-.annotation-toggles .markers {
-  height: 30px;
-  float: right;
-  width: 200px;
-  overflow: auto;
-}
-
-.annotation-toggles .annotation-toggle {
-  text-align: center;
-  float: left;
-  width: 40px;
-  height: 30px;
-  line-height: 30px;
-  background: rgba(0,0,0,0.05);
-  margin-right: 2px;
-  color: rgba(0,0,0,0.5);
-}
-
-.annotation-toggles .annotation-toggle:hover {
-  background: rgba(0,0,0,0.1);
-}
-
-.annotation-toggles .markers .annotation-toggle {
-
-  float: right;
-}
-
-.annotation-toggles .annotation-toggle.question {
-  background: rgba(11, 157, 217, 0.20);  
-}
-
-.annotation-toggles .annotation-toggle.idea {
-  background: rgba(145, 187, 4, 0.25);
-}
-
-.annotation-toggles .annotation-toggle.error {
-  background: rgba(231, 88, 46, 0.25);
-}
-
-.annotation-toggles .annotation-toggle.question:hover {
-  background: rgba(11, 157, 217, 0.30);  
-}
-
-.annotation-toggles .annotation-toggle.idea:hover {
-  background: rgba(145, 187, 4, 0.35);
-}
-
-.annotation-toggles .annotation-toggle.error:hover {
-  background: rgba(231, 88, 46, 0.35);
+  color: #999;
+  top: 40px;
+  text-align: right;
 }*/
 
 
 
 
 
+/*#document .surface {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow: auto;
+}*/
+
+
 
 /* Annotations
-// TODO: this should be moved outside the surface
 -------------------------------------------------------------------------------*/
 
-#document span.annotation {
+.article span.annotation {
   -webkit-transition-property: background, color;
   -moz-transition-property: background, color;
   transition-property: background, color;
@@ -198,26 +210,26 @@ span.annotation.formula_reference, span.publication_reference {
   padding-left: 3px; padding-right: 3px;
 }
 
-#document span.emphasis, #document em {
+.article span.emphasis, #document em {
   font-style: italic;
 }
 
-#document span.superscript, #document span.subscript, #document sup, #document sub {
+.article span.superscript, #document span.subscript, .article sup, #document sub {
   vertical-align: baseline;
   position: relative;
   top: -0.4em;
   font-size: 12px;
 }
 
-#document span.subscript, #document sub {
+.article span.subscript, .article sub {
   top: 0.4em;
 }
 
-#document span.strong, #document strong {
+.article span.strong, .article strong {
   font-weight: bold;
 }
 
-#document span.underline {
+.article span.underline {
   text-decoration: underline;
 }
 

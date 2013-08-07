@@ -26,7 +26,7 @@ var ArticleView = function(controller) {
   
   this.listenTo(this.writer.selection, 'selection:changed', this.toggleAnnotationToggles);
 
-  // Surface
+  // Surfaces
   // --------
 
   // A Substance.Document.Writer instance is provided by the controller
@@ -34,11 +34,16 @@ var ArticleView = function(controller) {
     editable: false
   });
 
+  // A Surface for the figures view
+  this.figures = new Surface(this.controller.writer, {
+    view: 'figures',
+    editable: false
+  });
+
   this.$el.delegate('.image-files', 'change', _.bind(this.handleFileSelect, this));
 };
 
 ArticleView.Prototype = function() {
-
 
   this.handleFileSelect = function(evt) {
 
@@ -148,7 +153,11 @@ ArticleView.Prototype = function() {
 
   this.render = function() {
     this.$el.html(html.tpl('article', this.controller));
-    this.$('#document .surface').replaceWith(this.surface.render().el);
+
+    console.log("LE SURFACE", this.surface.render().el);
+    this.$('.document').html(this.surface.render().el);
+
+    this.$('.resources .figures').html('MEEH');
 
     // Wait a second
     _.delay(function() {

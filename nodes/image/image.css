@@ -24,3 +24,10 @@
 .content-node.image div img {
   width: 100%;
 }
+
+
+/* When rendered in main panel */
+.document .content-node.image {
+  padding: 20px 60px;
+  padding-left: 100px;
+}

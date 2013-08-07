@@ -13,6 +13,8 @@
 .content-node.heading { }
 
 
+
+
 .content-node.heading .content {
   font-family: 'Montserrat';
   font-size: 30px;
@@ -26,3 +28,29 @@
 .content-node.heading.level-3 .content {
   font-size: 17px;
 }
+
+
+.document .content-node.heading {
+  font-size: 24px;
+  padding: 20px 60px;
+  font-family: 'Avenir LT W01 85 Heavy', 'Montserrat', 'Source Sans Pro';
+  font-weight: bold;
+  padding-left: 100px;
+}
+
+
+/* Lens specific */
+
+/*.document .content-node.heading.level-2 {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 20px 60px;
+  padding-left: 100px;
+}
+
+.document .content-node.heading.level-3 {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 20px 60px;
+  padding-left: 100px;
+}*/
