@@ -15,6 +15,14 @@ var ArticleController = function(document) {
 
   // Private reference to the document
   this.__document = document;
+
+    // Application state
+    // -------
+
+    this.context = 'toc'; // 'toc' || 'figures' || 'citations' || 'info'
+    this.node = 'text_25';
+    this.resource = 'figure_10';
+    // :document/:type/:node/:resource
 };
 
 ArticleController.Prototype = function() {
