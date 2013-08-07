@@ -2,34 +2,8 @@
 Citations 
 --------------------------------------- */
 
-.article .resources .publication.view {
-  position: relative;
-  display: none;
-}
 
-.article .resources .content-node.resource {
-  color: #333;
-  position: relative;
-  background: #EBEBEB;
-  margin-bottom: 30px;
-  margin-right: 20px;
-  padding: 0px;
-}
 
-.article .resources .content-node.resource .resource-header:hover {
-  background: rgba(0,0,0,0.05);
-}
-
-.article .resources .content-node.resource .resource-header {
-  min-height: 80px;
-  background: rgba(0,0,0,0.02);
-  cursor: pointer;
-}
-
-.article .resources .publication.view .content-node.resource.active .resource-header {
-  background: rgba(11, 157, 217, 1);
-  color: #fff;
-}
 
 .article .resources .figure.view .content-node.resource.active .resource-header {
   background: rgba(145, 187, 4, 1);

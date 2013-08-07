@@ -114,15 +114,6 @@ Article.views = ["content"];
 
 Article.nodeTypes = require("./nodes");
 
-// Article.nodeTypes = {
-//   "node": require("./nodes/node"),
-//   "constructor": require("./nodes/constructor"),
-//   "paragraph": require("./nodes/paragraph"),
-//   "heading": require("./nodes/heading"),
-//   "image": require("./nodes/image"),
-//   "formula": require("./nodes/formula"),
-//   "codeblock": require("./nodes/codeblock")
-// };
 
 // Define annotation types
 // --------
