@@ -13,19 +13,25 @@ Paragraph.type = {
   }
 }
 
-Paragraph.properties = {
-  mergeableWith: ["paragraph", "heading"], // maybe remove heading here
-  preventEmpty: false,
-  splitInto: 'paragraph',
-  allowedAnnotations: ["emphasis", "strong", "link", "idea", "question", "error"]
+// Defines available focus modes
+// --------
+
+Paragraph.focusModes = {
+  "figure": {
+    "icon": "icon-camera"
+  },
+  "citation": {
+    "icon": "icon-link"
+  }
 };
 
 
 Paragraph.Prototype = function() {
-
+  
 };
 
 Paragraph.Prototype.prototype = Text.prototype;
 Paragraph.prototype = new Paragraph.Prototype();
+Paragraph.prototype.constructor = Paragraph;
 
 module.exports = Paragraph;

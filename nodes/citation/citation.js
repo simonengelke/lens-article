@@ -16,6 +16,7 @@ Citation.Prototype = function() {
 
 Citation.Prototype.prototype = Node.prototype;
 Citation.prototype = new Citation.Prototype();
+Citation.prototype.constructor = Citation;
 
 Object.defineProperties(Citation.prototype, {
   name: {

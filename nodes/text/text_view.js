@@ -23,14 +23,13 @@ TextView.Prototype = function() {
   //
 
   this.render = function() {
-    this.$el.html(html.tpl('text', this.node));
+    // Initial node render
+    Node.View.prototype.render.call(this);
+
+    this.$el.append($('<div class="content"></div>'));
+
     this.renderContent();
     return this;
-  };
-
-  this.dispose = function() {
-    console.log('disposing paragraph view');
-    this.stopListening();
   };
 
   this.renderContent = function() {
@@ -71,6 +70,13 @@ TextView.Prototype = function() {
     for (var i = length - 1; i >= 0; i--) {
       content.removeChild(spans[pos+i]);
     }
+  };
+
+  // Free the memory
+  // --------
+
+  this.dispose = function() {
+    this.stopListening();
   };
 };
 

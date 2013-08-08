@@ -36,6 +36,7 @@ Node.Prototype = function() {
 };
 
 Node.prototype = new Node.Prototype();
+Node.prototype.constructor = Node;
 
 
 Object.defineProperties(Node.prototype, {

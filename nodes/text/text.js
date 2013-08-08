@@ -16,6 +16,7 @@ Text.Prototype = function() {
 
 Text.Prototype.prototype = Node.prototype;
 Text.prototype = new Text.Prototype();
+Text.prototype.constructor = Text;
 
 Object.defineProperties(Text.prototype, {
   content: {

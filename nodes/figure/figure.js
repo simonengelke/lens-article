@@ -17,6 +17,6 @@ Figure.Prototype = function() {
 
 Figure.Prototype.prototype = Node.prototype;
 Figure.prototype = new Figure.Prototype();
-
+Figure.prototype.constructor = Figure;
 
 module.exports = Figure;

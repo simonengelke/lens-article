@@ -67,6 +67,7 @@ Formula.Prototype = function() {
 
 Formula.Prototype.prototype = Node.prototype;
 Formula.prototype = new Formula.Prototype();
+Formula.prototype.constuctor = new Formula;
 
 
 // Generate getters
@@ -83,6 +84,5 @@ _.each(Formula.type.properties, function(prop, key) {
 });
 
 Object.defineProperties(Formula.prototype, getters);
-
 
 module.exports = Formula;

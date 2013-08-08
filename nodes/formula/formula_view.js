@@ -44,7 +44,6 @@ FormulaView.Prototype = function() {
 
     if (this.node.format === "mathml") {
       var $block = $('<mml:math xmlns="http://www.w3.org/1998/Math/MathML" display="block">');
-      console.log(this.node);
       $block.html(this.node.data);
       this.$el.append($block);
     } else if (this.node.format === "image") {

@@ -16,7 +16,6 @@ Codeblock.type = {
   }
 };
 
-
 // Define behavior
 // --------
 
@@ -31,9 +30,8 @@ Codeblock.Prototype = function() {
 
 };
 
-
 Codeblock.Prototype.prototype = Text.prototype;
 Codeblock.prototype = new Codeblock.Prototype();
-
+Codeblock.prototype.constructor = Codeblock;
 
 module.exports = Codeblock;
