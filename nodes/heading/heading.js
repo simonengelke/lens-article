@@ -2,11 +2,9 @@
 
 var Text = require("../text");
 
-
 var Heading = function(node) {
   Text.call(this, node);
 };
-
 
 // Type definition
 // -----------------
@@ -20,14 +18,13 @@ Heading.type = {
   }
 };
 
-
 // Example Heading
 // -----------------
 //
 
 Heading.example = {
-  "type": "image",
-  "id": "image_fig2",
+  "type": "heading",
+  "id": "heading_1",
   "content": "Introduction",
   "level": 1
 };

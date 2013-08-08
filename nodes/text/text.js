@@ -1,7 +1,6 @@
 var _ = require('underscore');
 var Node = require('../node');
 
-
 // Substance.Text
 // -----------------
 //
