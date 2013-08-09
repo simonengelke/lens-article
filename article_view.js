@@ -44,6 +44,10 @@ var ArticleView = function(controller) {
     editable: false
   });
 
+  // Whenever a state change happens (e.g. user navigates somewhere)
+  // the interface gets updated accordingly
+  // this.listenTo(this.controller, "state:changed", this.updateState);
+
   // Outline
   // --------
 
@@ -51,7 +55,6 @@ var ArticleView = function(controller) {
 };
 
 ArticleView.Prototype = function() {
-
 
   // Clear selection
   // --------
@@ -84,13 +87,14 @@ ArticleView.Prototype = function() {
       // Render outline that sticks on this.surface
       that.$('.document').append(that.outline.render().el);
 
-      that.outline.setActiveNode('paragraph_5');
+      // Initial outline update
+      that.updateOutline();
     }, 100);
 
     // Figures
     // this.$('.resources').append(this.figures.render().el);
 
-    // // Citations
+    // Citations
     // this.$('.resources').append(this.citations.render().el);
 
     // Wait a second
@@ -99,7 +103,6 @@ ArticleView.Prototype = function() {
       // Show doc when typesetting math is done
       // MathJax.Hub.Queue(displayDoc);
     }, 20);
-
 
     // TODO: Make this an API and trigger from outside
     // --------
@@ -112,7 +115,32 @@ ArticleView.Prototype = function() {
     }, 3);
 
     $(window).resize(lazyOutline);
+    
     return this;
+  };
+
+  // Whenever the app state changes
+  // update the Outline accordingly.
+  // --------
+
+  this.updateOutline = function() {
+    var state = this.controller.state;
+
+    // Find all annotations
+    // TODO: this is supposed to be slow -> optimize
+    var annotations = _.filter(this.writer.getAnnotations(), function(a) {
+      return a.target === "image_fig2";
+    });
+
+    var nodes = _.uniq(_.map(annotations, function(a) {
+      return a.path[0];
+    }));
+
+    // Some testing
+    this.outline.update({
+      selectedNode: state.node,
+      highlightedNodes: nodes
+    });
   };
 
   // Recompute Layout properties
@@ -124,6 +152,44 @@ ArticleView.Prototype = function() {
     var docWidth = this.$('.document').width();
     this.surface.$('.content-node').css('width', docWidth-15);
   },
+
+  // Mark Active Heading
+  // -------------
+  // 
+  // Used for auto-selecting current heading based
+  // on current scroll position
+
+  // markActiveHeading: function() {
+  //   var that = this;
+  //   var scrollTop = $('#container .content').scrollTop();
+
+  //   var headings = _.filter(that.model.document.views.content, function(n) {
+  //     return that.model.document.nodes[n].type === "heading";
+  //   });
+
+  //   function getActiveNode() {
+  //     var active = _.first(headings);
+  //     $('#document .document .content-node.heading').each(function() {
+  //       if (scrollTop >= $(this).position().top + CORRECTION) {
+  //         active = _.nodeId(this.id);
+  //       }
+  //     });
+
+  //     var contentHeight = $('.nodes').height();
+  //     // Edge case: select last item (once we reach the end of the doc)
+  //     if (scrollTop + $('#container .content').height() >= contentHeight) {
+  //       // Find last heading
+  //       active = _.last(headings);
+  //     }
+  //     return active;
+  //   }
+
+  //   var activeNode = getActiveNode();
+  //   var tocEntry = $('.resources .headings a[data-node="'+activeNode+'"]');
+  //   $('.resources .headings a.highlighted').removeClass('highlighted');
+  //   tocEntry.addClass('highlighted');
+  // },
+
 
   // Free the memories, ahm.. memory.
   // --------

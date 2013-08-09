@@ -11,18 +11,15 @@ var util = require('substance-util');
 //
 // Controls the Article.View
 
-var ArticleController = function(document) {
+var ArticleController = function(document, state) {
 
   // Private reference to the document
   this.__document = document;
 
-    // Application state
-    // -------
+  // Article state
+  // -------
 
-    this.context = 'toc'; // 'toc' || 'figures' || 'citations' || 'info'
-    this.node = 'text_25';
-    this.resource = 'figure_10';
-    // :document/:type/:node/:resource
+  this.state = state;
 };
 
 ArticleController.Prototype = function() {
@@ -32,6 +29,7 @@ ArticleController.Prototype = function() {
     this.writer = new Document.Writer(this.__document);
 
     this.content = new Document.Writer(this.__document, {view: "content"});
+    // this.toc = new TOC();
     this.figures = new Document.Writer(this.__document, {view: "figures"});
     this.citations = new Document.Writer(this.__document, {view: "citations"});
 
