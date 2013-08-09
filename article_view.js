@@ -88,10 +88,10 @@ ArticleView.Prototype = function() {
     }, 100);
 
     // Figures
-    this.$('.resources').append(this.figures.render().el);
+    // this.$('.resources').append(this.figures.render().el);
 
-    // Citations
-    this.$('.resources').append(this.citations.render().el);
+    // // Citations
+    // this.$('.resources').append(this.citations.render().el);
 
     // Wait a second
     _.delay(function() {

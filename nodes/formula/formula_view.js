@@ -16,25 +16,6 @@ var FormulaView = function(node) {
   this.$el.addClass('content-node formula');
 };
 
-    // <!-- Lens.Formula -->
-    // <script type="text/x-ejs-template" name="node_formula">
-    //   <div id="node_<%= _.htmlId(node.id) %>" class="content-node formula">
-    //     <% if (!node.content) { %>
-    //       <img src="<%= node.url %>"/>
-    //     <% } else { %>
-    //       <mml:math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-    //       <%= node.content %>
-    //       </mml:math>
-    //     <% } %>
-
-    //     <div class="label"><%= node.label %></div>
-    //     <div class="focus anchor" title="Highlight element then share the link from the address bar.">
-    //       <i class="icon-bookmark"></i>
-    //       <div class="stripe"></div>
-    //     </div>
-    //   </div>
-    // </script>
-
 FormulaView.Prototype = function() {
 
   this.render = function() {
@@ -54,16 +35,6 @@ FormulaView.Prototype = function() {
     // --------
 
     this.$el.append($('<div class="label">').html(this.node.label));
-
-    // Add controls
-    // --------
-    // 
-    // This should be done on NodeView
-
-    // <div class="focus anchor" title="Highlight element then share the link from the address bar.">
-    //   <i class="icon-bookmark"></i>
-    //   <div class="stripe"></div>
-    // </div>
 
     return this;
   }
