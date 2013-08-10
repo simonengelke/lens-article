@@ -15,6 +15,9 @@ var Article = function(options) {
 
   options.schema = util.deepclone(Document.schema);
 
+  options.schema.id = "lens-article";
+  options.schema.version = "0.1.0";
+  
   // Merge in custom types
   _.each(Article.types, function(type, key) {
     options.schema.types[key] = type;
