@@ -2,6 +2,8 @@ var DocumentNode = require('../node');
 var Document = require("substance-document");
 var Annotator = Document.Annotator;
 
+
+
 // Substance.Text.View
 // -----------------
 //
@@ -23,9 +25,10 @@ TextView.Prototype = function() {
 
   this.render = function() {
     // Initial node render
-    Node.View.prototype.render.call(this);
+    DocumentNode.View.prototype.render.call(this);
 
     var $content = $('<div class="content"></div>');
+    this.content = $content[0];
     this.$el.append($content);
 
     this.renderContent();
