@@ -4,11 +4,13 @@ var _ = require("underscore");
 var util = require("substance-util");
 var Document = require("substance-document");
 
-// Substance.Article
+// Lens.Article
 // -----------------
 
 var Article = function(options) {
   options = options || {};
+
+  // Check if format is compatible
 
   // Extend Schema
   // --------
@@ -17,7 +19,7 @@ var Article = function(options) {
 
   options.schema.id = "lens-article";
   options.schema.version = "0.1.0";
-  
+
   // Merge in custom types
   _.each(Article.types, function(type, key) {
     options.schema.types[key] = type;
@@ -39,7 +41,6 @@ var Article = function(options) {
     options.schema.indexes[key] = index;
   });
 
-
   // Call parent constructor
   // --------
 
@@ -50,28 +51,27 @@ var Article = function(options) {
   // Seed the doc
   // --------
 
-  // Create the document node
-
-  this.create({
-    id: "document",
-    type: "document",
-    guid: options.id, // external global document id
-    creator: options.creator,
-    created_at: options.created_at,
-    views: ["content"], // is views really needed on the instance level
-    title: "",
-    abstract: ""
-  });
-
-  // Create views on the doc
-  _.each(Article.views, function(view) {
+  if (options.seed === undefined) {
     this.create({
-      id: view,
-      "type": "view",
-      nodes: []
+      id: "document",
+      type: "document",
+      guid: options.id, // external global document id
+      creator: options.creator,
+      created_at: options.created_at,
+      views: ["content"], // is views really needed on the instance level
+      title: "",
+      abstract: ""
     });
-  }, this);
 
+    // Create views on the doc
+    _.each(Article.views, function(view) {
+      this.create({
+        id: view,
+        "type": "view",
+        nodes: []
+      });
+    }, this);
+  }
 };
 
 
@@ -83,8 +83,6 @@ Article.Prototype = function() {
 
 };
 
-
-
 // Factory method
 // --------
 //
@@ -92,17 +90,8 @@ Article.Prototype = function() {
 
 Article.fromSnapshot = function(data, options) {
   options = options || {};
-  // options.seed = [];
-  var doc = new Article(options);
-
-  _.each(data.nodes, function(n) {
-    if (doc.get(n.id)) {
-      doc.delete(n.id); // skip existing nodes
-    }
-    doc.create(n);
-  });
-
-  return doc;
+  options.seed = data;
+  return new Article(options);
 };
 
 
@@ -195,7 +184,7 @@ Article.annotations = {
 
 // Custom type definitions
 // --------
-// 
+//
 // Holds comments
 
 Article.types = {
@@ -255,7 +244,7 @@ Article.types = {
 
 // Custom indexes
 // --------
-// 
+//
 
 Article.indexes = {
   // All annotations are now indexed by node

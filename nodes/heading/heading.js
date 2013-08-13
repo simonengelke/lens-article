@@ -2,8 +2,8 @@
 
 var Text = require("../text");
 
-var Heading = function(node) {
-  Text.call(this, node);
+var Heading = function(node, document) {
+  Text.call(this, node, document);
 };
 
 // Type definition
@@ -61,5 +61,14 @@ Heading.Prototype = function() {
 Heading.Prototype.prototype = Text.prototype;
 Heading.prototype = new Heading.Prototype();
 Heading.prototype.constructor = Heading;
+
+
+Object.defineProperties(Heading.prototype, {
+  level: {
+    get: function () {
+      return this.properties.level;
+    }
+  }
+});
 
 module.exports = Heading;

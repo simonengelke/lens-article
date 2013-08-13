@@ -1,22 +1,22 @@
 "use strict";
 
-var util = require("substance-util");
+var _ = require("underscore");
 
 // Substance.Node
 // -----------------
 
-var Node = function(node) {
+var Node = function(node, document) {
+  this.document = document;
   this.properties = node;
 };
 
 // Type definition
 // --------
-// 
+//
 
 Node.type = {
   "parent": "content",
   "properties": {
-    "content": ["array", "object"]
   }
 };
 
@@ -32,6 +32,18 @@ Node.properties = {
 };
 
 Node.Prototype = function() {
+
+  this.toJSON = function() {
+    return _.clone(this.properties);
+  };
+
+  // Provides how a cursor would change by the given operation
+  // --------
+  //
+
+  this.getUpdatedCharPos = function(op) {
+    throw new Error("Node.getCharPosition() is abstract");
+  }
 
 };
 

@@ -25,13 +25,6 @@ NodeView.Prototype = function() {
     return this;
   };
 
-
-  // <div class="focus">
-  //     <div class="focus-figures" title="Show relevant figures" data-type="figure"><i class="icon-camera"></i>2<div class="arrow"></div></div>  
-  //     <div class="focus-publications" title="Show relevant references" data-type="publication"><i class="icon-link"></i>1<div class="arrow"></div></div>
-  //   <div class="stripe"></div>
-  // </div>
-
   // Render focus controls
   // --------
   // 
@@ -40,8 +33,6 @@ NodeView.Prototype = function() {
   //     .focus-citation
   //     .focus-figure
   //     .stripe
-
-
 
   this.renderFocusControls = function() {
     var modes = this.node.constructor.focusModes;
@@ -69,6 +60,23 @@ NodeView.Prototype = function() {
   this.dispose = function() {
     this.stopListening();
   };
+
+  // Retrieves the corresponding character position for the given DOM position.
+  // --------
+  //
+
+  this.getCharPosition = function(el, offset) {
+    throw new Error("NodeView.getCharPosition() is abstract.");
+  };
+
+  // Retrieves the corresponding DOM position for a given character.
+  // --------
+  //
+
+  this.getDOMPosition = function(charPos) {
+    throw new Error("NodeView.getDOMPosition() is abstract.");
+  };
+
 };
 
 NodeView.Prototype.prototype = View.prototype;

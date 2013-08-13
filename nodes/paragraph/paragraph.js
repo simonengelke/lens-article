@@ -2,8 +2,8 @@
 
 var Text = require("../text");
 
-var Paragraph = function(node) {
-  Text.call(this, node);
+var Paragraph = function(node, document) {
+  Text.call(this, node, document);
 };
 
 Paragraph.type = {
@@ -12,6 +12,7 @@ Paragraph.type = {
     "content": "string"
   }
 }
+
 
 // Defines available focus modes
 // --------
@@ -23,6 +24,13 @@ Paragraph.focusModes = {
   "citation": {
     "icon": "icon-link"
   }
+};
+
+Paragraph.properties = {
+  mergeableWith: ["paragraph", "heading"], // maybe remove heading here
+  preventEmpty: false,
+  splitInto: 'paragraph',
+  allowedAnnotations: ["emphasis", "strong", "link", "code", "idea", "question", "error"]
 };
 
 
