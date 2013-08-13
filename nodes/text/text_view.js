@@ -130,12 +130,14 @@ TextView.Prototype = function() {
       context.appendChild(document.createTextNode(text));
     };
 
-    fragmenter.onEnter = function(context, entry) {
-      context.appendChild(createAnnotationElement(entry));
+    fragmenter.onEnter = function(entry, parentContext) {
+      var el = createAnnotationElement(entry);
+      parentContext.appendChild(el);
+      return el;
     };
 
     // this calls onText and onEnter in turns...
-    fragmenter.start();
+    fragmenter.start(fragment, text, annotations);
 
     // append a trailing white-space to improve the browser's behaviour with softbreaks at the end
     // of a node.
