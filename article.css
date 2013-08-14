@@ -22,7 +22,7 @@
   font-size: 18px;
   position: relative;
   float: left;
-  overflow: auto;
+  overflow: hidden;
   height: 100%;
   width: 55%;
 }
@@ -31,8 +31,9 @@
   position: absolute;
   top: 0px;
   bottom: 0px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  /*overflow-y: scroll;
+  overflow-x: hidden;*/
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
 
