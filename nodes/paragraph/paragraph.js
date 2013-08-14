@@ -42,4 +42,5 @@ Paragraph.Prototype.prototype = Text.prototype;
 Paragraph.prototype = new Paragraph.Prototype();
 Paragraph.prototype.constructor = Paragraph;
 
+
 module.exports = Paragraph;

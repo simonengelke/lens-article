@@ -55,7 +55,6 @@ Heading.focusModes = {
 };
 
 Heading.Prototype = function() {
-
 };
 
 Heading.Prototype.prototype = Text.prototype;
