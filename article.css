@@ -13,7 +13,6 @@
 }
 
 
-
 /* Main content panel 
 ======================================================================= */
 
@@ -23,7 +22,7 @@
   font-size: 18px;
   position: relative;
   float: left;
-  overflow: visible;
+  overflow: auto;
   height: 100%;
   width: 55%;
 }
@@ -53,7 +52,8 @@
   background: #F5F5F5;
   height: 100%;
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden;*/
+  overflow: auto;
 }
 
 .article .resources .content-node.resource {

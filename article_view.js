@@ -29,19 +29,22 @@ var ArticleView = function(controller) {
 
   // A Substance.Document.Writer instance is provided by the controller
   this.surface = new Surface(this.controller.writer, {
-    editable: false
+    editable: false,
+    context: "content"
   });
 
   // A Surface for the figures view
   // Uses the figures writer, provided by the controller
   this.figures = new Surface(this.controller.figures, {
-    editable: false
+    editable: false,
+    context: "resources"
   });
 
   // A Surface for the figures view
   // Uses the figures writer, provided by the controller
   this.citations = new Surface(this.controller.citations, {
-    editable: false
+    editable: false,
+    context: "resources"
   });
 
   // Whenever a state change happens (e.g. user navigates somewhere)
@@ -92,7 +95,7 @@ ArticleView.Prototype = function() {
     }, 100);
 
     // Figures
-    // this.$('.resources').append(this.figures.render().el);
+    this.$('.resources').append(this.figures.render().el);
 
     // Citations
     // this.$('.resources').append(this.citations.render().el);
