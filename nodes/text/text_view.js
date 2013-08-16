@@ -23,7 +23,7 @@ TextView.Prototype = function() {
   // =============================
   //
 
-  this.render = function(renderer) {
+  this.render = function(enhancer) {
     // Initial node render
     // DocumentNode.View.prototype.render.call(this);
 
@@ -31,13 +31,7 @@ TextView.Prototype = function() {
     // this.content = $content[0];
     // this.$el.append($content);    
 
-    NodeView.prototype.render.call(this);
-
-    if (renderer) {
-      console.log('RENDERER IN PLACE', renderer());
-      this.el.appendChild(renderer());
-    }
-
+    NodeView.prototype.render.call(this, enhancer);
 
     this.renderContent();
     return this;

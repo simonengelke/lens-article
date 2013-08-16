@@ -19,11 +19,11 @@ NodeView.Prototype = function() {
   // --------
   //
 
-  this.render = function() {
-    // this.renderFocusControls();
+  this.render = function(enhancer) {
     this.content = document.createElement("DIV");
     this.content.classList.add("content");
     this.el.appendChild(this.content);
+
     return this;
   };
 

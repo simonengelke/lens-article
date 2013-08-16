@@ -57,7 +57,7 @@
   overflow: auto;
 }
 
-.article .resources .content-node.resource {
+.article .resources .content-node {
   color: #333;
   position: relative;
   background: #EBEBEB;
@@ -66,16 +66,17 @@
   padding: 0px;
 }
 
-.article .resources .content-node.resource .resource-header:hover {
+.article .resources .content-node .resource-header:hover {
   background: rgba(0,0,0,0.05);
 }
 
 /* Clickable header */
 
-.article .resources .content-node.resource .resource-header {
+.article .resources .content-node .resource-header {
   min-height: 80px;
   background: rgba(0,0,0,0.02);
   cursor: pointer;
+  position: relative;
 }
 
 

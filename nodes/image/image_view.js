@@ -2,46 +2,6 @@
 
 var NodeView = require("../node").View;
 
-
-// Renders node view
-// --------
-// 
-// Returns a document fragement
-
-var Renderer = function(view) {
-  if (this.captionView) {
-    this.captionView.dispose();
-  }
-
-  var content = document.createElement('div');
-  content.className = 'content';
-
-  var imgChar = document.createElement('div');
-  imgChar.className = 'image-char';
-  this._imgChar = imgChar;
-
-  var img = document.createElement('img');
-  img.src = this.node.url || this.node.medium;
-  img.alt = "alt text";
-  img.title = "alt text";
-  imgChar.appendChild(img);
-
-  content.appendChild(imgChar);
-
-  // Add caption if there is any
-  if (this.node.caption) {
-    var caption = this.viewFactory.createView(this.node.caption);
-    content.appendChild(caption.render().el);
-    this.captionView = caption;
-  }
-
-  // Add content
-  this.el.appendChild(content);
-
-  this._imgPos = _indexOf.call(imgChar.childNodes, img);
-};
-
-
 // Substance.Image.View
 // ==========================================================================
 
@@ -67,14 +27,13 @@ ImageView.Prototype = function() {
   //   div.img-char
   //     .img
 
-  this.render = function() {
+  this.render = function(enhancer) {
+
+    NodeView.prototype.render.call(this, enhancer);
 
     if (this.captionView) {
       this.captionView.dispose();
     }
-
-    var content = document.createElement('div');
-    content.className = 'content';
 
     var imgChar = document.createElement('div');
     imgChar.className = 'image-char';
@@ -86,17 +45,14 @@ ImageView.Prototype = function() {
     img.title = "alt text";
     imgChar.appendChild(img);
 
-    content.appendChild(imgChar);
+    this.content.appendChild(imgChar);
 
     // Add caption if there is any
     if (this.node.caption) {
       var caption = this.viewFactory.createView(this.node.caption);
-      content.appendChild(caption.render().el);
+      this.content.appendChild(caption.render().el);
       this.captionView = caption;
     }
-
-    // Add content
-    this.el.appendChild(content);
 
     this._imgPos = _indexOf.call(imgChar.childNodes, img);
 
@@ -106,7 +62,7 @@ ImageView.Prototype = function() {
   this.dispose = function() {
     NodeView.prototype.dispose.call(this);
 
-    console.log('disposing image view');
+    console.log('disposing image view...');
     if (this.captionView) {
       this.captionView.dispose();
     }
@@ -133,7 +89,6 @@ ImageView.Prototype = function() {
         return charPos + 1;
       }
     }
-
   };
 
   this.getDOMPosition = function(charPos) {
