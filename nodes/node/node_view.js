@@ -19,39 +19,6 @@ NodeView.Prototype = function() {
   // --------
   //
 
-
-  // Render focus controls
-  // --------
-  // 
-  // .content-node
-  //   .focus
-  //     .focus-citation
-  //     .focus-figure
-  //     .stripe
-
-  this.renderFocusControls = function() {
-    var modes = this.node.constructor.focusModes;
-    if (!modes) return; // Skip focus stuff
-
-    $focus = $('<div class="focus">');
-
-    _.each(modes, function(mode, key) {
-      // .content-node.focus
-      $('<div>').addClass('focus-mode '+key)
-      .attr({
-        "data-type": key,
-        title: "Show relevant "+key
-      })
-      // Add icon
-      .html('<i class="'+mode.icon+'"></i> 2')
-      // Inject
-      .appendTo($focus);
-    });
-
-    $focus.append('<div class="stripe">');
-    this.$el.append($focus);
-  };
-
   this.render = function() {
     // this.renderFocusControls();
     this.content = document.createElement("DIV");

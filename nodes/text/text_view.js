@@ -2,8 +2,6 @@ var NodeView = require('../node').View;
 var Document = require("substance-document");
 var Annotator = Document.Annotator;
 
-
-
 // Substance.Text.View
 // -----------------
 //
@@ -25,15 +23,21 @@ TextView.Prototype = function() {
   // =============================
   //
 
-  this.render = function() {
+  this.render = function(renderer) {
     // Initial node render
     // DocumentNode.View.prototype.render.call(this);
 
     // var $content = $('<div class="content"></div>');
     // this.content = $content[0];
-    // this.$el.append($content);
+    // this.$el.append($content);    
 
     NodeView.prototype.render.call(this);
+
+    if (renderer) {
+      console.log('RENDERER IN PLACE', renderer());
+      this.el.appendChild(renderer());
+    }
+
 
     this.renderContent();
     return this;

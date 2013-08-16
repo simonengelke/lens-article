@@ -2,6 +2,46 @@
 
 var NodeView = require("../node").View;
 
+
+// Renders node view
+// --------
+// 
+// Returns a document fragement
+
+var Renderer = function(view) {
+  if (this.captionView) {
+    this.captionView.dispose();
+  }
+
+  var content = document.createElement('div');
+  content.className = 'content';
+
+  var imgChar = document.createElement('div');
+  imgChar.className = 'image-char';
+  this._imgChar = imgChar;
+
+  var img = document.createElement('img');
+  img.src = this.node.url || this.node.medium;
+  img.alt = "alt text";
+  img.title = "alt text";
+  imgChar.appendChild(img);
+
+  content.appendChild(imgChar);
+
+  // Add caption if there is any
+  if (this.node.caption) {
+    var caption = this.viewFactory.createView(this.node.caption);
+    content.appendChild(caption.render().el);
+    this.captionView = caption;
+  }
+
+  // Add content
+  this.el.appendChild(content);
+
+  this._imgPos = _indexOf.call(imgChar.childNodes, img);
+};
+
+
 // Substance.Image.View
 // ==========================================================================
 
