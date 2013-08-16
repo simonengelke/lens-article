@@ -1,4 +1,4 @@
-var DocumentNode = require('../node');
+var NodeView = require('../node').View;
 var Document = require("substance-document");
 var Annotator = Document.Annotator;
 
@@ -10,8 +10,10 @@ var Annotator = Document.Annotator;
 // Manipulation interface shared by all textish types (paragraphs, headings)
 // This behavior can overriden by the concrete node types
 
+var LAST_CHAR_HACK = false;
+
 var TextView = function(node) {
-  DocumentNode.View.call(this, node);
+  NodeView.call(this, node);
 
   this.$el.addClass('content-node text');
   this.$el.attr('id', this.node.id);
@@ -25,19 +27,32 @@ TextView.Prototype = function() {
 
   this.render = function() {
     // Initial node render
-    DocumentNode.View.prototype.render.call(this);
+    // DocumentNode.View.prototype.render.call(this);
 
-    var $content = $('<div class="content"></div>');
-    this.content = $content[0];
-    this.$el.append($content);
+    // var $content = $('<div class="content"></div>');
+    // this.content = $content[0];
+    // this.$el.append($content);
+
+    NodeView.prototype.render.call(this);
 
     this.renderContent();
     return this;
   };
 
+
+  this.dispose = function() {
+    NodeView.prototype.dispose.call(this);
+    console.log('disposing paragraph view');
+  };
+
   this.renderContent = function() {
-    var el = document.createTextNode(this.node.content+" ");
+    var el = document.createTextNode(this.node.content)
     this.content.appendChild(el);
+
+    // EXPERIMENTAL HACK: adding an extra space for better soft-break behavior
+    if (LAST_CHAR_HACK) {
+      this.content.appendChild(document.createTextNode(" "));
+    }
   };
 
   this.insert = function(pos, str) {
@@ -58,15 +73,33 @@ TextView.Prototype = function() {
     textNode.textContent = text;
   };
 
+  this.onNodeUpdate = function(op) {
+    if (op.path[1] !== "content") {
+      return;
+    }
+    if (op.type === "update") {
+      var update = op.diff;
+      if (update.isInsert()) {
+        this.insert(update.pos, update.str);
+      } else if (update.isDelete()) {
+        this.delete(update.pos, update.str.length);
+      }
+    }
+  };
+
   this.getCharPosition = function(el, offset) {
+    // TODO: this is maybe too naive
     // lookup the given element and compute a
     // the corresponding char position in the plain document
     var range = document.createRange();
-
     range.setStart(this.content.childNodes[0], 0);
     range.setEnd(el, offset);
     var str = range.toString();
-    return Math.min(this.node.content.length, str.length);
+    var charPos = Math.min(this.node.content.length, str.length);
+
+    // console.log("Requested char pos: ", charPos, this.node.content[charPos]);
+
+    return charPos;
   };
 
   // Returns the corresponding DOM element position for the given character
@@ -108,7 +141,15 @@ TextView.Prototype = function() {
       }
     }
 
-    throw new Error("should not reach here");
+    console.log("Bug-Alarm: the model and the view are out of sync.")
+    console.log("The model as "+charPos+" more characters");
+    console.log("Returning the last available position... but please fix me. Anyone?");
+
+    var children = this.content.childNodes;
+    var last = children[children.length-1];
+    range.setStart(last, last.length);
+
+    return range;
   };
 
   var createAnnotationElement = function(entry) {
@@ -139,9 +180,12 @@ TextView.Prototype = function() {
     // this calls onText and onEnter in turns...
     fragmenter.start(fragment, text, annotations);
 
+    // EXPERIMENTAL HACK:
     // append a trailing white-space to improve the browser's behaviour with softbreaks at the end
     // of a node.
-    fragment.appendChild(document.createTextNode(" "));
+    if (LAST_CHAR_HACK) {
+      fragment.appendChild(document.createTextNode(" "));
+    }
 
     // set the content
     this.content.innerHTML = "";
@@ -156,7 +200,7 @@ TextView.Prototype = function() {
   };
 };
 
-TextView.Prototype.prototype = DocumentNode.View.prototype;
+TextView.Prototype.prototype = NodeView.prototype;
 TextView.prototype = new TextView.Prototype();
 
 module.exports = TextView;

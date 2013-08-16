@@ -11,7 +11,7 @@ Paragraph.type = {
   "properties": {
     "content": "string"
   }
-}
+};
 
 
 // Defines available focus modes
@@ -34,6 +34,7 @@ Paragraph.properties = {
 };
 
 
+
 Paragraph.Prototype = function() {
   
 };
@@ -41,6 +42,5 @@ Paragraph.Prototype = function() {
 Paragraph.Prototype.prototype = Text.prototype;
 Paragraph.prototype = new Paragraph.Prototype();
 Paragraph.prototype.constructor = Paragraph;
-
 
 module.exports = Paragraph;

@@ -26,8 +26,8 @@ Codeblock.properties = {
   allowedAnnotations: ["idea", "question", "error"]
 };
 
-Codeblock.Prototype = function() {
-};
+Codeblock.Prototype = function() {};
+
 
 Codeblock.Prototype.prototype = Text.prototype;
 Codeblock.prototype = new Codeblock.Prototype();
