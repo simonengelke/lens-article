@@ -67,10 +67,12 @@
   color: #444;
 }*/
 
-.article .resources .resource-types .resource-type:hover {
+/*.article .resources .resource-types .resource-type:hover {
   color: #222;
   background: rgba(0,0,0,0.05);
-}
+}*/
+
+
 
 /*#document .resources .resource-types.toc .toc {
   color: rgba(255,255,255,0.9);
@@ -104,6 +106,11 @@
 
 .article .context-toggles .context-toggle:hover {
   background: rgba(0,0,0,0.05);
+}
+
+.article .context-toggles .context-toggle.active {
+  color: rgba(255,255,255,0.9);
+  background: #5c6570;
 }
 
 /*#document .resources .resource-types .resource-type:hover {
