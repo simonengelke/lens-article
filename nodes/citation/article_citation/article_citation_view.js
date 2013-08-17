@@ -6,12 +6,7 @@ var html = util.html;
 var CitationView = require('../citation_view');
 
 
-// var CitationRenderer = function(citationView) {
-  
-// };
-
-
-// Substance.Paragraph.View
+// Lens.ArticleCitation.View
 // ==========================================================================
 
 var ArticleCitationView = function(node) {
@@ -24,16 +19,10 @@ var ArticleCitationView = function(node) {
 ArticleCitationView.Prototype = function() {
 
   this.render = function() {
+    CitationView.prototype.render.call(this);
 
-    // if (this.node.format === "mathml") {
-    //   var $block = $('<mml:math xmlns="http://www.w3.org/1998/Math/MathML" display="block">');
-    //   $block.html(this.node.data);
-    //   this.$el.append($block);
-    // } else if (this.node.format === "image") {
-    //   this.$el.append('<img src="'+node.url+'"/>');
-    // }
-
-    this.$el.html('I AM AN ARTICLE CITATION');
+    // Add additional stuff here
+    this.$('.content').html('SOME MORE CONTENT');
 
     // Add label to block formula
     // --------

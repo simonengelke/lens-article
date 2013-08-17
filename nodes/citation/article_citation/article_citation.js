@@ -9,7 +9,6 @@ var ArticleCitation = function(node) {
   Publication.call(this, node);
 };
 
-
 // Type definition
 // -----------------
 //
@@ -74,6 +73,7 @@ ArticleCitation.example = {
   ]
 };
 
+
 ArticleCitation.Prototype = function() {
   // Returns the citation URLs if available
   // Falls back to the DOI url
@@ -91,7 +91,13 @@ ArticleCitation.prototype = new ArticleCitation.Prototype();
 // Generate getters
 // --------
 
-var getters = {};
+var getters = {
+  title: {
+    get: function() {
+      return this.properties.description;
+    }
+  },
+};
 
 _.each(ArticleCitation.type.properties, function(prop, key) {
   getters[key] = {

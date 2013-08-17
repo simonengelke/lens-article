@@ -1,13 +1,17 @@
 "use strict";
 
-var _ = require('underscore');
-var util = require('substance-util');
+var _ = require("underscore");
+var util = require("substance-util");
 var html = util.html;
-var NodeView = require('../node').View;
+var NodeView = require("../node").View;
+var $$ = require("substance-application").$$;
 
 
 var CitationRenderer = function(citationView) {
-
+  var frag = document.createDocumentFragment();
+  var content = $$('.content');
+  frag.appendChild(content);
+  return frag;
 };
 
 
@@ -24,25 +28,7 @@ var CitationView = function(node) {
 CitationView.Prototype = function() {
 
   this.render = function() {
-    
-    // Render the formula
-    // --------
-
-    // if (this.node.format === "mathml") {
-    //   var $block = $('<mml:math xmlns="http://www.w3.org/1998/Math/MathML" display="block">');
-    //   $block.html(this.node.data);
-    //   this.$el.append($block);
-    // } else if (this.node.format === "image") {
-    //   this.$el.append('<img src="'+node.url+'"/>');
-    // }
-
-    this.$el.html('I AM A CITATION');
-
-    // Add label to block formula
-    // --------
-
-    // this.$el.append($('<div class="label">').html(this.node.label));
-
+    this.el.appendChild(new CitationRenderer(this));
     return this;
   }
 };
