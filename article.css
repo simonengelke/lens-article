@@ -43,8 +43,6 @@
 }
 
 
-
-
 /* Context Toggles 
 =======================================================================
 
@@ -62,37 +60,6 @@
 .article.focus-mode .context-toggles {
   opacity: 0.5
 }
-
-/*#document .context-toggles a {
-  color: #444;
-}*/
-
-/*.article .resources .resource-types .resource-type:hover {
-  color: #222;
-  background: rgba(0,0,0,0.05);
-}*/
-
-
-
-/*#document .resources .resource-types.toc .toc {
-  color: rgba(255,255,255,0.9);
-  background: #5c6570;
-}
-
-#document .resources .resource-types.figure .figure {
-  color: rgba(255,255,255,0.9);
-  background: #5c6570;
-}
-
-#document .resources .resource-types.publication .publication {
-  color: rgba(255,255,255,0.9);
-  background: #5c6570;
-}
-
-#document .resources .resource-types.info .info {
-  color: rgba(255,255,255,0.9);
-  background: #5c6570;
-}*/
 
 .article .context-toggles .context-toggle {
   cursor: pointer;
@@ -112,11 +79,6 @@
   color: rgba(255,255,255,0.9);
   background: #5c6570;
 }
-
-/*#document .resources .resource-types .resource-type:hover {
-
-}*/
-
 
 
 /* Resources Panel 
@@ -166,7 +128,7 @@
 ----------------------------------------------------------------------- */
 
 
-.article .resources .publication.view .content-node.resource.active .resource-header {
+/*.article .resources .publication.view .content-node.resource.active .resource-header {
   background: rgba(11, 157, 217, 1);
   color: #fff;
 }
@@ -175,23 +137,42 @@
   background: rgba(145, 187, 4, 1);
   color: #fff;
 }
+*/
 
-.article .resources .info.view .content-node.resource.active .resource-header {
+/*.article .resources .info.view .content-node.resource.active .resource-header {
   background: #5c6570;
   color: #fff;
 }
+*/
 
-.article .resources .content-node.resource.active .resource-header:hover {
+/*.article .resources .content-node.resource.active .resource-header:hover {
   opacity: 0.9;
-}
+}*/
 
+
+/* Active resource */
 
 .article .resources .content-node.resource.active .resource-header .name {
   color: #fff;
 }
 
-.article .resources .content-node.resource.active .resource-header .reference-count {
-  color: rgba(255,255, 255, 0.7);
+/* active figure */
+.article .resources .figures .content-node.active .resource-header {
+  background: rgba(145, 187, 4, 1);
+  color: #fff;
+}
+
+/* active citation */
+.article .resources .citations .content-node.active .resource-header {
+  background: rgba(11, 157, 217, 1);
+  color: #fff;
+}
+
+
+
+.article .resources .content-node .resource-header .reference-count {
+  opacity: 0.6;
+  /*color: rgba(255,255, 255, 0.7);*/
 }
 
 .article .resources .content-node .type {
@@ -206,7 +187,6 @@
   padding: 0 15px;
   line-height: 35px;
   font-weight: bold;
-  color: rgba(0,0,0, 0.5);
 }
 
 .article .resources .content-node .type i {
@@ -275,14 +255,11 @@
 /* Consistent Resource Header for figures captions and person cards 
 ----------------------------------------------------------------------- */
 
-
 .article .resources .resource-header .name {
   font-family: 'Avenir LT W01 85 Medium', 'Montserrat', 'Source Sans Pro';
   font-size: 16px;
-  
   margin-right: 120px;
   line-height: 21px;
-  color: #222;
   padding: 10px 20px;
 }
 
@@ -295,19 +272,13 @@
   font-size: 13px;
   position: absolute;
   right: 20px;
-
-  color: #999;
   top: 40px;
   text-align: right;
 }
 
 
-
-
-
 /* Annotations 
 ----------------------------------------------------------------------- */
-
 
 .article span.annotation {
   -webkit-transition-property: background, color;

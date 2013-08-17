@@ -9,6 +9,8 @@ var Image = function(node, document) {
 Image.type = {
   "parent": "content",
   "properties": {
+    "title": "string",
+    "label": "string",
     "large": "string",
     "medium": "string",
     "url": "string",
@@ -24,18 +26,14 @@ Image.description = {
     "This element can be used to describe images in your document."
   ],
   "properties": {
+    "title": "Figure title",
     "medium": "Base64 encoded string of medium sized image version",
     "large": "Base64 encoded string of full size image",
     "url": "URL to image resource",
     "large_url": "URL to full sized image resource",
+    "label": "Caption label",
     "caption": "Caption is a reference to a paragraph that describes the image."
   }
-};
-
-Image.properties = {
-  mergeableWith: [],
-  preventEmpty: true,
-  allowedAnnotations: ["idea", "question", "error"]
 };
 
 
@@ -86,6 +84,9 @@ Image.prototype = new Image.Prototype();
 Image.prototype.constructor = Image;
 
 Object.defineProperties(Image.prototype, {
+  title: {
+    get: function() { return this.properties.title; }
+  },
   medium: {
     get: function() { return this.properties.medium; }
   },
