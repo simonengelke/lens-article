@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var Publication = require('../publication');
+var Publication = require('../citation');
 
 // Lens.ArticleCitation
 // -----------------
@@ -57,7 +57,7 @@ ArticleCitation.description = {
 
 ArticleCitation.example = {
   "id": "article_nature08160",
-  "type": "article",
+  "type": "article_citation",
   "title": "The genome of the blood fluke Schistosoma mansoni",
   "authors": [
     "M Berriman",

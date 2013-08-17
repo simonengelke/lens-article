@@ -43,8 +43,78 @@
 }
 
 
+
+
+/* Context Toggles 
+=======================================================================
+
+/* Switcher */
+.article .context-toggles {
+  overflow: hidden;
+  height: 40px;
+  position: absolute;
+  right: 20px;
+  left: 5px;
+  top: 0px;
+  z-index: 3000;
+}
+
+.article.focus-mode .context-toggles {
+  opacity: 0.5
+}
+
+/*#document .context-toggles a {
+  color: #444;
+}*/
+
+.article .resources .resource-types .resource-type:hover {
+  color: #222;
+  background: rgba(0,0,0,0.05);
+}
+
+/*#document .resources .resource-types.toc .toc {
+  color: rgba(255,255,255,0.9);
+  background: #5c6570;
+}
+
+#document .resources .resource-types.figure .figure {
+  color: rgba(255,255,255,0.9);
+  background: #5c6570;
+}
+
+#document .resources .resource-types.publication .publication {
+  color: rgba(255,255,255,0.9);
+  background: #5c6570;
+}
+
+#document .resources .resource-types.info .info {
+  color: rgba(255,255,255,0.9);
+  background: #5c6570;
+}*/
+
+.article .context-toggles .context-toggle {
+  cursor: pointer;
+  float: left;
+  padding: 0 10px;
+  line-height: 40px;
+  font-size: 16px;
+  color: #333;
+  font-family: 'Avenir LT W01 85 Heavy', 'Montserrat', 'Source Sans Pro';
+}
+
+.article .context-toggles .context-toggle:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/*#document .resources .resource-types .resource-type:hover {
+
+}*/
+
+
+
 /* Resources Panel 
 ======================================================================= */
+
 
 .article .resources {
   float: right;
@@ -55,6 +125,10 @@
   position: relative;
   /*overflow: hidden;*/
   overflow: auto;
+}
+
+.article .resources .surface {
+  margin-top: 50px;
 }
 
 .article .resources .content-node {
@@ -113,8 +187,6 @@
   color: rgba(255,255, 255, 0.7);
 }
 
-
-
 .article .resources .content-node .type {
   position: absolute;
   right: 10px;
@@ -130,7 +202,6 @@
   color: rgba(0,0,0, 0.5);
 }
 
-
 .article .resources .content-node .type i {
   padding-right: 10px;
 }
@@ -142,9 +213,6 @@
 .article .resources .content-node.active .type {
   color: white;
 }
-
-
-
 
 .article .resources .number {
   font-size: 11px;
@@ -164,10 +232,8 @@
   background: rgba(11, 157, 217, 1);
 }
 
-
-
 .article .resources .surface.figures {
-  position: absolute;
+  display: none;
   top: 0px;
   bottom: 0px;
   left: 0px;
@@ -182,10 +248,21 @@
   position: absolute;
   top: 0px;
   bottom: 0px;
+  left: 0px;
+  right: 0px;
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
+
+.article .resources .surface.figures.active {
+  display: block
+}
+
+.article .resources .surface.citations.active {
+  display: block
+}
+
 
 
 /* Consistent Resource Header for figures captions and person cards 
