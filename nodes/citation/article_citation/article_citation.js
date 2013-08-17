@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var Publication = require('../citation');
 
+
 // Lens.ArticleCitation
 // -----------------
 //
@@ -34,7 +35,8 @@ ArticleCitation.type = {
 //
 
 ArticleCitation.description = {
-  "name": "A journal article citation.",
+  "name": "Article Citation",
+  "description": "A journal article citation.",
   "remarks": [
     "This element can be used to describe typical journal article citations."
   ],
@@ -86,6 +88,7 @@ ArticleCitation.Prototype = function() {
 
 ArticleCitation.Prototype.prototype = Publication.prototype;
 ArticleCitation.prototype = new ArticleCitation.Prototype();
+ArticleCitation.prototype.constructor = ArticleCitation;
 
 
 // Generate getters

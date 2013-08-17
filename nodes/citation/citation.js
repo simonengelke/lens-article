@@ -9,7 +9,6 @@ var Citation = function(node) {
   Node.call(this, node);
 };
 
-
 // Type definition
 // -----------------
 //
@@ -29,7 +28,8 @@ Citation.type = {
 //
 
 Citation.description = {
-  "name": "A raw citation type that fits it all.",
+  "name": "Citation",
+  "descr": "A raw citation type that fits it all.",
   "remarks": [
     "Use the `citation` type when you're missing structured information."
   ],

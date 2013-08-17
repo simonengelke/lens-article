@@ -27,9 +27,9 @@ ImageView.Prototype = function() {
   //   div.img-char
   //     .img
 
-  this.render = function(enhancer) {
+  this.render = function() {
 
-    NodeView.prototype.render.call(this, enhancer);
+    NodeView.prototype.render.call(this);
 
     if (this.captionView) {
       this.captionView.dispose();

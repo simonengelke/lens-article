@@ -9,11 +9,26 @@ var Image = function(node, document) {
 Image.type = {
   "parent": "content",
   "properties": {
-    "title": "string",
     "large": "string",
     "medium": "string",
     "url": "string",
+    "large_url": "string",
     "caption": "paragraph"
+  }
+};
+
+Image.description = {
+  "name": "Image",
+  "description": "An image",
+  "remarks": [
+    "This element can be used to describe images in your document."
+  ],
+  "properties": {
+    "medium": "Base64 encoded string of medium sized image version",
+    "large": "Base64 encoded string of full size image",
+    "url": "URL to image resource",
+    "large_url": "URL to full sized image resource",
+    "caption": "Caption is a reference to a paragraph that describes the image."
   }
 };
 
@@ -22,6 +37,7 @@ Image.properties = {
   preventEmpty: true,
   allowedAnnotations: ["idea", "question", "error"]
 };
+
 
 Image.Prototype = function() {
 

@@ -7,12 +7,12 @@ var NodeView = require("../node").View;
 var $$ = require("substance-application").$$;
 
 
-var CitationRenderer = function(citationView) {
-  var frag = document.createDocumentFragment();
-  var content = $$('.content');
-  frag.appendChild(content);
-  return frag;
-};
+// var CitationRenderer = function(citationView) {
+//   var frag = document.createDocumentFragment();
+//   var content = $$('.content');
+//   frag.appendChild(content);
+//   return frag;
+// };
 
 
 // Substance.Paragraph.View
@@ -28,7 +28,8 @@ var CitationView = function(node) {
 CitationView.Prototype = function() {
 
   this.render = function() {
-    this.el.appendChild(new CitationRenderer(this));
+    NodeView.prototype.render.call(this);
+    // this.el.appendChild(new CitationRenderer(this));
     return this;
   }
 };
