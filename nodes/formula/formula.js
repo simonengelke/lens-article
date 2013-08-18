@@ -56,14 +56,7 @@ Formula.example = {
 };
 
 Formula.Prototype = function() {
-  // Returns the citation URLs if available
-  // Falls back to the DOI url
-  // Always returns an array;
-  this.urls = function() {
-    return this.properties.citation_urls.length > 0
-            ? this.properties.citation_urls
-            : [this.properties.doi]
-  }
+  
 };
 
 Formula.Prototype.prototype = Node.prototype;

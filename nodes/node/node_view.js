@@ -19,7 +19,7 @@ NodeView.Prototype = function() {
   // --------
   //
 
-  this.render = function(enhancer) {
+  this.render = function() {
     this.content = document.createElement("DIV");
     this.content.classList.add("content");
     this.el.appendChild(this.content);
