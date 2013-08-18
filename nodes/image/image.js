@@ -38,6 +38,20 @@ Image.description = {
 };
 
 
+Image.example = {
+  "type": "image",
+  "id": "image_fig3",
+  "title": "Figure 3.",
+  "object_id": "F3",
+  "doi": "http://dx.doi.org/10.7554/eLife.00311.009",
+  "label": "TRAF2, TRAF5, and TRAF6 are important for IRF3 and IKK activation in vitro.",
+  "caption": "fig2_caption",
+  "url": "http://elife.elifesciences.org/content/elife/1/e00311/F3.medium.gif",
+  "large_url": "http://elife.elifesciences.org/content/elife/1/e00311/F3.large.jpg"
+};
+
+
+
 Image.Prototype = function() {
 
   // An image is ()
