@@ -10,21 +10,40 @@ var Codeblock = function(node, document) {
 // --------
 
 Codeblock.type = {
+  "id": "codeblock",
   "parent": "content",
   "properties": {
     "content": "string"
   }
 };
 
-// Define behavior
-// --------
 
-Codeblock.properties = {
-  mergeableWith: ["codeblock"],
-  preventEmpty: false,
-  splitInto: 'codeblock',
-  allowedAnnotations: ["idea", "question", "error"]
+// This is used for the auto-generated docs
+// -----------------
+//
+
+Codeblock.description = {
+  "name": "Codeblock",
+  "description": "A code block, which preserves whitespace.",
+  "remarks": [
+    "Text in a codeblock is displayed in a fixed-width font, and it preserves both spaces and line breaks"
+  ],
+  "properties": {
+    "content": "Content",
+  }
 };
+
+
+// Example Formula
+// -----------------
+//
+
+Codeblock.example = {   
+  "type": "codeblock",
+  "id": "codeblock_1",
+  "content": "var text = \"Sun\";\nvar op1 = Operator.TextOperation.Delete(2, \"n\");\ntext = op2.apply(op1.apply(text));\nconsole.log(text);",
+};
+
 
 Codeblock.Prototype = function() {};
 

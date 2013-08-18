@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var Publication = require('../citation');
+var Citation = require('../citation');
 
 
 // Lens.ArticleCitation
@@ -7,7 +7,7 @@ var Publication = require('../citation');
 //
 
 var ArticleCitation = function(node) {
-  Publication.call(this, node);
+  Citation.call(this, node);
 };
 
 // Type definition
@@ -86,7 +86,7 @@ ArticleCitation.Prototype = function() {
   };
 };
 
-ArticleCitation.Prototype.prototype = Publication.prototype;
+ArticleCitation.Prototype.prototype = Citation.prototype;
 ArticleCitation.prototype = new ArticleCitation.Prototype();
 ArticleCitation.prototype.constructor = ArticleCitation;
 

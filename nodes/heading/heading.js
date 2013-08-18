@@ -11,6 +11,7 @@ var Heading = function(node, document) {
 //
 
 Heading.type = {
+  "id": "heading",
   "parent": "content",
   "properties": {
     "content": "string",
@@ -34,25 +35,17 @@ Heading.example = {
 //
 
 Heading.description = {
-  "name": "An image figure",
+  "name": "Heading",
+  "description": "A heading.",
   "remarks": [
-    "References an image on the web."
+    "Denotes a section or sub section in your article."
   ],
   "properties": {
-    "content": "Formula label (4)",
+    "content": "Heading content",
     "level": "Heading level. Ranges from 1..4"
   }
 };
 
-// Available focus modes
-// -----------------
-//
-
-Heading.focusModes = {
-  "node": {
-    "icon": "icon-bookmark"
-  }
-};
 
 Heading.Prototype = function() {};
 

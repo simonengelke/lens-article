@@ -7,6 +7,7 @@ var Paragraph = function(node, document) {
 };
 
 Paragraph.type = {
+  "id": "paragraph",
   "parent": "content",
   "properties": {
     "content": "string"
@@ -14,25 +15,33 @@ Paragraph.type = {
 };
 
 
-// Defines available focus modes
-// --------
+// This is used for the auto-generated docs
+// -----------------
+//
 
-Paragraph.focusModes = {
-  "figure": {
-    "icon": "icon-camera"
-  },
-  "citation": {
-    "icon": "icon-link"
+Paragraph.description = {
+  "name": "Paragraph",
+  "description": "A paragraph of text.",
+  "remarks": [
+    "A paragraph is a self-contained unit of a discourse in writing dealing with a particular point or idea.",
+    "A paragraph consists of one or more sentences.",
+    "Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose."
+  ],
+  "properties": {
+    "content": "Content",
   }
 };
 
-Paragraph.properties = {
-  mergeableWith: ["paragraph", "heading"], // maybe remove heading here
-  preventEmpty: false,
-  splitInto: 'paragraph',
-  allowedAnnotations: ["emphasis", "strong", "link", "code", "idea", "question", "error"]
-};
 
+// Example Paragraph
+// -----------------
+//
+
+Paragraph.example = {   
+  "type": "paragraph",
+  "id": "paragraph_1",
+  "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+};
 
 
 Paragraph.Prototype = function() {

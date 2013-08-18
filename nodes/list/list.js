@@ -11,6 +11,7 @@ var List = function(node, document) {
 };
 
 List.type = {
+  "id": "list",
   "parent": "content",
   "properties": {
     "items": ["array", "paragraph"],
@@ -18,12 +19,39 @@ List.type = {
   }
 };
 
-List.properties = {
-  mergeableWith: ["paragraph", "heading"],
-  preventEmpty: false,
-  splitInto: 'paragraph',
-  allowedAnnotations: ["emphasis", "strong", "idea", "question", "error"]
+
+// This is used for the auto-generated docs
+// -----------------
+//
+
+List.description = {
+  "name": "List",
+  "description": "A list of paragraphs.",
+  "remarks": [
+    "List can Either numbered or bullet lists"
+  ],
+  "properties": {
+    "ordered": "Specifies wheter the list is ordered or not",
+    "items": "An array of paragraph references",
+  }
 };
+
+
+// Example Formula
+// -----------------
+//
+
+List.example = {   
+  "type": "list",
+  "id": "list_1",
+  "items ": [
+    "paragraph_listitem_1",
+    "paragraph_listitem_2",
+  ]
+};
+
+
+
 
 List.Prototype = function() {
 

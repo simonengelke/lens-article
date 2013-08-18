@@ -183,7 +183,7 @@ Article.fromSnapshot = function(data, options) {
 // Define available views
 // --------
 
-Article.views = ["content"];
+Article.views = ["content", "figures", "citations"];
 
 
 // Register node types
@@ -344,6 +344,63 @@ Article.indexes = {
   // "citation_references": {
   //   "type": "citation_reference"
   // }
+};
+
+
+
+// From article definitions generate a nice reference document
+// --------
+//
+
+Article.describe = function() {
+  var doc = new Article({id: "lens_article"});
+
+  _.each(Article.nodeTypes, function(nodeType) {
+    console.log('NAME', nodeType.description.name, nodeType.type.id);
+
+    // Create a heading for each node type
+    var headingId = "heading_"+nodeType.type.id;
+    doc.create({
+      id: headingId,
+      type: "heading",
+      content: nodeType.description.name,
+      level: 1
+    });
+
+    // Turn remarks and description into an introduction paragraph
+    var introText = [nodeType.description.description].concat(nodeType.description.remarks).join(' ');
+    var introId = "paragraph_"+nodeType.type.id+"_intro";
+    doc.create({
+      id: introId,
+      type: "paragraph",
+      content: introText,
+    });
+
+    // Show it in the content view
+    doc.show("content", [headingId, introId], -1);
+
+    // Include example
+    // --------
+    //
+
+    doc.create({
+      id: headingId+"_example",
+      type: "paragraph",
+      content: "Example",
+      level: 2
+    });
+
+    doc.create({
+      id: headingId+"_example_codeblock",
+      type: "codeblock",
+      content: JSON.stringify(nodeType.example, null, '  '),
+    });
+
+    doc.show("content", [headingId+"_example", headingId+"_example_codeblock"], -1);
+
+
+  });
+  return doc.toJSON();
 };
 
 

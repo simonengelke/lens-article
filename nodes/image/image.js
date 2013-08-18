@@ -7,6 +7,7 @@ var Image = function(node, document) {
 };
 
 Image.type = {
+  "id": "image",
   "parent": "content",
   "properties": {
     "title": "string",

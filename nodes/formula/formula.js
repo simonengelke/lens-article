@@ -16,6 +16,7 @@ var Formula = function(node) {
 //
 
 Formula.type = {
+  "id": "formula",
   "parent": "content",
   "properties": {
     "label": "string",
@@ -30,7 +31,8 @@ Formula.type = {
 //
 
 Formula.description = {
-  "name": "A formula",
+  "name": "Formula",
+  "description": "A formula",
   "remarks": [
     "Can either be in mathml format or an image url"
   ],
