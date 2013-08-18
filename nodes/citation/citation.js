@@ -17,7 +17,7 @@ Citation.type = {
   "id": "citation", // type name
   "parent": "content",
   "properties": {
-    "description": "string",
+    "title": "string",
     "doi": "string"
   }
 };
@@ -34,7 +34,7 @@ Citation.description = {
     "Use the `citation` type when you're missing structured information."
   ],
   "properties": {
-    "description": "Whatever you want to show up on the publication card.",
+    "title": "Whatever you want to show up on the citation card.",
     "doi": "DOI reference",
   }
 };
@@ -47,7 +47,7 @@ Citation.description = {
 Citation.example = {
   "id": "citation_1",
   "type": "citation",
-  "description": "Meyer MJ, Fleming JM, Lin AF, Hussnain SA, Ginsburg E, Vonderhaar BK. CD44posCD49fhiCD133/2hi defines xenograft-initiating cells in estrogen receptor-negative breast cancer. Cancer Res 2010; 70: 4624 - 33",
+  "title": "Meyer MJ, Fleming JM, Lin AF, Hussnain SA, Ginsburg E, Vonderhaar BK. CD44posCD49fhiCD133/2hi defines xenograft-initiating cells in estrogen receptor-negative breast cancer. Cancer Res 2010; 70: 4624 - 33",
   "doi": "http://dx.doi.org/10.1158/0008-5472.CAN-09-3619"
 };
 
@@ -64,15 +64,15 @@ Citation.prototype.constructor = Citation;
 Object.defineProperties(Citation.prototype, {
   title: {
     get: function() {
-      return this.properties.description;
-    }
-  },
-  // Needed?
-  name: {
-    get: function () {
       return this.properties.title;
     }
   }
+  // Needed?
+  // name: {
+  //   get: function () {
+  //     return this.properties.title;
+  //   }
+  // }
 });
 
 module.exports = Citation;
