@@ -292,7 +292,6 @@ Article.types = {
     }
   },
 
-
   // Abstract Citation Type
   // --------
 
@@ -333,15 +332,18 @@ Article.types = {
 
 Article.indexes = {
   // All annotations are now indexed by node
-  // "annotations": {
-  //   "type": "annotation",
-  //   "properties": ["node"]
-  // },
-  // all comments are now indexed by node association
-  "comments": {
-    "type": "comment",
+  "annotations": {
+    "type": "annotation",
     "properties": ["node"]
-  }
+  },
+
+  // "figure_references": {
+  //   "type": "figure_reference"
+  // },
+
+  // "citation_references": {
+  //   "type": "citation_reference"
+  // }
 };
 
 
