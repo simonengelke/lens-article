@@ -32,14 +32,13 @@ Formula.type = {
 
 Formula.description = {
   "name": "Formula",
-  "description": "A formula",
   "remarks": [
-    "Can either be in mathml format or an image url"
+    "Can either be expressed in MathML format or using an image url"
   ],
   "properties": {
     "label": "Formula label (4)",
     "data": "Formula data, either MathML or image url",
-    "format": ""
+    "format": "Can either be `mathml` or `image`"
   }
 };
 

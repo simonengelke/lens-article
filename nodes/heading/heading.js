@@ -36,7 +36,6 @@ Heading.example = {
 
 Heading.description = {
   "name": "Heading",
-  "description": "A heading.",
   "remarks": [
     "Denotes a section or sub section in your article."
   ],

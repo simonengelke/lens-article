@@ -368,7 +368,7 @@ Article.describe = function() {
     });
 
     // Turn remarks and description into an introduction paragraph
-    var introText = [nodeType.description.description].concat(nodeType.description.remarks).join(' ');
+    var introText = nodeType.description.remarks.join(' ');
     var introId = "paragraph_"+nodeType.type.id+"_intro";
     doc.create({
       id: introId,

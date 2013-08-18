@@ -24,7 +24,6 @@ Codeblock.type = {
 
 Codeblock.description = {
   "name": "Codeblock",
-  "description": "A code block, which preserves whitespace.",
   "remarks": [
     "Text in a codeblock is displayed in a fixed-width font, and it preserves both spaces and line breaks"
   ],

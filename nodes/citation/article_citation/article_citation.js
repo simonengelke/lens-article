@@ -36,8 +36,8 @@ ArticleCitation.type = {
 
 ArticleCitation.description = {
   "name": "Article Citation",
-  "description": "A journal article citation.",
   "remarks": [
+    "A journal article citation.",
     "This element can be used to describe typical journal article citations."
   ],
   "properties": {

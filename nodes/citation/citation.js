@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var Node = require('../node');
 
+
 // Lens.Citation
 // -----------------
 //
@@ -22,15 +23,14 @@ Citation.type = {
   }
 };
 
-
 // This is used for the auto-generated docs
 // -----------------
 //
 
 Citation.description = {
   "name": "Citation",
-  "descr": "A raw citation type that fits it all.",
   "remarks": [
+    "A raw citation type that fits it all.",
     "Use the `citation` type when you're missing structured information."
   ],
   "properties": {
