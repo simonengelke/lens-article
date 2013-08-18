@@ -26,9 +26,8 @@ List.type = {
 
 List.description = {
   "name": "List",
-  "description": "A list of paragraphs.",
   "remarks": [
-    "List can Either numbered or bullet lists"
+    "Lists can either be numbered or bullet lists"
   ],
   "properties": {
     "ordered": "Specifies wheter the list is ordered or not",
@@ -49,8 +48,6 @@ List.example = {
     "paragraph_listitem_2",
   ]
 };
-
-
 
 
 List.Prototype = function() {
