@@ -14,7 +14,7 @@ var Video = function(node, doc) {
 //
 
 Video.type = {
-  "id": "table",
+  "id": "video",
   "parent": "content",
   "properties": {
     "label": "string",

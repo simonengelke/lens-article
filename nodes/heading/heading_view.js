@@ -9,6 +9,8 @@ var HeadingView = function(node) {
   TextView.call(this, node);
 
   this.$el.addClass('heading');
+
+  this.$el.addClass('level-'+node.level || 1);
 };
 
 HeadingView.Prototype = function() {};

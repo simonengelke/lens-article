@@ -37,7 +37,7 @@ Paragraph.description = {
 Paragraph.example = {   
   "type": "paragraph",
   "id": "paragraph_1",
-  "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "content": "Lorem ipsum dolor sit amet, adipiscing elit.",
 };
 
 

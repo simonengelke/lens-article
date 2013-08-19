@@ -43,7 +43,7 @@ Image.example = {
   "id": "image_fig3",
   "label": "Figure 3.",
   "doi": "http://dx.doi.org/10.7554/eLife.00311.009",
-  "title": "TRAF2, TRAF5, and TRAF6 are important for IRF3 and IKK activation in vitro.",
+  "title": "Simplified insulin growth factor signaling diagram.",
   "caption": "fig2_caption",
   "url": "http://elife.elifesciences.org/content/elife/1/e00311/F3.medium.gif",
   "large_url": "http://elife.elifesciences.org/content/elife/1/e00311/F3.large.jpg"

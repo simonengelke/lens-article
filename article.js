@@ -360,6 +360,9 @@ Article.describe = function() {
 
     // Create a heading for each node type
     var headingId = "heading_"+nodeType.type.id;
+
+    console.log(headingId);
+
     doc.create({
       id: headingId,
       type: "heading",
@@ -385,7 +388,7 @@ Article.describe = function() {
 
     doc.create({
       id: headingId+"_example",
-      type: "paragraph",
+      type: "heading",
       content: "Example",
       level: 2
     });
