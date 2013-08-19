@@ -66,13 +66,13 @@ Object.defineProperties(Citation.prototype, {
     get: function() {
       return this.properties.title;
     }
+  },
+  // Title is used as a label for the cards
+  label: {
+    get: function() {
+      return this.properties.title;
+    }
   }
-  // Needed?
-  // name: {
-  //   get: function () {
-  //     return this.properties.title;
-  //   }
-  // }
 });
 
 module.exports = Citation;

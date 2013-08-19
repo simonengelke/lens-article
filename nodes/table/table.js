@@ -17,10 +17,11 @@ Table.type = {
   "id": "table",
   "parent": "content",
   "properties": {
-    "title": "string",
+    "label": "string",
     "content": "string",
     "footers": ["array", "string"],
     "doi": "string",
+    "title": "string",
     "caption": "paragraph"
   }
 };
@@ -36,7 +37,8 @@ Table.description = {
     "A table figure which is expressed in HTML notation"
   ],
   "properties": {
-    "title": "Table title",
+    "label": "Label shown in the resource header.",
+    "title": "Full table title",
     "content": "HTML data",
     "footers": "Table footers expressed as an array strings",
     "doi": "DOI URL",
@@ -52,7 +54,8 @@ Table.description = {
 Table.example = {
   "id": "table_1",
   "type": "table",
-  "title": "Table 1.",
+  "label": "Table 1.",
+  "title": "Lorem ipsum table",
   "content": "<table>...</table>",
   "footers": [],
   "doi": "http://dx.doi.org/10.7554/eLife.00311.003",

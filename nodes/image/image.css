@@ -9,16 +9,30 @@
 }
 
 .content-node.image div.image-char {
+  text-align: center;
   /*width: 100%;*/
 }
 
-.content-node.image div.selected .overlay {
+.content-node.image div.image-char img {
+  
+}
+
+/*.content-node.image div.selected .overlay {
   position: absolute;
   top: 0px;
   bottom: 0px;
   left: 0px;
   right: 0px;
   background: rgba(0,169, 255, 0.25);
+}*/
+
+.content-node.image > .content {
+  background: #fff;
+  padding: 20px;
+}
+
+.content-node.image .paragraph .content {
+  background: #fff;
 }
 
 .content-node.image div img {

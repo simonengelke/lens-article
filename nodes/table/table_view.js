@@ -18,11 +18,30 @@ var TableView = function(node) {
 
 TableView.Prototype = function() {
 
+
+  //   <% if (node.url) { %>
+  //     <div class="table-image">
+  //       <a href="<%= node.large_url %>" target="_new"><img class="thumbnail" src="<%= node.url %>"/></a>
+  //     </div>
+  //   <% } %>
+  //   <div class="table-wrapper">
+  //     <%= node.content %>
+  //   </div>
+  //   <div class="footers">
+  //     <% _.each(node.footers, function(f) { %>
+  //       <div class="footer"><b><%= annotate(f, 'label') %></b> <%= annotate(f, 'content') %></div>
+  //     <% }); %>
+  //   </div>
+  //   <div class="title"><%= annotate(node.caption, 'title') %></div>
+  //   <div class="descr"><%= annotate(node.caption, 'content') %></div>
+  //   <% if (node.doi) { %>
+  //     <div class="doi"><b>DOI:</b> <a href="<%= node.doi %>" target="_new"><%= node.doi %></a></div>
+  //   <% } %>
+  // </div>
+
   this.render = function() {
     NodeView.prototype.render.call(this);
-
-    this.content.appendChild($$('.not-yet-implement', {text: "This node type has not yet been implemented. "}))
-
+    this.content.appendChild($$('.not-yet-implemented', {text: "This node type has not yet been implemented. "}));
     return this;
   }
 };

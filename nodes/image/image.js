@@ -10,8 +10,8 @@ Image.type = {
   "id": "image",
   "parent": "content",
   "properties": {
-    "title": "string",
     "label": "string",
+    "title": "string",
     "large": "string",
     "medium": "string",
     "url": "string",
@@ -27,12 +27,12 @@ Image.description = {
     "This element can be used to describe images in your document."
   ],
   "properties": {
-    "title": "Figure title",
+    "label": "Figure label, shown in the resource header",
+    "title": "Image title",
     "medium": "Base64 encoded string of medium sized image version",
     "large": "Base64 encoded string of full size image",
     "url": "URL to image resource",
     "large_url": "URL to full sized image resource",
-    "label": "Caption label",
     "caption": "Caption is a reference to a paragraph that describes the image."
   }
 };
@@ -41,10 +41,9 @@ Image.description = {
 Image.example = {
   "type": "image",
   "id": "image_fig3",
-  "title": "Figure 3.",
-  "object_id": "F3",
+  "label": "Figure 3.",
   "doi": "http://dx.doi.org/10.7554/eLife.00311.009",
-  "label": "TRAF2, TRAF5, and TRAF6 are important for IRF3 and IKK activation in vitro.",
+  "title": "TRAF2, TRAF5, and TRAF6 are important for IRF3 and IKK activation in vitro.",
   "caption": "fig2_caption",
   "url": "http://elife.elifesciences.org/content/elife/1/e00311/F3.medium.gif",
   "large_url": "http://elife.elifesciences.org/content/elife/1/e00311/F3.large.jpg"
@@ -91,14 +90,17 @@ Image.Prototype = function() {
   this.hasCaption = function() {
     return (!!this.properties.caption);
   };
-
 };
+
 
 Image.Prototype.prototype = Node.prototype;
 Image.prototype = new Image.Prototype();
 Image.prototype.constructor = Image;
 
 Object.defineProperties(Image.prototype, {
+  label: {
+    get: function() { return this.properties.label; }
+  },
   title: {
     get: function() { return this.properties.title; }
   },
@@ -110,6 +112,9 @@ Object.defineProperties(Image.prototype, {
   },
   url: {
     get: function() { return this.properties.url; }
+  },
+  large_url: {
+    get: function() { return this.properties.large_url; }
   },
   caption: {
     get: function() {

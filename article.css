@@ -89,6 +89,7 @@
   float: right;
   line-height: 20px;
   width: 43%;
+  font-size: 14px;
   background: #F5F5F5;
   height: 100%;
   position: relative;
@@ -122,36 +123,10 @@
   position: relative;
 }
 
-
-
 /* Shared styles for selected and mouseover states
 ----------------------------------------------------------------------- */
 
-
-/*.article .resources .publication.view .content-node.resource.active .resource-header {
-  background: rgba(11, 157, 217, 1);
-  color: #fff;
-}
-
-.article .resources .figure.view .content-node.resource.active .resource-header {
-  background: rgba(145, 187, 4, 1);
-  color: #fff;
-}
-*/
-
-/*.article .resources .info.view .content-node.resource.active .resource-header {
-  background: #5c6570;
-  color: #fff;
-}
-*/
-
-/*.article .resources .content-node.resource.active .resource-header:hover {
-  opacity: 0.9;
-}*/
-
-
 /* Active resource */
-
 .article .resources .content-node.resource.active .resource-header .name {
   color: #fff;
 }
@@ -167,8 +142,6 @@
   background: rgba(11, 157, 217, 1);
   color: #fff;
 }
-
-
 
 .article .resources .content-node .resource-header .reference-count {
   opacity: 0.6;
