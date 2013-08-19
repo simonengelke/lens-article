@@ -5,8 +5,8 @@ var Node = require('../node');
 // -----------------
 //
 
-var Video = function(node) {
-  Node.call(this, node);
+var Video = function(node, doc) {
+  Node.call(this, node, doc);
 };
 
 // Type definition
@@ -18,6 +18,8 @@ Video.type = {
   "parent": "content",
   "properties": {
     "label": "string",
+    "title": "string",
+    "doi": "string",
     "url": "string",
     "url_webm": "string",
     "url_ogv": "string",
@@ -39,6 +41,8 @@ Video.description = {
   ],
   "properties": {
     "label": "Label shown in the resource header.",
+    "title": "Full title of the video.",
+    "doi": "Optional DOI url.",
     "url": "URL to mp4 version of the video.",
     "url_webm": "URL to WebM version of the video.",
     "url_ogv": "URL to OGV version of the video.",
@@ -55,9 +59,11 @@ Video.example = {
   "id": "video_1",
   "type": "video",
   "label": "Video 1.",
+  "title": "Introduction to Lens",
   "url": "http://cdn.elifesciences.org/video/eLifeLensIntro2.mp4",
   "url_webm": "http://cdn.elifesciences.org/video/eLifeLensIntro2.webm",
   "url_ogv": "http://cdn.elifesciences.org/video/eLifeLensIntro2.ogv",
+  "doi": "http://dx.doi.org/10.7554/Fake.doi.003",
   "caption": "paragraph_video_caption",
   "poster": "http://cdn.elifesciences.org/video/eLifeLensIntro2.png"
 }
@@ -84,6 +90,18 @@ _.each(Video.type.properties, function(prop, key) {
   };
 });
 
-Object.defineProperties(Video.prototype, getters);
+
+Object.defineProperties(Video.prototype, _.extend(getters, {
+  caption: {
+    get: function() {
+      // HACK: this is not yet a real solution
+      if (this.properties.caption) {
+        return this.document.get(this.properties.caption);
+      } else {
+        return "";
+      }
+    }
+  }
+}));
 
 module.exports = Video;

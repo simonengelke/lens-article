@@ -2,8 +2,8 @@
 
 var Node = require("../node");
 
-var Image = function(node, document) {
-  Node.call(this, node, document);
+var Image = function(node, doc) {
+  Node.call(this, node, doc);
 };
 
 Image.type = {

@@ -12,6 +12,12 @@
   /*margin: 0 60px; -> causes the scrollbar to disappear */
 }
 
+.content-node .content {
+  margin: 0px;
+  background: white;
+  /*margin: 0 60px; -> causes the scrollbar to disappear */
+}
+
 
 /* Main content panel 
 ======================================================================= */

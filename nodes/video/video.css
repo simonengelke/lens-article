@@ -1,5 +1,26 @@
-.resources .content-wrapper video {
+.resources .content-node.video .content video {
+  background: #000;
   padding: 10px;
   max-width: 100%;
   max-height: 500px;
+}
+
+.resources .content-node.video .content {
+  /* text-align: center; */
+  /*background: white;*/
+}
+
+.resources .content-node.video .content .title {
+  padding: 10px 20px;
+}
+
+.resources .content-node.video .content .doi {
+  padding: 10px 20px;
+}
+
+/* Video Caption  */
+.resources .content-node.video .content .paragraph {
+  padding: 10px 20px;
+  margin-bottom: 0px; /* override default margin of paragraphs */
+  background: #fff;
 }
