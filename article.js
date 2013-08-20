@@ -86,25 +86,6 @@ Article.Renderer = function(doc) {
 
   this.nodeTypes = Article.nodeTypes;
 
-  // this.viewFactory = {
-  //   createView: function(node) {
-  //     var NodeView = Article.nodeTypes[node.type].View;
-
-  //     if (!NodeView) {
-  //       throw new Error('Node type "'+node.type+'" not supported');
-  //     }
-
-  //     // Note: passing the factory to the node views
-  //     // to allow creation of nested views
-  //     var nodeView = new NodeView(node, this);
-
-  //     // we connect the listener here to avoid to pass the document itself into the nodeView
-  //     nodeView.listenTo(that.doc, "operation:applied", nodeView.onGraphUpdate);
-
-  //     return nodeView;
-  //   }
-  // };
-
   // Collect all node views
   this.nodes = {};
 
@@ -413,7 +394,7 @@ Article.prototype.constructor = Article;
 
 
 // Add convenience accessors for builtin document attributes
-Object.defineProperties(Document.prototype, {
+Object.defineProperties(Article.prototype, {
   id: {
     get: function () {
       return this.get("document").guid;

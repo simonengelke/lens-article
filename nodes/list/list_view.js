@@ -1,6 +1,8 @@
 "use strict";
 
-var NodeView = require('../node').View;
+var NodeView = require("../node").View;
+var $$ = require("substance-application").$$;
+
 
 // Substance.Heading.View
 // ==========================================================================
@@ -37,24 +39,29 @@ ListView.Prototype = function() {
     this.itemViews = [];
     this.content.innerHTML = "";
 
+    var list = $$('ul');
     var items = this.node.items;
 
     for (i = 0; i < items.length; i++) {
       var item = items[i];
 
-      var listItem = document.createElement("DIV");
-      listItem.classList.add("listitem");
+      // var listItem = document.createElement("DIV");
+      // listItem.classList.add("listitem");
+
+      var listItem = $$('li');
 
       var itemView = this.viewFactory.createView(item);
       listItem.appendChild(itemView.render().el);
       this.itemViews.push(itemView);
 
-      var bullet = document.createElement("DIV");
-      bullet.classList.add("bullet");
+      // var bullet = document.createElement("DIV");
+      // bullet.classList.add("bullet");
 
-      listItem.appendChild(bullet);
-      this.content.appendChild(listItem);
+      // listItem.appendChild(bullet);
+      list.appendChild(listItem);
     }
+
+    this.content.appendChild(list);
 
     return this;
   };

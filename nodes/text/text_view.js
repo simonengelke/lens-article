@@ -1,6 +1,7 @@
 var NodeView = require('../node').View;
 var Document = require("substance-document");
 var Annotator = Document.Annotator;
+var $$ = require("substance-application").$$;
 
 // Substance.Text.View
 // -----------------
@@ -150,15 +151,24 @@ TextView.Prototype = function() {
     return range;
   };
 
-  var createAnnotationElement = function(entry) {
-    var el = document.createElement("SPAN");
-    el.classList.add("annotation");
-    el.classList.add(entry.type);
-    el.setAttribute("id", entry.id);
+  this.createAnnotationElement = function(entry) {
+    var el;
+    if (entry.type === "link") {
+      el = $$('a.annotation.'+entry.type, {
+        id: entry.id,
+        href: this.node.document.get(entry.id).url // "http://zive.at"
+      });
+    } else {
+      el = $$('span.annotation.'+entry.type, {
+        id: entry.id
+      });
+    }
+
     return el;
   };
 
   this.renderAnnotations = function(annotations) {
+    var that = this;
     var text = this.node.content;
     var fragment = document.createDocumentFragment();
 
@@ -170,7 +180,7 @@ TextView.Prototype = function() {
     };
 
     fragmenter.onEnter = function(entry, parentContext) {
-      var el = createAnnotationElement(entry);
+      var el = that.createAnnotationElement(entry);
       parentContext.appendChild(el);
       return el;
     };

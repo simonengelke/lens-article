@@ -300,12 +300,17 @@ span.annotation.formula_reference, span.publication_reference {
 .content-node .idea { background-color: rgba(102, 182, 32, 0.3); }
 .content-node .question { background-color: rgba(16, 167, 222, 0.3); }
 .content-node .error { background-color: rgba(237, 96, 48, 0.3); }
-.content-node .link { color: #DC4A1D; text-decoration: underline;}
+
+.content-node .link { color: #1B6685; font-weight: bold; }
+.content-node .link:hover, .content-node .link.active { color: rgba(11, 157, 217, 1); }
 
 /* Inline Code Annotations */
 
 .content-node .code {
-  font-family: Consolas, "Liberation Mono", Courier, monospace; background: #eee; font-size: 15px
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  background: #eee;
+  font-size: 13px;
+  padding: 2px 3px;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
@@ -325,7 +330,6 @@ span.annotation.formula_reference, span.publication_reference {
 /* Em, Strong, Link */
 
 .content-node .emphasis { font-style: italic; }
-.content-node .link { background-color: #00CFEA; }
 .content-node .strong { font-weight: bold; }
 
 
