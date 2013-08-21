@@ -21,7 +21,7 @@
 .document .content-node .focus i {
   padding-top: 15px;
   display: block;
-  font-size: 18px;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -44,8 +44,18 @@
   color: rgba(11, 157, 217, 1);
 }
 
-.document .content-node .focus-mode.node:hover, .document .content-node .focus-mode.node.active {
+.document .content-node .focus-mode.node:hover, .article .content-node.active .focus-mode.node {
   color: black;
+}
+
+/* Override anchor toggle in figures mode */
+.article.figures .content-node.active .focus-mode.node {
+  color: rgba(145, 187, 4, 1.0);
+}
+
+/* Override anchor toggle in citations mode */
+.article.citations .content-node.active .focus-mode.node {
+  color: rgba(11, 157, 217, 1);
 }
 
 .article.figure .content-node.active .focus-mode.figure {
