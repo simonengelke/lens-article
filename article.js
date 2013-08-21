@@ -190,6 +190,24 @@ Article.annotations = {
     "parent": "annotation"
   },
 
+  "subscript": {
+    "properties": {
+    },
+    "parent": "annotation"
+  },
+
+  "superscript": {
+    "properties": {
+    },
+    "parent": "annotation"
+  },
+
+  "underline": {
+    "properties": {
+    },
+    "parent": "annotation"
+  },
+
   "code": {
     "parent": "annotation",
     "properties": {

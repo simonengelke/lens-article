@@ -329,11 +329,11 @@ span.annotation.formula_reference, span.publication_reference {
   padding-left: 3px; padding-right: 3px;
 }
 
-.article span.emphasis, #document em {
+.article span.emphasis, .article em {
   font-style: italic;
 }
 
-.article span.superscript, #document span.subscript, .article sup, #document sub {
+.article span.superscript, .article span.subscript, .article sup, .article sub {
   vertical-align: baseline;
   position: relative;
   top: -0.4em;
