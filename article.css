@@ -81,10 +81,30 @@
   background: rgba(0,0,0,0.05);
 }
 
-.article .context-toggles .context-toggle.active {
+/*Active states depend on the global reader context */
+
+.article.figures .context-toggles .context-toggle.figures {
   color: rgba(255,255,255,0.9);
   background: #5c6570;
 }
+
+.article.citations .context-toggles .context-toggle.citations {
+  color: rgba(255,255,255,0.9);
+  background: #5c6570;
+}
+
+.article.toc .context-toggles .context-toggle.toc {
+  color: rgba(255,255,255,0.9);
+  background: #5c6570;
+}
+
+.article.info .context-toggles .context-toggle.info {
+  color: rgba(255,255,255,0.9);
+  background: #5c6570;
+}
+
+
+
 
 
 /* Resources Panel 
@@ -151,7 +171,6 @@
 
 .article .resources .content-node .resource-header .reference-count {
   opacity: 0.6;
-  /*color: rgba(255,255, 255, 0.7);*/
 }
 
 .article .resources .content-node .type {
@@ -198,6 +217,10 @@
   background: rgba(11, 157, 217, 1);
 }
 
+
+/* Figures View
+----------------------------------------------------------------------- */
+
 .article .resources .surface.figures {
   display: none;
   top: 0px;
@@ -208,6 +231,13 @@
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
+
+.article.figures .resources .resource-view.figures {
+  display: block;
+}
+
+/* Citations View
+----------------------------------------------------------------------- */
 
 .article .resources .surface.citations {
   display: none;
@@ -221,12 +251,38 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.article .resources .surface.figures.active {
-  display: block
+.article.citations .resources .resource-view.citations {
+  display: block;
 }
 
-.article .resources .surface.citations.active {
-  display: block
+
+/* TOC View
+----------------------------------------------------------------------- */
+
+.resource-view.toc {
+  display: none;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-top: 50px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.article.toc .resources .resource-view.toc {
+  display: block;
+}
+
+
+/* Info View
+----------------------------------------------------------------------- */
+
+
+.article.info .resources .resource-view.info {
+  display: block;
 }
 
 
@@ -349,15 +405,24 @@ span.annotation.formula_reference, span.publication_reference {
   cursor: pointer;
 }
 
+.content-node .cross_reference {
+  background: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
 
-.content-node .figure_reference.active { background-color: rgba(145, 187, 4, 0.35); }
-.content-node .citation_reference.active { background-color: rgba(11, 157, 217, 0.30); }
+/* Hover states */
+.content-node .figure_reference:hover { background-color: rgba(145, 187, 4, 0.35); }
+.content-node .citation_reference:hover { background-color: rgba(11, 157, 217, 0.30); }
 
-.content-node .figure_reference.selected { background: rgba(145, 187, 4, 0.7); }
-.content-node .citation_reference.selected { background: rgba(11, 157, 217, 0.6); }
+.content-node .figure_reference.active { background: rgba(145, 187, 4, 0.7); }
+.content-node .citation_reference.active { background: rgba(11, 157, 217, 0.6); }
 
 /* Cross Reference */
+.content-node .cross_reference:hover {
+  background-color: rgba(0, 0, 0, 0.10);
+}
 
-.content-node .cross_reference { color: #1B6685; cursor: pointer; }
+/*.content-node .cross_reference { color: #1B6685; cursor: pointer; }
 .content-node .cross_reference.active { color: rgba(11, 157, 217, 1); cursor: pointer; }
-
+*/
