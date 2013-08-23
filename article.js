@@ -291,6 +291,26 @@ Article.types = {
     }
   },
 
+  "institution": {
+    "properties": {
+    }
+  },
+
+  "email": {
+    "properties": {
+    }
+  },
+
+  "funding": {
+    "properties": {
+    }
+  },
+
+  "caption": {
+    "properties": {
+    }
+  },
+
   // Abstract Citation Type
   // --------
 
