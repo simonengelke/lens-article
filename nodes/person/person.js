@@ -15,7 +15,7 @@ var Person = function(node, doc) {
 //
 
 Person.type = {
-  "id": "video",
+  "id": "person",
   "parent": "content",
   "properties": {
     "name": "string", // full author name

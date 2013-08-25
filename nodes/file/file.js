@@ -15,7 +15,7 @@ var File = function(node) {
 //
 
 File.type = {
-  "id": "table",
+  "id": "file",
   "parent": "content",
   "properties": {
     "name": "string",
