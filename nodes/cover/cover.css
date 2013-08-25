@@ -4,6 +4,10 @@
   color: white;
 }
 
+.content-node.cover .content {
+  background: #5c6570;
+}
+
 .content-node.cover .title {
   font-family: 'Avenir LT W01 85 Heavy', 'Montserrat', 'Source Sans Pro';
   line-height: 1.3em;

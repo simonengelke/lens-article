@@ -328,6 +328,7 @@ Article.types = {
       "guid": "string",
       "creator": "string",
       "title": "string",
+      "authors": ["array", "person"],
       "abstract": "string"
     }
   },
@@ -444,6 +445,18 @@ Object.defineProperties(Article.prototype, {
   creator: {
     get: function () {
       return this.get("document").creator;
+    }
+  },
+  authors: {
+    get: function () {
+      var docNode = this.get("document");
+      if (docNode.authors) {
+        return _.map(docNode.authors, function(personId) {
+          return this.get(personId);
+        }, this);
+      } else {
+        return "";
+      }
     }
   },
   created_at: {

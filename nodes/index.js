@@ -1,6 +1,7 @@
 "use strict";
 
 module.exports = {
+  "cover": require("./cover"),
   "paragraph": require("./paragraph"),
   "heading": require("./heading"),
   "image": require("./image"),

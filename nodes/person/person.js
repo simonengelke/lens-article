@@ -9,6 +9,7 @@ var Person = function(node, doc) {
   Node.call(this, node, doc);
 };
 
+
 // Type definition
 // -----------------
 //
@@ -17,7 +18,11 @@ Person.type = {
   "id": "video",
   "parent": "content",
   "properties": {
-    "name": "string",
+    "name": "string", // full author name
+    "affiliations": ["array", "institution"],
+    "image": "string", // optional
+    "emails": ["array", "string"],
+    "contribution": "string"
   }
 };
 
@@ -68,6 +73,8 @@ _.each(Person.type.properties, function(prop, key) {
     }
   };
 });
+
+Object.defineProperties(Person.prototype, getters);
 
 
 module.exports = Person;
