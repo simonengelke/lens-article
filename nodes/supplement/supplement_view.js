@@ -35,15 +35,18 @@ SupplementView.Prototype = function() {
     var caption = $$('.caption', {text: node.caption.content});
     this.content.appendChild(caption);
 
-    if (node.doi) {
-      var doi = $$('.doi', {
-        children: [
-          $$('b', {text: "DOI: " }),
-          $$('a', {href: node.doi, target: "_new", text: node.doi})
-        ]
-      });
-      this.content.appendChild(doi);
+    if (node.files) {
+      var files = $$('.files', {
+          children: _.map(node.files, function(file) {
+              var f = [];
+              if(file.url) f.push($$('a', {href: file.url, text: file.name}));
+              if(file.description) f.push($$('div.description', {text: file.description}));
+              if(file.doi) f.push($$('div.doi', { children: [ $$('b', {text: "DOI: " }), $$('a', {href: file.doi, target: "_new", text: file.doi}) ]}));
+              return $$('.file', {children: f});
+            })
+        });
     }
+    this.content.appendChild(files);
     return this;
   }
 };
