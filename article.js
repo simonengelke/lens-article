@@ -289,10 +289,10 @@ Article.types = {
     }
   },
 
-  "file": {
-    "properties": {
-    }
-  },
+  // "file": {
+  //   "properties": {
+  //   }
+  // },
 
   "institution": {
     "properties": {
@@ -384,8 +384,6 @@ Article.describe = function() {
     // Create a heading for each node type
     var headingId = "heading_"+nodeType.type.id;
 
-    console.log(headingId);
-
     doc.create({
       id: headingId,
       type: "heading",
@@ -396,6 +394,7 @@ Article.describe = function() {
     // Turn remarks and description into an introduction paragraph
     var introText = nodeType.description.remarks.join(' ');
     var introId = "paragraph_"+nodeType.type.id+"_intro";
+
     doc.create({
       id: introId,
       type: "paragraph",
@@ -423,7 +422,6 @@ Article.describe = function() {
     });
 
     doc.show("content", [headingId+"_example", headingId+"_example_codeblock"], -1);
-
 
   });
   return doc.toJSON();
