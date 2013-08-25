@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var Node = require('../node');
 
+
 // Lens.Cover
 // -----------------
 //

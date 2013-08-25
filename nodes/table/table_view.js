@@ -18,7 +18,6 @@ var TableView = function(node) {
 
 TableView.Prototype = function() {
 
-
   //   <% if (node.url) { %>
   //     <div class="table-image">
   //       <a href="<%= node.large_url %>" target="_new"><img class="thumbnail" src="<%= node.url %>"/></a>
@@ -39,9 +38,26 @@ TableView.Prototype = function() {
   //   <% } %>
   // </div>
 
+  // .content
+  //   .table-wrapper
+  //     <table>...
+  //   .footers
+  //   .title 
+  //   .caption
+  //   .doi
+
   this.render = function() {
+    var node = this.node;
     NodeView.prototype.render.call(this);
-    this.content.appendChild($$('.not-yet-implemented', {text: "This node type has not yet been implemented. "}));
+
+    var tableWrapper = $$('.table-wrapper', {
+      html: node.content // HTML table content
+    });
+
+    this.content.appendChild(tableWrapper);
+    // this.content
+
+    // this.content.appendChild($$('.not-yet-implemented', {text: "This node type has not yet been implemented. "}));
     return this;
   }
 };

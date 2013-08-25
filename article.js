@@ -141,8 +141,6 @@ Article.Renderer.Prototype = function() {
 Article.Renderer.prototype = new Article.Renderer.Prototype();
 
 
-
-
 Article.Prototype = function() {
   this.fromSnapshot = function(data, options) {
     return Article.fromSnapshot(data, options);
@@ -287,6 +285,11 @@ Article.types = {
   // --------
 
   "figure": {
+    "properties": {
+    }
+  },
+
+  "file": {
     "properties": {
     }
   },

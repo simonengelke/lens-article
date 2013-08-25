@@ -13,49 +13,44 @@ var SupplementView = function(node) {
   NodeView.call(this, node);
 
   this.$el.attr({id: node.id});
-  this.$el.addClass("content-node Supplement");
+  this.$el.addClass("content-node supplement");
 };
 
 SupplementView.Prototype = function() {
-
-
-  
-  // <script type="text/x-ejs-template" name="node_supplement">
-  //   <div id="node_<%= _.htmlId(node.id) %>" class="content-node resource figure supplement">
-  //     <div class="resource-header">
-  //       <% var refs = doc.find("reverse_figure_references", node.id) || []; %>
-  //       <div class="reference-count">mentioned <%= refs.length > 1 ? refs.length +" times" : "once" %></div>
-  //       <div class="type figure supplement"><i class="icon-paper-clip"></i> Supplement</div>
-  //       <div class="name"><%= node.label %></div>
-  //     </div>
-  //     <div class="title"><%= annotate(node.caption, 'title') %></div>
-  //     <div class="descr"><%= annotate(node.caption, 'content') %></div>
-  //     <% if (node.doi) { %>
-  //       <div class="doi"><b>DOI:</b> <a href="<%= node.doi %>" target="_new"><%= node.doi %></a></div>
-  //     <% } %>
-  //   </div>
-  // </script>
 
   // Render it
   // --------
   // 
   // .content
-  //   video
-  //     source
-  //   .title
   //   .caption
   //   .doi
+  //   .files
+  //     .file.file-1
+  //     .file.file-2
 
   this.render = function() {
+    var node = this.node;
     NodeView.prototype.render.call(this);
 
-    this.content.innerHTML = 'SUPPLEMENT_NODE_NOT_YET_IMPLEMENTED';
+    // this.content.appendChild($$(''))
+    var caption = $$('.caption', {text: node.caption.content});
+    this.content.appendChild(caption);
 
+    if (node.doi) {
+      var caption = $$('.doi', {
+        children: [
+          $$('b', {text: "DOI: " }),
+          $$('a', {href: node.doi, target: "_new", text: node.doi})
+        ]
+      });
+      this.content.appendChild(caption);
+    }
     return this;
   }
 };
 
 SupplementView.Prototype.prototype = NodeView.prototype;
 SupplementView.prototype = new SupplementView.Prototype();
+SupplementView.prototype.constructor = SupplementView;
 
 module.exports = SupplementView;

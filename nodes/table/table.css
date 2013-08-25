@@ -1,13 +1,12 @@
 /* Table */ 
 
-.article .resources .table-wrapper {
+.article .resources .content-node.table .table-wrapper {
   width: 100%;
   overflow: auto;
 }
 
 .article .resources table {
   position: relative;
-  
   border-collapse: collapse;
   border-spacing: 0;
   margin-bottom: 20px;
