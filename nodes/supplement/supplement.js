@@ -111,6 +111,21 @@ getters["caption"] = {
   }
 };
 
+// Get files nodes
+// --------
+
+getters["files"] = {
+    get: function() {
+        if (this.properties.files) {
+            return _.map(this.properties.files, function(fileId) {
+                    return this.document.get(fileId);
+                }, this);
+        } else {
+            return [];
+        }
+    }
+};   
+
 Object.defineProperties(Supplement.prototype, getters);
 
 
