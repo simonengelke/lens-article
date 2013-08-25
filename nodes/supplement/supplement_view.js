@@ -32,18 +32,17 @@ SupplementView.Prototype = function() {
     var node = this.node;
     NodeView.prototype.render.call(this);
 
-    // this.content.appendChild($$(''))
     var caption = $$('.caption', {text: node.caption.content});
     this.content.appendChild(caption);
 
     if (node.doi) {
-      var caption = $$('.doi', {
+      var doi = $$('.doi', {
         children: [
           $$('b', {text: "DOI: " }),
           $$('a', {href: node.doi, target: "_new", text: node.doi})
         ]
       });
-      this.content.appendChild(caption);
+      this.content.appendChild(doi);
     }
     return this;
   }

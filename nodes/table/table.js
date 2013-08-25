@@ -9,6 +9,7 @@ var Table = function(node) {
   Node.call(this, node);
 };
 
+
 // Type definition
 // -----------------
 //
@@ -45,7 +46,6 @@ Table.description = {
     "caption": "A paragraph id that has the caption"
   }
 };
-
 
 
 // Example Table

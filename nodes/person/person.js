@@ -26,7 +26,6 @@ Person.type = {
   }
 };
 
-
 // This is used for the auto-generated docs
 // -----------------
 //

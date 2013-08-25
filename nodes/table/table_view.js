@@ -50,12 +50,28 @@ TableView.Prototype = function() {
     var node = this.node;
     NodeView.prototype.render.call(this);
 
+    // The actual content
+    // --------
+    // 
+
     var tableWrapper = $$('.table-wrapper', {
       html: node.content // HTML table content
     });
 
     this.content.appendChild(tableWrapper);
-    // this.content
+
+    // Display footers (optional)
+    // --------
+    // 
+
+    var footers = $$('.footers', {
+      children: _.map(node.footers, function(footer) {
+        return $$('.footer', { html: "<b>"+footer.label+"</b> " + footer.content });
+      })
+    });
+    
+    this.content.appendChild(footers);
+
 
     // this.content.appendChild($$('.not-yet-implemented', {text: "This node type has not yet been implemented. "}));
     return this;
