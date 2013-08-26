@@ -223,6 +223,7 @@
 
 .article .resources .surface.figures {
   display: none;
+  position: absolute;
   top: 0px;
   bottom: 0px;
   left: 0px;
