@@ -25,29 +25,6 @@ Supplement.type = {
 };
 
 
-// "supplement:SD1_data": {
-//   "type": "supplement",
-//   "id": "supplement:SD1_data",
-//   "label": "Supplementary file 1.",
-//   "doi": "http://dx.doi.org/10.7554/eLife.00868.023",
-//   "caption": "caption:406",
-//   "graphic_id": "elife00868s001.xlsx"
-// },
-// "caption:406": {
-//   "type": "caption",
-//   "id": "caption:406",
-//   "content": "(A) Strains used in this study. (B) Primers used in this study. (C) Plasmids used in this study and their mode of construction. ",
-//   "source": "supplement:SD1_data"
-// },
-
-// {
-//   "url": "/journals/virulence/2013VIRULENCE0013R-Sup.pdf",
-//   "type": "pdf",
-//   "size": "2M",
-//   "name": 1
-// },
-
-
 // This is used for the auto-generated docs
 // -----------------
 //
@@ -70,6 +47,7 @@ Supplement.example = {
   "id": "supplement_1",
   "type": "supplement",
   "label": "Supplementary file 1.",
+  "files": ["file_1", "file_2"]
   "doi": "http://dx.doi.org/10.7554/eLife.00868.023",
   "caption": "paragraph_caption_supplement_1"
 };

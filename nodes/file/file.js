@@ -36,7 +36,7 @@ File.description = {
   "name": "File",
   "remarks": [
     "A file reference to an external resource.",
-    "Files are currently only used in conjunction with supplment nodes."
+    "Files are currently only used in conjunction with supplement nodes."
   ],
   "properties": {
     "name": "The file name",
