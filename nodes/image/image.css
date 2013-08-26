@@ -1,7 +1,10 @@
 /* Image Node
 -------------------------------------------------------------------------------*/
 
-.content-node.image { }
+.content-node.image { 
+  padding: 20px 60px;
+  padding-left: 100px;
+}
 
 
 .content-node.image .content {
