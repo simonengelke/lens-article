@@ -96,6 +96,11 @@ _.each(Video.type.properties, function(prop, key) {
 
 
 Object.defineProperties(Video.prototype, _.extend(getters, {
+  header: {
+    get: function() {
+      return this.properties.label;
+    }
+  },
   caption: {
     get: function() {
       // HACK: this is not yet a real solution

@@ -89,6 +89,15 @@ getters["caption"] = {
   }
 };
 
+// Get the header for resource header display
+// --------
+
+getters["header"] = {
+  get: function() {
+    return this.properties.label;
+  }
+};
+
 // Get files nodes
 // --------
 

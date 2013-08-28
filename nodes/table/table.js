@@ -79,7 +79,13 @@ Table.prototype.constructor = Table;
 // Generate getters
 // --------
 
-var getters = {};
+var getters = {
+  header: {
+    get: function() {
+      return this.properties.label;
+    }
+  }
+};
 
 _.each(Table.type.properties, function(prop, key) {
   getters[key] = {

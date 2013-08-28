@@ -10,8 +10,8 @@ module.exports = {
   "supplement": require("./supplement"),
   "video": require("./video"),
   "person": require("./person"),
-  "citation": require("./citation"),
-  "article_citation": require("./citation/article_citation"),
+  "mixed_citation": require("./mixed_citation"),
+  "article_citation": require("./article_citation"),
   "formula": require('./formula'),
   "list": require("./list"),
   "codeblock": require("./codeblock")

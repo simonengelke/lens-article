@@ -18,14 +18,14 @@ var $$ = require("substance-application").$$;
 // Substance.Paragraph.View
 // ==========================================================================
 
-var CitationView = function(node) {
+var MixedCitationView = function(node) {
   NodeView.call(this, node);
 
   this.$el.attr({id: node.id});
-  this.$el.addClass('content-node citation');
+  this.$el.addClass('content-node mixed-citation');
 };
 
-CitationView.Prototype = function() {
+MixedCitationView.Prototype = function() {
 
   this.render = function() {
     NodeView.prototype.render.call(this);
@@ -34,7 +34,7 @@ CitationView.Prototype = function() {
   }
 };
 
-CitationView.Prototype.prototype = NodeView.prototype;
-CitationView.prototype = new CitationView.Prototype();
+MixedCitationView.Prototype.prototype = NodeView.prototype;
+MixedCitationView.prototype = new MixedCitationView.Prototype();
 
-module.exports = CitationView;
+module.exports = MixedCitationView;

@@ -102,6 +102,11 @@ Image.prototype = new Image.Prototype();
 Image.prototype.constructor = Image;
 
 Object.defineProperties(Image.prototype, {
+  
+  // Used as a resource header
+  header: {
+    get: function() { return this.properties.label; }
+  },
   label: {
     get: function() { return this.properties.label; }
   },

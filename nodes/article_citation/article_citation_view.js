@@ -3,7 +3,9 @@
 var _ = require('underscore');
 var util = require('substance-util');
 var html = util.html;
-var CitationView = require('../citation_view');
+// var CitationView = require('../citation_view');
+var NodeView = require("../node").View;
+
 var $$ = require("substance-application").$$;
 
 
@@ -57,7 +59,7 @@ var Renderer = function(view) {
 
 
 var ArticleCitationView = function(node) {
-  CitationView.call(this, node);
+  NodeView.call(this, node);
 
   this.$el.attr({id: node.id});
   this.$el.addClass('article-citation');
@@ -67,14 +69,15 @@ var ArticleCitationView = function(node) {
 ArticleCitationView.Prototype = function() {
 
   this.render = function() {
-    CitationView.prototype.render.call(this);
+    NodeView.prototype.render.call(this);
     this.content.appendChild(new Renderer(this));
     return this;
   };
 
 };
 
-ArticleCitationView.Prototype.prototype = CitationView.prototype;
+ArticleCitationView.Prototype.prototype = NodeView.prototype;
 ArticleCitationView.prototype = new ArticleCitationView.Prototype();
+ArticleCitationView.prototype.constructor = ArticleCitationView;
 
 module.exports = ArticleCitationView;

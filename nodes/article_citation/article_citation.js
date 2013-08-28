@@ -1,13 +1,14 @@
 var _ = require('underscore');
-var Citation = require('../citation');
 
+
+var Node = require('../node');
 
 // Lens.ArticleCitation
 // -----------------
 //
 
 var ArticleCitation = function(node) {
-  Citation.call(this, node);
+  Node.call(this, node);
 };
 
 // Type definition
@@ -19,6 +20,7 @@ ArticleCitation.type = {
   "parent": "content",
   "properties": {
     "title": "string",
+    "label": "string",
     "authors": ["array", "string"],
     "doi": "string",
     "source": "string",
@@ -28,7 +30,6 @@ ArticleCitation.type = {
     "citation_urls": ["array", "string"]
   }
 };
-
 
 // This is used for the auto-generated docs
 // -----------------
@@ -42,6 +43,7 @@ ArticleCitation.description = {
   ],
   "properties": {
     "title": "The article's title",
+    "label": "Optional label (could be a number for instance)",
     "doi": "DOI reference",
     "source": "Usually the journal name",
     "volume": "Issue number",
@@ -59,6 +61,7 @@ ArticleCitation.description = {
 ArticleCitation.example = {
   "id": "article_nature08160",
   "type": "article_citation",
+  "label": "5",
   "title": "The genome of the blood fluke Schistosoma mansoni",
   "authors": [
     "M Berriman",
@@ -86,7 +89,7 @@ ArticleCitation.Prototype = function() {
   };
 };
 
-ArticleCitation.Prototype.prototype = Citation.prototype;
+ArticleCitation.Prototype.prototype = Node.prototype;
 ArticleCitation.prototype = new ArticleCitation.Prototype();
 ArticleCitation.prototype.constructor = ArticleCitation;
 
@@ -95,9 +98,9 @@ ArticleCitation.prototype.constructor = ArticleCitation;
 // --------
 
 var getters = {
-  title: {
+  header: {
     get: function() {
-      return this.properties.description;
+      return this.properties.title;
     }
   },
 };
@@ -111,6 +114,5 @@ _.each(ArticleCitation.type.properties, function(prop, key) {
 });
 
 Object.defineProperties(ArticleCitation.prototype, getters);
-
 
 module.exports = ArticleCitation;
