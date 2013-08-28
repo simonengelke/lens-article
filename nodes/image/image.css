@@ -8,26 +8,19 @@
 
 
 .content-node.image .content {
+  text-align: center;
   padding: 0px;
 }
 
 .content-node.image div.image-char {
   text-align: center;
+  padding-bottom: 20px;
   /*width: 100%;*/
 }
 
 .content-node.image div.image-char img {
   
 }
-
-/*.content-node.image div.selected .overlay {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  background: rgba(0,169, 255, 0.25);
-}*/
 
 .content-node.image > .content {
   background: #fff;
@@ -38,6 +31,26 @@
   background: #fff;
 }
 
-.content-node.image div img {
+.content-node.image div img.medium {
   width: 100%;
+}
+
+.content-node.image div img.large {
+  display: none;
+}
+
+/* Full screen Mode */
+
+.content-node.image.fullscreen div img.medium {
+  display: none;
+}
+
+.content-node.image.fullscreen div img.large {
+  max-width: 100%;
+  display: block;
+}
+
+.content-node.image.fullscreen .paragraph .content {
+  padding: 20px 50px;
+  background: #fff;
 }

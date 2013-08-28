@@ -38,7 +38,7 @@ CoverView.Prototype = function() {
     var authors = $$('.authors', {
       children: _.map(node.authors, function(a) {
         return $$('a.author', {
-          href: "#",
+          // href: "#",
           id: a.id,
           text: a.name
         });

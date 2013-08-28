@@ -29,6 +29,10 @@ Video.type = {
 };
 
 
+Video.config = {
+  "zoomable": true
+};
+
 // This is used for the auto-generated docs
 // -----------------
 //

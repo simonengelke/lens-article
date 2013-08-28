@@ -20,6 +20,10 @@ Image.type = {
   }
 };
 
+Image.config = {
+  "zoomable": true
+};
+
 Image.description = {
   "name": "Image",
   "description": "An image",

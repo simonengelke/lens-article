@@ -64,12 +64,16 @@ VideoView.Prototype = function() {
       }));
     }
 
-    var video = $$('video', {
-      controls: "controls",
-      poster: node.poster,
-      preload: "none",
-      // style: "background-color: black",
-      children: sources
+    var video = $$('.video-wrapper', {
+      children: [
+        $$('video', {
+          controls: "controls",
+          poster: node.poster,
+          preload: "none",
+          // style: "background-color: black",
+          children: sources
+        })
+      ]
     });
 
     this.content.appendChild(video);

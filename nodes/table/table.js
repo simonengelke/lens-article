@@ -27,6 +27,10 @@ Table.type = {
   }
 };
 
+Table.config = {
+  "zoomable": true
+};
+
 
 // This is used for the auto-generated docs
 // -----------------

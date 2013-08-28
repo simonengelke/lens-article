@@ -1,6 +1,8 @@
 "use strict";
 
 var NodeView = require("../node").View;
+var $$ = require("substance-application").$$;
+
 
 // Substance.Image.View
 // ==========================================================================
@@ -28,22 +30,34 @@ ImageView.Prototype = function() {
   //     .img
 
   this.render = function() {
-
     NodeView.prototype.render.call(this);
 
     if (this.captionView) {
       this.captionView.dispose();
     }
 
-    var imgChar = document.createElement('div');
-    imgChar.className = 'image-char';
+    var imgChar = $$('.image-char');
+    // document.createElement('div');
+    // imgChar.className = 'image-char';
     this._imgChar = imgChar;
 
-    var img = document.createElement('img');
-    img.src = this.node.url || this.node.medium;
-    img.alt = "alt text";
-    img.title = "alt text";
-    imgChar.appendChild(img);
+    // The thumbnail (medium image)
+    var mediumImage = $$('img.medium', {
+      src: this.node.url || this.node.medium,
+      alt: this.node.title,
+      title: this.node.title
+    });
+
+    imgChar.appendChild(mediumImage);
+
+    // The large image
+    var largeImage = $$('img.large', {
+      src: this.node.large_url || this.node.large,
+      alt: this.node.title,
+      title: this.node.title
+    });
+
+    imgChar.appendChild(largeImage);
 
     this.content.appendChild(imgChar);
 
@@ -54,7 +68,7 @@ ImageView.Prototype = function() {
       this.captionView = caption;
     }
 
-    this._imgPos = _indexOf.call(imgChar.childNodes, img);
+    // this._imgPos = _indexOf.call(imgChar.childNodes, img);
 
     return this;
   };

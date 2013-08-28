@@ -17,6 +17,9 @@ Codeblock.type = {
   }
 };
 
+Codeblock.config = {
+  "zoomable": true
+};
 
 // This is used for the auto-generated docs
 // -----------------
@@ -37,7 +40,7 @@ Codeblock.description = {
 // -----------------
 //
 
-Codeblock.example = {   
+Codeblock.example = {
   "type": "codeblock",
   "id": "codeblock_1",
   "content": "var text = \"Sun\";\nvar op1 = Operator.TextOperation.Delete(2, \"n\");\ntext = op2.apply(op1.apply(text));\nconsole.log(text);",
@@ -46,10 +49,8 @@ Codeblock.example = {
 
 Codeblock.Prototype = function() {};
 
-
 Codeblock.Prototype.prototype = Text.prototype;
 Codeblock.prototype = new Codeblock.Prototype();
 Codeblock.prototype.constructor = Codeblock;
-
 
 module.exports = Codeblock;

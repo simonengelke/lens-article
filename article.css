@@ -106,9 +106,12 @@
 
 
 
-
 /* Resources Panel 
 ======================================================================= */
+
+
+
+
 
 
 .article .resources {
@@ -144,8 +147,8 @@
 
 .article .resources .content-node .resource-header {
   min-height: 80px;
-  background: rgba(0,0,0,0.02);
-  cursor: pointer;
+  /*background: rgba(0,0,0,0.02);*/
+  
   position: relative;
 }
 
@@ -153,7 +156,7 @@
 ----------------------------------------------------------------------- */
 
 /* Active resource */
-.article .resources .content-node.resource.active .resource-header .name {
+.article .resources .content-node.active .resource-header .name {
   color: #fff;
 }
 
@@ -170,10 +173,14 @@
 }
 
 .article .resources .content-node .resource-header .reference-count {
+  display: none;
   opacity: 0.6;
 }
 
+
+
 .article .resources .content-node .type {
+  display: none;
   position: absolute;
   right: 10px;
   top: 0px;
@@ -256,7 +263,6 @@
   display: block;
 }
 
-
 /* TOC View
 ----------------------------------------------------------------------- */
 
@@ -281,28 +287,25 @@
 /* Info View
 ----------------------------------------------------------------------- */
 
-
 .article.info .resources .resource-view.info {
   display: block;
 }
-
 
 
 /* Consistent Resource Header for figures captions and person cards 
 ----------------------------------------------------------------------- */
 
 .article .resources .resource-header .name {
+  display: block;
+  color: #444;
   font-family: 'Avenir LT W01 85 Medium', 'Montserrat', 'Source Sans Pro';
   font-size: 16px;
-  margin-right: 120px;
+  /*margin-right: 80px;*/
   line-height: 21px;
   padding: 10px 20px;
+  padding-bottom: 50px;
 }
 
-.article .resources .resources-header a {
-  font-weight: bold;
-  color: black;
-}
 
 .article .resources .content-node .reference-count {
   font-size: 13px;
@@ -311,6 +314,82 @@
   top: 40px;
   text-align: right;
 }
+
+
+/* Resource Fullscreen Mode 
+======================================================================= */
+
+
+/* Styles for fullscreen toggle on resource cards */
+
+.article .resources .content-node .resource-header .toggle-fullscreen {
+  /*background: rgba(0,0,0,0.05);*/
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-size: 30px;
+  bottom: 0px;
+  text-align: center;
+  line-height: 81px;
+  color: rgba(0,0,0, 0.2);
+  width: 81px;
+}
+
+.article .resources .content-node .resource-header .toggle-fullscreen:hover {
+  color: rgba(0,0,0, 0.5);
+}
+
+/* Active state adjustments */
+
+.article .resources .content-node.active .resource-header .toggle-fullscreen {
+  color: rgba(255,255,255, 0.5);
+}
+
+.article .resources .content-node.active .resource-header .toggle-fullscreen:hover {
+  color: rgba(255,255,255, 1);
+}
+
+
+/* Hide resize small icon by default */
+#container .article .content-node .icon-resize-small {
+  display: none;
+}
+
+#container .article .content-node.fullscreen {
+  position: fixed;
+  
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  /* Override margins */
+  /*background: white;*/
+  z-index: 100000;
+
+  margin-bottom: 0px;
+  margin-right: 0px;
+  /*color: white;*/
+}
+
+#container .article .content-node.fullscreen .icon-resize-small {
+  display: inline;
+}
+
+#container .article .content-node.fullscreen .icon-resize-full {
+  display: none;
+}
+
+#container .article .content-node.fullscreen > .content {
+  position: absolute;
+  top: 80px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+  overflow: auto;
+}
+
+
 
 
 /* Annotations 
