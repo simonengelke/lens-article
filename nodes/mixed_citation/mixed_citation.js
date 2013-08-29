@@ -32,7 +32,7 @@ MixedCitation.description = {
   "name": "MixedCitation",
   "remarks": [
     "A mixed citation type that fits it all.",
-    "Use the `citation` type when you're missing structured information."
+    "Use the mixed_citation type when you're missing structured information."
   ],
   "properties": {
     "citation": "Whatever you want to show up on the citation card.",
