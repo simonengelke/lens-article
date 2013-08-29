@@ -375,8 +375,59 @@ Article.indexes = {
 // --------
 //
 
+
+var ARTICLE_DOC_SEED = {
+  "id": "lens_article",
+  "nodes": {
+    "document": {
+      "type": "document",
+      "id": "document",
+      "views": [
+        "content"
+      ],
+      "title": "The Anatomy of a Lens Article",
+      "authors": ["person_1", "person_2", "person_3"],
+      "guid": "lens_article"
+    },
+
+
+    "content": {
+      "type": "view",
+      "id": "content",
+      "nodes": [
+        "cover",
+      ]
+    },
+
+    "cover": {
+      "id": "cover",
+      "type": "cover"
+    },
+
+    "person_1": {
+      "id": "person_1",
+      "type": "person",
+      "name": "Michael Aufreiter"
+    },
+
+    "person_2": {
+      "id": "person_2",
+      "type": "person",
+      "name": "Ivan Grubisic"
+    },
+
+    "person_3": {
+      "id": "person_3",
+      "type": "person",
+      "name": "Rebecca Close"
+    }
+  }
+};
+
 Article.describe = function() {
-  var doc = new Article({id: "lens_article"});
+  var doc = new Article({seed: ARTICLE_DOC_SEED});
+
+  var id = 0;
 
   _.each(Article.nodeTypes, function(nodeType) {
     console.log('NAME', nodeType.description.name, nodeType.type.id);
@@ -404,15 +455,64 @@ Article.describe = function() {
     // Show it in the content view
     doc.show("content", [headingId, introId], -1);
 
+
+    // Include property description
+    // --------
+    // 
+
+    // console.log('PROPERTY DESCRIPTIONS', nodeType.description);
+
+    doc.create({
+      id: headingId+"_properties",
+      type: "paragraph",
+      content: nodeType.description.name+ " uses the following properties:"
+    });
+
+    doc.show("content", [headingId+"_properties"], -1);
+
+    var items = [];
+
+    _.each(nodeType.description.properties, function(propertyDescr, key) {
+      
+      var listItemId = "paragraph_" + (++id);
+      doc.create({
+        id: listItemId,
+        type: "paragraph",
+        content: key +": " + propertyDescr
+      });
+
+      // Create code annotation for the propertyName
+      doc.create({
+        "id": id+"_annotation",
+        "type": "code",
+        "path": [listItemId, "content"],
+        "range":[0, key.length]
+      });
+
+      items.push(listItemId);
+    });
+
+    // Create list
+    doc.create({
+      id: headingId+"_property_list",
+      type: "list",
+      items: items,
+      ordered: false
+    });
+
+    // And show it
+    doc.show("content", [headingId+"_property_list"], -1);
+
+
     // Include example
     // --------
     //
 
     doc.create({
       id: headingId+"_example",
-      type: "heading",
-      content: "Example",
-      level: 2
+      type: "paragraph",
+      content: "Here's an example:"
+      // level: 2
     });
 
     doc.create({
