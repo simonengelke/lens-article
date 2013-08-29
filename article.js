@@ -89,9 +89,6 @@ Article.Renderer = function(doc) {
   // Collect all node views
   this.nodes = {};
 
-  // HACK (Oliver's problem)
-  this.doc.container.rebuild();
-
   // Build views
   _.each(this.doc.getNodes(), function(node) {
     this.nodes[node.id] = this.createView(node);
