@@ -14,6 +14,30 @@ Figure.type = {
   }
 };
 
+
+
+// This is used for the auto-generated docs
+// -----------------
+//
+
+Figure.description = {
+  "name": "Figure",
+  "remarks": [
+    "A figure is a figure is figure.",
+  ],
+  "properties": {
+  }
+};
+
+// Example File
+// -----------------
+//
+
+Figure.example = {
+  "no_example": "yet"
+};
+
+
 Figure.Prototype = function() {
 
   this.insertOperation = function(startChar, text) {
