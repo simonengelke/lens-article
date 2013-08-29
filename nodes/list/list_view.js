@@ -1,131 +1,65 @@
 "use strict";
 
-var NodeView = require("../node").View;
-var $$ = require("substance-application").$$;
+var CompositeView = require("../composite/composite_view");
+var List = require("substance-document").List;
 
-
-// Substance.Heading.View
+// Substance.Image.View
 // ==========================================================================
 
 var ListView = function(node, viewFactory) {
-  NodeView.call(this, node, viewFactory);
-  this.$el.addClass('list');
-
-  this.itemViews = [];
+  CompositeView.call(this, node, viewFactory);
 };
 
 ListView.Prototype = function() {
-
-  this.dispose = function() {
-    NodeView.prototype.dispose.call(this);
-
-    for (var i = 0; i < this.itemViews.length; i++) {
-      this.itemViews[i].dispose();
-    }
-  };
 
   // Rendering
   // =============================
   //
 
   this.render = function() {
-    NodeView.prototype.render.call(this);
+    this.el.innerHTML = "";
+
+    var ltype = (this.node.ordered) ? "OL" : "UL";
+    this.content = document.createElement(ltype);
+    this.content.classList.add("content");
 
     var i;
-    for (i = 0; i < this.itemViews.length; i++) {
-      this.itemViews[i].dispose();
+
+    // dispose existing children views if called multiple times
+    for (i = 0; i < this.childrenViews.length; i++) {
+      this.childrenViews[i].dispose();
     }
 
-    this.itemViews = [];
-    this.content.innerHTML = "";
+    // create children views
+    var children = this.node.getNodes();
+    for (i = 0; i < children.length; i++) {
+      var child = this.node.document.get(children[i]);
+      var childView = this.viewFactory.createView(child);
 
-    var list = $$('ul');
-    var items = this.node.items;
-
-    for (i = 0; i < items.length; i++) {
-      var item = items[i];
-
-      // var listItem = document.createElement("DIV");
-      // listItem.classList.add("listitem");
-
-      var listItem = $$('li');
-
-      var itemView = this.viewFactory.createView(item);
-      listItem.appendChild(itemView.render().el);
-      this.itemViews.push(itemView);
-
-      // var bullet = document.createElement("DIV");
-      // bullet.classList.add("bullet");
-
-      // listItem.appendChild(bullet);
-      list.appendChild(listItem);
+      var listEl;
+      if (child instanceof List) {
+        listEl = childView.render().el;
+      } else {
+        listEl = document.createElement("LI");
+        listEl.appendChild(childView.render().el);
+      }
+      this.content.appendChild(listEl);
+      this.childrenViews.push(childView);
     }
 
-    this.content.appendChild(list);
-
+    this.el.appendChild(this.content);
     return this;
   };
 
-  this.getCharPosition = function(el, offset) {
-    // find the list item element which is a parent of the given el
-    // and then compute the list global character position.
-    var current = el;
-
-    var itemPos = -1;
-    while(current && current !== this.content) {
-      if ($(current).is(".listitem")) {
-        itemPos = Array.prototype.indexOf.call(this.content.childNodes, current);
-        break;
-      }
-      current = current.parentElement;
+  this.onNodeUpdate = function(op) {
+    if (op.path[0] === this.node.id && op.path[1] === "items") {
+      this.render();
     }
-
-    // TODO: handle bullet items
-
-    if (itemPos < 0) {
-      console.error("Could not find appropriate list item");
-      return -1;
-    }
-
-    var items = this.node.items;
-    var charPos = this.itemViews[itemPos].getCharPosition(el, offset);
-    for (var i = itemPos-1; i >= 0; i--) {
-      charPos += items[i].length;
-    }
-
-    return charPos;
-  };
-
-  // Returns the corresponding DOM element position for the given character
-  // --------
-  //
-  // A DOM position is specified by a tuple of element and offset.
-  // In the case of text nodes it is a TEXT element.
-
-  this.getDOMPosition = function(charPos) {
-
-    var items = this.node.items;
-    var total = 0;
-    for (var i = 0; i < items.length; i++) {
-      var l = items[i].length;
-      if (charPos < l) {
-        return this.itemViews[i].getDOMPosition(charPos);
-      }
-      charPos -= l;
-      total += l;
-    };
-
-    console.error("Bug in ListView.getDOMPosition(). Returning last valid position.")
-
-    var last = _.last(items);
-    var lastView = _.last(this.itemViews);
-
-    return lastView.getDOMPosition(last.length);
   };
 
 };
 
-ListView.Prototype.prototype = NodeView.prototype;
+ListView.Prototype.prototype = CompositeView.prototype;
 ListView.prototype = new ListView.Prototype();
 
 module.exports = ListView;

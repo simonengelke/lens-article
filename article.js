@@ -100,7 +100,7 @@ Article.Renderer.Prototype = function() {
 
   // Create a node view
   // --------
-  // 
+  //
   // Experimental: using a factory which creates a view for a given node type
   // As we want to be able to reuse views
   // However, as the matter is still under discussion consider the solution here only as provisional.
@@ -125,18 +125,18 @@ Article.Renderer.Prototype = function() {
 
   // Render it
   // --------
-  // 
+  //
 
   this.render = function() {
     var frag = document.createDocumentFragment();
-    
+
     var docNodes = this.doc.getNodes();
     _.each(docNodes, function(n) {
       frag.appendChild(this.nodes[n.id].render().el);
     }, this);
     return frag;
-  }
-}
+  };
+};
 
 Article.Renderer.prototype = new Article.Renderer.Prototype();
 
@@ -458,7 +458,7 @@ Article.describe = function() {
 
     // Include property description
     // --------
-    // 
+    //
 
     // console.log('PROPERTY DESCRIPTIONS', nodeType.description);
 
@@ -473,7 +473,7 @@ Article.describe = function() {
     var items = [];
 
     _.each(nodeType.description.properties, function(propertyDescr, key) {
-      
+
       var listItemId = "paragraph_" + (++id);
       doc.create({
         id: listItemId,
@@ -539,13 +539,40 @@ Object.defineProperties(Article.prototype, {
     get: function () {
       return this.get("document").guid;
     },
-    set: function() {
-      throw "doc.id is immutable";
+    set: function(id) {
+      this.get("document").guid = id;
     }
   },
   creator: {
     get: function () {
       return this.get("document").creator;
+    },
+    set: function(creator) {
+      this.get("document").creator = creator;
+    }
+  },
+  created_at: {
+    get: function () {
+      return this.get("document").created_at;
+    },
+    set: function(created_at) {
+      this.get("document").created_at = created_at;
+    }
+  },
+  title: {
+    get: function () {
+      return this.get("document").title;
+    },
+    set: function(title) {
+      this.get("document").title = title;
+    }
+  },
+  abstract: {
+    get: function () {
+      return this.get("document").abstract;
+    },
+    set: function(abstract) {
+      this.get("document").abstract = abstract;
     }
   },
   authors: {
@@ -558,21 +585,10 @@ Object.defineProperties(Article.prototype, {
       } else {
         return "";
       }
-    }
-  },
-  created_at: {
-    get: function () {
-      return this.get("document").created_at;
-    }
-  },
-  title: {
-    get: function () {
-      return this.get("document").title;
-    }
-  },
-  abstract: {
-    get: function () {
-      return this.get("document").abstract;
+    },
+    set: function(val) {
+      var docNode = this.get("document");
+      docNode.authors = _.clone(val);
     }
   },
   views: {

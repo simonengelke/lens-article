@@ -34,6 +34,7 @@ Heading.example = {
 // -----------------
 //
 
+
 Heading.description = {
   "name": "Heading",
   "remarks": [
@@ -44,7 +45,6 @@ Heading.description = {
     "level": "Heading level. Ranges from 1..4"
   }
 };
-
 
 Heading.Prototype = function() {};
 
