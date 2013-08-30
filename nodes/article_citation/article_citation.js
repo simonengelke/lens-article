@@ -27,6 +27,7 @@ ArticleCitation.type = {
     "volume": "string",
     "fpage": "string",
     "lpage": "string",
+    "year": "string",
     "citation_urls": ["array", "string"]
   }
 };
@@ -49,6 +50,7 @@ ArticleCitation.description = {
     "volume": "Issue number",
     "fpage": "First page",
     "lpage": "Last page",
+    "year": "The year of publication",
     "citation_urls": "A list of links for accessing the article on the web"
   }
 };
@@ -73,6 +75,7 @@ ArticleCitation.example = {
   "volume": "460",
   "fpage": "352",
   "lpage": "8",
+  "year": "1984",
   "citation_urls": [
     "http://www.ncbi.nlm.nih.gov/pubmed/19606141"
   ]
