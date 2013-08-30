@@ -349,28 +349,6 @@ Article.types = {
   }
 };
 
-// Custom indexes
-// --------
-//
-
-Article.indexes = {
-  // All annotations are now indexed by node
-  "annotations": {
-    "type": "annotation",
-    "properties": ["node"]
-  },
-
-  // "figure_references": {
-  //   "type": "figure_reference"
-  // },
-
-  // "citation_references": {
-  //   "type": "citation_reference"
-  // }
-};
-
-
-
 // From article definitions generate a nice reference document
 // --------
 //
