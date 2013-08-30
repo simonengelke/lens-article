@@ -260,6 +260,13 @@ Article.annotations = {
     "properties": {
       "target": "content"
     }
+  },
+
+  "formula_reference": {
+    "parent": "annotation",
+    "properties": {
+      "target": "content"
+    }
   }
 
 };
