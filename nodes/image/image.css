@@ -46,7 +46,8 @@
 }
 
 .content-node.image.fullscreen div img.large {
-  max-width: 100%;
+
+  width: 100%;
   display: block;
 }
 
