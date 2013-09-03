@@ -87,6 +87,12 @@ _.each(File.type.properties, function(prop, key) {
 });
 
 
+getters["header"] = {
+  get: function() {
+    return this.properties.name;
+  }
+};
+
 // URL falls back to doi
 // --------
 

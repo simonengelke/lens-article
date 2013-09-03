@@ -39,7 +39,7 @@ Supplement.description = {
   }
 };
 
-// Example Video
+// Example Supplement
 // -----------------
 //
 
