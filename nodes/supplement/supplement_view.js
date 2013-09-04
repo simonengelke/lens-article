@@ -39,10 +39,11 @@ SupplementView.Prototype = function() {
       var files = $$('.files', {
           children: _.map(node.files, function(file) {
               var f = [];
-              if(file.url) f.push($$('a', {href: file.url, text: file.name}));
-              if(file.description) f.push($$('div.description', {text: file.description}));
+              if(file.url) {
+                f.push($$('a.file', {href: file.url, children: [ $$('div', {html: "<i class='icon-download-alt'></i> "+file.name}), $$('div', {text: ""+file.description})] }));
+              }
               if(file.doi) f.push($$('div.doi', { children: [ $$('b', {text: "DOI: " }), $$('a', {href: file.doi, target: "_new", text: file.doi}) ]}));
-              return $$('.file', {children: f});
+              return $$('div', {children: f});
             })
         });
     }
