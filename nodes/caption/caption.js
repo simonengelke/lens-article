@@ -56,6 +56,7 @@ Caption.Prototype = function() {
   this.getNodes = function() {
     var nodes = [];
 
+    // TODO: enable display of title by covering in the view
     // if (this.properties.title) {
     //   nodes.push(this.properties.title);
     // }

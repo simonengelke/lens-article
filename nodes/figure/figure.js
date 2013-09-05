@@ -58,29 +58,22 @@ Figure.Prototype = function() {
     return this.properties.items.length;
   };
 
-  this.getNodes = function() {
-    console.log('GETTING NOOODES');
-    return [this.properties.caption];
-    // return _.clone(this.items);
-  };
-
   this.getItems = function() {
     return _.map(this.properties.items, function(id) {
       return this.document.get(id);
     }, this);
   };
 
-  // this.getNodes = function() {
-  //   var nodes = [];
-  //   if (this.properties.image) nodes.push(this.properties.image);
-  //   if (this.properties.large_image) nodes.push(this.properties.large_image);
+  this.getNodes = function() {
+    var nodes = [];
+    if (this.properties.image) nodes.push(this.properties.image);
+    if (this.properties.large_image) nodes.push(this.properties.large_image);
 
-  //   if (this.properties.caption) {
-  //     nodes.push(this.properties.caption);
-  //     console.log('YAY', this.properties.caption);
-  //   }
-  //   return nodes;
-  // };
+    if (this.properties.caption) {
+      nodes.push(this.properties.caption);
+    }
+    return nodes;
+  };
 
   this.getImage = function() {
     if (this.properties.image) return this.document.get(this.properties.image);

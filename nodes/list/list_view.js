@@ -3,8 +3,10 @@
 var CompositeView = require("../composite/composite_view");
 var List = require("substance-document").List;
 
-// Substance.Image.View
+// Substance.List.View
 // ==========================================================================
+
+
 
 var ListView = function(node, viewFactory) {
   CompositeView.call(this, node, viewFactory);
@@ -16,7 +18,7 @@ ListView.Prototype = function() {
   // =============================
   //
 
-  this.render = function() {
+  this.render = function() {    
     this.el.innerHTML = "";
 
     var ltype = (this.node.ordered) ? "OL" : "UL";

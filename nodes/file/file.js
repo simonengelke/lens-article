@@ -22,7 +22,7 @@ File.type = {
     "description": "string",
     "size": "string",
     "extension": "string",
-    "doi": "string",
+    "doi": "string", // really needed?
     "url": "string"
   }
 };
