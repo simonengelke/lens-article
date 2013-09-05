@@ -6,11 +6,11 @@ var List = require("substance-document").List;
 // Substance.List.View
 // ==========================================================================
 
-
-
 var ListView = function(node, viewFactory) {
   CompositeView.call(this, node, viewFactory);
 };
+
+ListView.whoami = "LensListView";
 
 ListView.Prototype = function() {
 

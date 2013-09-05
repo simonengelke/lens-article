@@ -4,8 +4,6 @@ var CompositeView = require("../composite/composite_view");
 // var List = require("substance-document").List;
 var $$ = require ("substance-application").$$;
 
-console.log('YAY setting up figure view (composite)');
-
 // Substance.Figure.View
 // ==========================================================================
 
