@@ -1,0 +1,57 @@
+/* Figure Node
+-------------------------------------------------------------------------------*/
+
+.content-node.figure { 
+  padding: 20px 60px;
+  padding-left: 100px;
+}
+
+
+.content-node.figure .content {
+  text-align: center;
+  padding: 0px;
+}
+
+.content-node.figure div.image-char {
+  text-align: center;
+  padding-bottom: 20px;
+  /*width: 100%;*/
+}
+
+.content-node.figure div.image-char img {
+  
+}
+
+.content-node.figure > .content {
+  background: #fff;
+  padding: 20px;
+}
+
+.content-node.figure .paragraph .content {
+  background: #fff;
+}
+
+.content-node.figure div img.medium {
+  width: 100%;
+}
+
+.content-node.figure div img.large {
+  display: none;
+}
+
+/* Full screen Mode */
+
+.content-node.figure.fullscreen div img.medium {
+  display: none;
+}
+
+.content-node.figure.fullscreen div img.large {
+
+  width: 100%;
+  display: block;
+}
+
+.content-node.figure.fullscreen .paragraph .content {
+  padding: 20px 50px;
+  background: #fff;
+}

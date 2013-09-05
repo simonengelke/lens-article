@@ -5,6 +5,7 @@ module.exports = {
   "paragraph": require("./paragraph"),
   "heading": require("./heading"),
   "figure": require("./figure"),
+  "caption": require("./caption"),
   "image": require("./image"),
   "table": require("./table"),
   "file": require("./file"),

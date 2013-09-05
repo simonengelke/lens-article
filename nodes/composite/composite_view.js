@@ -2,7 +2,7 @@
 
 var NodeView = require("../node").View;
 
-// Substance.Image.View
+// Substance.Composite.View
 // ==========================================================================
 
 var CompositeView = function(node, viewFactory) {
