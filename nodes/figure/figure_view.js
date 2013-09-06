@@ -1,14 +1,12 @@
 "use strict";
 
 var CompositeView = require("../composite/composite_view");
-// var List = require("substance-document").List;
 var $$ = require ("substance-application").$$;
 
 // Substance.Figure.View
 // ==========================================================================
 
 var FigureView = function(node, viewFactory) {
-  console.log('constructed figure viewhhehe');
   CompositeView.call(this, node, viewFactory);
 };
 
@@ -18,19 +16,32 @@ FigureView.Prototype = function() {
   // =============================
   //
 
-  this.render = function() {
-
-    console.log('XXXXXXXX ====== rendering figure view');
+  this.render = function() {    
     this.el.innerHTML = "";
+    this.content = $$('div.content');
 
-    this.content = $$('div.content', {text: "FIGURE COMES HEEERE"});
+    // Add graphic (img element)
+    var imgEl = $$('.image-wrapper', {
+      children: [ $$("img", {src: this.node.url}) ]
+    });
 
-    // create your children here... I will smooth it ...
+    this.content.appendChild(imgEl);
+    var i;
+
+    // dispose existing children views if called multiple times
+    for (i = 0; i < this.childrenViews.length; i++) {
+      this.childrenViews[i].dispose();
+    }
+
+    var caption = this.node.document.get(this.node.caption);
+    var captionView = this.viewFactory.createView(caption);
+    var captionEl = captionView.render().el;
+    this.content.appendChild(captionEl);
+    this.childrenViews.push(captionView);
 
     this.el.appendChild(this.content);
     return this;
   };
-
 };
 
 FigureView.Prototype.prototype = CompositeView.prototype;
