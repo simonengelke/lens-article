@@ -9,7 +9,7 @@ var Caption = function(node, document) {
 Caption.type = {
   "parent": "content",
   "properties": {
-    "title": "string",
+    "title": "paragraph",
     "children": ["array", "paragraph"]
   }
 };
@@ -54,9 +54,9 @@ Caption.Prototype = function() {
     return nodes;
   };
 
-  // this.getTitle = function() {
-  //   if (this.properties.title) return this.document.get(this.properties.image);
-  // };
+  this.getTitle = function() {
+    if (this.properties.title) return this.document.get(this.properties.title);
+  };
 
   // this.getCaption = function() {
   //   if (this.properties.caption) return this.document.get(this.properties.caption);
