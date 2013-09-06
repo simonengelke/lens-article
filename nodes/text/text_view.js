@@ -16,6 +16,8 @@ var TextView = function(node) {
 
   this.$el.addClass('content-node text');
   this.$el.attr('id', this.node.id);
+
+  this._annotations = {};
 };
 
 TextView.Prototype = function() {
@@ -25,13 +27,6 @@ TextView.Prototype = function() {
   //
 
   this.render = function(enhancer) {
-    // Initial node render
-    // DocumentNode.View.prototype.render.call(this);
-
-    // var $content = $('<div class="content"></div>');
-    // this.content = $content[0];
-    // this.$el.append($content);
-
     NodeView.prototype.render.call(this, enhancer);
 
     this.renderContent();
@@ -45,13 +40,10 @@ TextView.Prototype = function() {
   };
 
   this.renderContent = function() {
-    var el = document.createTextNode(this.node.content)
-    this.content.appendChild(el);
+    this.content.innerHTML = "";
 
-    // EXPERIMENTAL HACK: adding an extra space for better soft-break behavior
-    if (LAST_CHAR_HACK) {
-      this.content.appendChild(document.createTextNode(" "));
-    }
+    this._annotations = this.node.getAnnotations();
+    this.renderWithAnnotations(this._annotations);
   };
 
   this.insert = function(pos, str) {
@@ -73,15 +65,44 @@ TextView.Prototype = function() {
   };
 
   this.onNodeUpdate = function(op) {
-    if (op.path[1] !== "content") {
-      return;
+    if (op.path[1] === "content") {
+      console.log("Updating text view: ", op);
+      if (op.type === "update") {
+        var update = op.diff;
+        if (update.isInsert()) {
+          this.insert(update.pos, update.str);
+        } else if (update.isDelete()) {
+          this.delete(update.pos, update.str.length);
+        }
+      } else if (op.type === "set") {
+        this.renderContent();
+      }
     }
-    if (op.type === "update") {
-      var update = op.diff;
-      if (update.isInsert()) {
-        this.insert(update.pos, update.str);
-      } else if (update.isDelete()) {
-        this.delete(update.pos, update.str.length);
+  };
+
+  this.onGraphUpdate = function(op) {
+    NodeView.prototype.onGraphUpdate.call(this, op);
+
+    var doc = this.node.document;
+    var schema = doc.getSchema();
+
+    var node;
+    if (op.type !== "delete") {
+      node = doc.get(op.path[0]);
+    } else {
+      node = op.val;
+    }
+    if (schema.isInstanceOf(node.type, "annotation")) {
+      var rerender = false;
+      if (node.path[0] === this.node.id) {
+        rerender = true;
+      } else if (op.type === "set" && op.path[1] === "path" && op.original[0] === this.node.id) {
+        rerender = true;
+      }
+
+      if (rerender) {
+        console.log("Rerendering TextView due to annotation update", op);
+        this.renderContent();
       }
     }
   };
@@ -140,7 +161,7 @@ TextView.Prototype = function() {
       }
     }
 
-    console.log("Bug-Alarm: the model and the view are out of sync.")
+    console.log("Bug-Alarm: the model and the view are out of sync.");
     console.log("The model as "+charPos+" more characters");
     console.log("Returning the last available position... but please fix me. Anyone?");
 
@@ -167,12 +188,13 @@ TextView.Prototype = function() {
     return el;
   };
 
-  this.renderAnnotations = function(annotations) {
+  this.renderWithAnnotations = function(annotations) {
     var that = this;
     var text = this.node.content;
     var fragment = document.createDocumentFragment();
 
-
+    // this splits the text and annotations into smaller pieces
+    // which is necessary to generate proper HTML.
     var fragmenter = new Annotator.Fragmenter(fragment, text, annotations);
 
     fragmenter.onText = function(context, text) {
