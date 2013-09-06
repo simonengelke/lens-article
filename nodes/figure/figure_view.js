@@ -26,12 +26,12 @@ FigureView.Prototype = function() {
     });
 
     this.content.appendChild(imgEl);
-    var i;
 
-    // dispose existing children views if called multiple times
-    for (i = 0; i < this.childrenViews.length; i++) {
-      this.childrenViews[i].dispose();
-    }
+    // var i;
+    // // dispose existing children views if called multiple times
+    // for (i = 0; i < this.childrenViews.length; i++) {
+    //   this.childrenViews[i].dispose();
+    // }
 
     var caption = this.node.document.get(this.node.caption);
     var captionView = this.viewFactory.createView(caption);

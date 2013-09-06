@@ -1,12 +1,14 @@
 var _ = require('underscore');
-var Node = require('substance-document').Node;
+
+// var Node = require('substance-document').Node;
+var Document = require("substance-document");
 
 // Lens.Supplement
 // -----------------
 //
 
 var Supplement = function(node, doc) {
-  Node.call(this, node, doc);
+  Document.Composite.call(this, node, doc);
 };
 
 // Type definition
@@ -18,9 +20,7 @@ Supplement.type = {
   "parent": "content",
   "properties": {
     "label": "string",
-    "caption": "paragraph",
-    "files": ["array", "file"], // elife doesn't use them yet
-    "doi": "string" // optional (used by eLife atm)
+    "caption": "caption", // contains the doi
   }
 };
 
@@ -35,7 +35,7 @@ Supplement.description = {
     "A Supplement entity.",
   ],
   "properties": {
-    "name": "Full name.",
+    "label": "Supplement label",
   }
 };
 
@@ -55,9 +55,25 @@ Supplement.example = {
 
 Supplement.Prototype = function() {
 
+  this.getNodes = function() {
+    var nodes = [];
+    if (this.properties.caption) {
+      nodes.push(this.properties.caption);
+    }
+    return nodes;
+  };
+
+  this.getCaption = function() {
+    if (this.properties.caption) {
+      return this.document.get(this.properties.caption);
+    } else {
+      return null;
+    }
+  };
+
 };
 
-Supplement.Prototype.prototype = Node.prototype;
+Supplement.Prototype.prototype = Document.Composite.prototype;
 Supplement.prototype = new Supplement.Prototype();
 Supplement.prototype.constructor = Supplement;
 
@@ -75,19 +91,6 @@ _.each(Supplement.type.properties, function(prop, key) {
   };
 });
 
-// Get full caption node
-// --------
-
-getters["caption"] = {
-  get: function() {
-    // HACK: this is not yet a real solution
-    if (this.properties.caption) {
-      return this.document.get(this.properties.caption);
-    } else {
-      return "";
-    }
-  }
-};
 
 // Get the header for resource header display
 // --------
@@ -98,23 +101,8 @@ getters["header"] = {
   }
 };
 
-// Get files nodes
-// --------
 
-getters["files"] = {
-  get: function() {
-    if (this.properties.files) {
-      return _.map(this.properties.files, function(fileId) {
-          return this.document.get(fileId);
-        }, this);
-    } else {
-      return [];
-    }
-  }
-};
 
 Object.defineProperties(Supplement.prototype, getters);
-
-
 
 module.exports = Supplement;

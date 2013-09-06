@@ -3,14 +3,15 @@
 var _ = require("underscore");
 var util = require("substance-util");
 var html = util.html;
-var NodeView = require("../node/node_view");
+var CompositeView = require("../composite/composite_view");
+
 var $$ = require("substance-application").$$;
 
 // Lens.Supplement.View
 // ==========================================================================
 
-var SupplementView = function(node) {
-  NodeView.call(this, node);
+var SupplementView = function(node, viewFactory) {
+  CompositeView.call(this, node, viewFactory);
 
   this.$el.attr({id: node.id});
   this.$el.addClass("content-node supplement");
@@ -23,36 +24,43 @@ SupplementView.Prototype = function() {
   //
   // .content
   //   .caption
-  //   .doi
-  //   .files
-  //     .file.file-1
-  //     .file.file-2
 
   this.render = function() {
     var node = this.node;
-    NodeView.prototype.render.call(this);
 
-    var caption = $$('.caption', {text: node.caption.content});
-    this.content.appendChild(caption);
+    this.content = $$('div.content');
 
-    if (node.files) {
-      var files = $$('.files', {
-          children: _.map(node.files, function(file) {
-              var f = [];
-              if(file.url) {
-                f.push($$('a.file', {href: file.url, children: [ $$('div', {html: "<i class='icon-download-alt'></i> "+file.name}), $$('div', {text: ""+file.description})] }));
-              }
-              if(file.doi) f.push($$('div.doi', { children: [ $$('b', {text: "DOI: " }), $$('a', {href: file.doi, target: "_new", text: file.doi}) ]}));
-              return $$('div', {children: f});
-            })
-        });
+    var caption = node.getCaption();
+    if (caption) {
+      var captionView = this.viewFactory.createView(caption);
+      var captionEl = captionView.render().el;
+      this.content.appendChild(captionEl);
+      this.childrenViews.push(captionView);
     }
-    this.content.appendChild(files);
+
+    this.el.appendChild(this.content);
+
+    // Maybe we want to bring back the files array
+    // 
+    // if (node.files) {
+    //   var files = $$('.files', {
+    //       children: _.map(node.files, function(file) {
+    //           var f = [];
+    //           if(file.url) {
+    //             f.push($$('a.file', {href: file.url, children: [ $$('div', {html: "<i class='icon-download-alt'></i> "+file.name}), $$('div', {text: ""+file.description})] }));
+    //           }
+    //           if(file.doi) f.push($$('div.doi', { children: [ $$('b', {text: "DOI: " }), $$('a', {href: file.doi, target: "_new", text: file.doi}) ]}));
+    //           return $$('div', {children: f});
+    //         })
+    //     });
+    // }
+    // this.content.appendChild(files);
+
     return this;
   }
 };
 
-SupplementView.Prototype.prototype = NodeView.prototype;
+SupplementView.Prototype.prototype = CompositeView.prototype;
 SupplementView.prototype = new SupplementView.Prototype();
 SupplementView.prototype.constructor = SupplementView;
 
