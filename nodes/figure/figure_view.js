@@ -33,16 +33,11 @@ FigureView.Prototype = function() {
       this.childrenViews[i].dispose();
     }
 
-    // Only renders the caption (maybe remove the iterator)
-    var children = this.node.getNodes();
-    for (i = 0; i < children.length; i++) {
-      var child = this.node.document.get(children[i]);
-      var childView = this.viewFactory.createView(child);
-      var childEl = childView.render().el;
-
-      this.content.appendChild(childEl);
-      this.childrenViews.push(childView);
-    }
+    var caption = this.node.document.get(this.node.caption);
+    var captionView = this.viewFactory.createView(caption);
+    var captionEl = captionView.render().el;
+    this.content.appendChild(captionEl);
+    this.childrenViews.push(captionView);
 
     this.el.appendChild(this.content);
     return this;
