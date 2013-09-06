@@ -40,14 +40,6 @@ Caption.example = {
 
 Caption.Prototype = function() {
 
-  // this.insertOperation = function(startChar, text) {
-  //   return null;
-  // };
-
-  // this.deleteOperation = function(startChar, endChar) {
-  //   return null;
-  // };
-
   this.hasTitle = function() {
     return (!!this.properties.title);
   };
@@ -56,13 +48,7 @@ Caption.Prototype = function() {
   this.getNodes = function() {
     var nodes = [];
 
-    // TODO: enable display of title by covering in the view
-    // if (this.properties.title) {
-    //   nodes.push(this.properties.title);
-    // }
-
     if (this.properties.children) {
-      console.log('adding le children');
       nodes = nodes.concat(this.properties.children);
     }
     return nodes;
@@ -81,6 +67,6 @@ Caption.Prototype.prototype = Document.Composite.prototype;
 Caption.prototype = new Caption.Prototype();
 Caption.prototype.constructor = Caption;
 
-Document.Node.defineProperties(Caption.prototype, ["image", "caption"]);
+Document.Node.defineProperties(Caption.prototype, ["title", "children"]);
 
 module.exports = Caption;
