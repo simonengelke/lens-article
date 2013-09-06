@@ -12,7 +12,7 @@
   padding: 0px;
 }
 
-.content-node.figure div.image-char {
+.content-node.figure div.image-wrapper {
   text-align: center;
   padding-bottom: 20px;
   /*width: 100%;*/
@@ -31,24 +31,8 @@
   background: #fff;
 }
 
-.content-node.figure div img.medium {
+.content-node.figure div .image-wrapper img {
   width: 100%;
-}
-
-.content-node.figure div img.large {
-  display: none;
-}
-
-/* Full screen Mode */
-
-.content-node.figure.fullscreen div img.medium {
-  display: none;
-}
-
-.content-node.figure.fullscreen div img.large {
-
-  width: 100%;
-  display: block;
 }
 
 .content-node.figure.fullscreen .paragraph .content {
