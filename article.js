@@ -130,9 +130,11 @@ Article.Renderer.Prototype = function() {
   this.render = function() {
     var frag = document.createDocumentFragment();
 
-    var docNodes = this.doc.getNodes();
-    _.each(docNodes, function(n) {
-      frag.appendChild(this.nodes[n.id].render().el);
+    // Note: taking the treeView to render nodes
+    // This assumes, that Composite nodes initiate rendering of child-nodes on their own
+    var docNodeIds = this.doc.container.treeView;
+    _.each(docNodeIds, function(id) {
+      frag.appendChild(this.nodes[id].render().el);
     }, this);
     return frag;
   };
