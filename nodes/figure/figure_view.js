@@ -33,11 +33,13 @@ FigureView.Prototype = function() {
     //   this.childrenViews[i].dispose();
     // }
 
-    var caption = this.node.document.get(this.node.caption);
-    var captionView = this.viewFactory.createView(caption);
-    var captionEl = captionView.render().el;
-    this.content.appendChild(captionEl);
-    this.childrenViews.push(captionView);
+    var caption = this.node.getCaption();
+    if (caption) {
+      var captionView = this.viewFactory.createView(caption);
+      var captionEl = captionView.render().el;
+      this.content.appendChild(captionEl);
+      this.childrenViews.push(captionView);
+    }
 
     this.el.appendChild(this.content);
     return this;
