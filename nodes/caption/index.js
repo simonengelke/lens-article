@@ -1,7 +1,6 @@
 "use strict";
 
-var Caption = require('./caption');
-// Caption.View = require('../caption/caption_view');
-Caption.View = require('../composite/composite_view');
-
-module.exports = Caption;
+module.exports = {
+  Model: require('./caption'),
+  View: require('../composite/composite_view')
+};

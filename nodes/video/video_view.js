@@ -3,7 +3,7 @@
 var _ = require("underscore");
 var util = require("substance-util");
 var html = util.html;
-var NodeView = require("../node").View;
+var NodeView = require("../node/node_view");
 var $$ = require("substance-application").$$;
 
 // Lens.Video.View
@@ -22,7 +22,7 @@ VideoView.Prototype = function() {
 
   // Render it
   // --------
-  // 
+  //
   // .content
   //   video
   //     source
@@ -35,13 +35,13 @@ VideoView.Prototype = function() {
 
     // Enrich with video content
     // --------
-    // 
+    //
 
     var node = this.node;
 
     // The actual video
     // --------
-    // 
+    //
 
     var sources = [
       $$('source', {
@@ -80,12 +80,12 @@ VideoView.Prototype = function() {
 
     // The video title
     // --------
-    // 
+    //
 
     if (node.title) {
       this.content.appendChild($$('.title', {
         text: node.title
-      }));      
+      }));
     }
 
     // Add caption if there is any

@@ -1,6 +1,5 @@
 var _ = require('underscore');
-var Node = require('../node');
-
+var Node = require('substance-document').Node;
 
 // Lens.Formula
 // -----------------
@@ -47,7 +46,7 @@ Formula.description = {
 // -----------------
 //
 
-Formula.example = {   
+Formula.example = {
   "type": "formula",
   "id": "formula_eqn1",
   "label": "(1)",
@@ -56,7 +55,7 @@ Formula.example = {
 };
 
 Formula.Prototype = function() {
-  
+
 };
 
 Formula.Prototype.prototype = Node.prototype;

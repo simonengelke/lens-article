@@ -1,5 +1,6 @@
 "use strict";
 
-var File = require('./file');
-File.View = require('./file_view');
-module.exports = File;
+module.exports = {
+  Model: require('./file'),
+  View: require('./file_view')
+};

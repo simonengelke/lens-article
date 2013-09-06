@@ -1,6 +1,6 @@
 "use strict";
 
-var Node = require("../node");
+var Node = require("substance-document").Node;
 
 var Image = function(node, doc) {
   Node.call(this, node, doc);
@@ -102,7 +102,7 @@ Image.prototype = new Image.Prototype();
 Image.prototype.constructor = Image;
 
 Object.defineProperties(Image.prototype, {
-  
+
   // Used as a resource header
   header: {
     get: function() { return this.properties.label; }

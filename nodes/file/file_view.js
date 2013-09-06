@@ -3,7 +3,7 @@
 var _ = require("underscore");
 var util = require("substance-util");
 var html = util.html;
-var NodeView = require("../node").View;
+var NodeView = require("../node/node_view");
 var $$ = require("substance-application").$$;
 
 // Lens.Supplement.View
@@ -20,7 +20,7 @@ FileView.Prototype = function() {
 
   // Render it
   // --------
-  // 
+  //
   // .content
   //   .caption
   //   .doi
@@ -39,9 +39,9 @@ FileView.Prototype = function() {
     if(file.url) f.push($$('a', {href: file.url, text: file.name}));
     if(file.description) f.push($$('div.description', {text: file.description}));
     if(file.doi) f.push($$('div.doi', { children: [ $$('b', {text: "DOI: " }), $$('a', {href: file.doi, target: "_new", text: file.doi}) ]}));
-    
+
     this.content.appendChild($$('.file', {children: f}));
-    
+
     return this;
   }
 };

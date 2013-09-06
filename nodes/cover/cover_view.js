@@ -3,7 +3,7 @@
 var _ = require("underscore");
 var util = require("substance-util");
 var html = util.html;
-var NodeView = require("../node").View;
+var NodeView = require("../node/node_view");
 var $$ = require("substance-application").$$;
 
 // Lens.Cover.View
@@ -21,7 +21,7 @@ CoverView.Prototype = function() {
 
   // Render it
   // --------
-  // 
+  //
   // .content
   //   video
   //     source

@@ -3,7 +3,7 @@
 var _ = require("underscore");
 var util = require("substance-util");
 var html = util.html;
-var NodeView = require("../node").View;
+var NodeView = require("../node/node_view");
 var $$ = require("substance-application").$$;
 
 // Substance.Paragraph.View
@@ -42,7 +42,7 @@ TableView.Prototype = function() {
   //   .table-wrapper
   //     <table>...
   //   .footers
-  //   .title 
+  //   .title
   //   .caption
   //   .doi
 
@@ -52,7 +52,7 @@ TableView.Prototype = function() {
 
     // The actual content
     // --------
-    // 
+    //
 
     var tableWrapper = $$('.table-wrapper', {
       html: node.content // HTML table content
@@ -62,14 +62,14 @@ TableView.Prototype = function() {
 
     // Display footers (optional)
     // --------
-    // 
+    //
 
     var footers = $$('.footers', {
       children: _.map(node.footers, function(footer) {
         return $$('.footer', { html: "<b>"+footer.label+"</b> " + footer.content });
       })
     });
-    
+
     this.content.appendChild(footers);
 
 

@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var Node = require('../node');
+var Node = require('substance-document').Node;
 
 // Lens.Supplement
 // -----------------
@@ -111,7 +111,7 @@ getters["files"] = {
       return [];
     }
   }
-};   
+};
 
 Object.defineProperties(Supplement.prototype, getters);
 

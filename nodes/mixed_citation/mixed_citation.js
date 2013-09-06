@@ -1,6 +1,5 @@
 var _ = require('underscore');
-var Node = require('../node');
-
+var Node = require('substance-document').Node;
 
 // Lens.MixedCitation
 // -----------------

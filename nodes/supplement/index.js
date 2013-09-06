@@ -1,5 +1,6 @@
 "use strict";
 
-var Supplement = require('./supplement');
-Supplement.View = require('./supplement_view');
-module.exports = Supplement;
+module.exports = {
+  Model: require('./supplement'),
+  View: require('./supplement_view')
+};

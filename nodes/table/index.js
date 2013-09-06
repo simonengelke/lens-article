@@ -1,5 +1,6 @@
 "use strict";
 
-var Table = require('./table');
-Table.View = require('./table_view');
-module.exports = Table;
+module.exports = {
+  Model: require('./table'),
+  View: require('./table_view')
+};

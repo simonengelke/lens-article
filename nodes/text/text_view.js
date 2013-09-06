@@ -1,4 +1,4 @@
-var NodeView = require('../node').View;
+var NodeView = require('../node/node_view');
 var Document = require("substance-document");
 var Annotator = Document.Annotator;
 var $$ = require("substance-application").$$;
@@ -30,7 +30,7 @@ TextView.Prototype = function() {
 
     // var $content = $('<div class="content"></div>');
     // this.content = $content[0];
-    // this.$el.append($content);    
+    // this.$el.append($content);
 
     NodeView.prototype.render.call(this, enhancer);
 

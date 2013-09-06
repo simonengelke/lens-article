@@ -1,6 +1,6 @@
 "use strict";
 
-var Node = require('substance-document').Node;
-Node.View = require('./node_view');
-
-module.exports = Node;
+module.exports = {
+  Model: require('substance-document').Node,
+  View: require('./node_view')
+};

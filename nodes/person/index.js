@@ -1,5 +1,6 @@
 "use strict";
 
-var Person = require('./person');
-Person.View = require('./person_view');
-module.exports = Person;
+module.exports = {
+  Model: require('./person'),
+  View: require('./person_view')
+};

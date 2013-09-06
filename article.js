@@ -32,8 +32,8 @@ var Article = function(options) {
 
 
   // Merge in node types
-  _.each(Article.nodeTypes, function(node, key) {
-    options.schema.types[key] = node.type;
+  _.each(Article.nodeTypes, function(nodeSpec, key) {
+    options.schema.types[key] = nodeSpec.Model.type;
   });
 
   // Merge in custom indexes
