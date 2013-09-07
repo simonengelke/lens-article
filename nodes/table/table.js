@@ -5,8 +5,8 @@ var Node = require('substance-document').Node;
 // -----------------
 //
 
-var Table = function(node) {
-  Node.call(this, node);
+var Table = function(node, doc) {
+  Node.call(this, node, doc);
 };
 
 
@@ -21,9 +21,7 @@ Table.type = {
     "label": "string",
     "content": "string",
     "footers": ["array", "string"],
-    "doi": "string",
-    "title": "string",
-    "caption": "paragraph"
+    "caption": "caption"
   }
 };
 
@@ -42,12 +40,12 @@ Table.description = {
     "A table figure which is expressed in HTML notation"
   ],
   "properties": {
+    "source_id": "string",
     "label": "Label shown in the resource header.",
     "title": "Full table title",
     "content": "HTML data",
     "footers": "Table footers expressed as an array strings",
-    "doi": "DOI URL",
-    "caption": "A paragraph id that has the caption"
+    "caption": "References a caption node, that has all the content"
   }
 };
 
@@ -63,12 +61,13 @@ Table.example = {
   "title": "Lorem ipsum table",
   "content": "<table>...</table>",
   "footers": [],
-  "doi": "http://dx.doi.org/10.7554/eLife.00311.003",
-  "caption": "paragraph_table_1"
+  "caption": "caption_1"
 };
 
 Table.Prototype = function() {
-
+  this.getCaption = function() {
+    if (this.properties.caption) return this.document.get(this.properties.caption);
+  };
 };
 
 Table.Prototype.prototype = Node.prototype;

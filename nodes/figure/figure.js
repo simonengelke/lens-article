@@ -10,6 +10,7 @@ var Figure = function(node, document) {
 Figure.type = {
   "parent": "content",
   "properties": {
+    "source_id": "string",
     "label": "string",
     "url": "string",
     "caption": "caption"
@@ -29,8 +30,8 @@ Figure.description = {
   "remarks": [
     "A figure is a figure is figure.",
   ],
-
   "properties": {
+    
   }
 };
 
@@ -65,7 +66,7 @@ Figure.Prototype.prototype = Document.Composite.prototype;
 Figure.prototype = new Figure.Prototype();
 Figure.prototype.constructor = Figure;
 
-Document.Node.defineProperties(Figure.prototype, ["label", "url", "caption"]);
+Document.Node.defineProperties(Figure.prototype, ["source_id", "label", "url", "caption"]);
 
 Object.defineProperties(Figure.prototype, {
   // Used as a resource header

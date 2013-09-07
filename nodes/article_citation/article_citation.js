@@ -17,6 +17,7 @@ ArticleCitation.type = {
   "id": "article_citation", // type name
   "parent": "content",
   "properties": {
+    "source_id": "string",
     "title": "string",
     "label": "string",
     "authors": ["array", "string"],

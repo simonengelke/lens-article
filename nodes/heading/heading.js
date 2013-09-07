@@ -14,6 +14,7 @@ Heading.type = {
   "id": "heading",
   "parent": "content",
   "properties": {
+    "source_id": "string",
     "content": "string",
     "level": "number"
   }

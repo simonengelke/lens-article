@@ -17,6 +17,7 @@ MixedCitation.type = {
   "id": "citation", // type name
   "parent": "content",
   "properties": {
+    "source_id": "string",
     "citation": "string",
     "doi": "string"
   }
@@ -61,6 +62,11 @@ MixedCitation.prototype = new MixedCitation.Prototype();
 MixedCitation.prototype.constructor = MixedCitation;
 
 Object.defineProperties(MixedCitation.prototype, {
+  source_id: {
+    get: function() {
+      return this.properties.source_id;
+    }    
+  },
   // Header is used by the resource card headers
   header: {
     get: function() {
@@ -72,12 +78,6 @@ Object.defineProperties(MixedCitation.prototype, {
       return this.properties.citation;
     }
   }
-  // Title is used as a label for the cards
-  // label: {
-  //   get: function() {
-  //     return this.properties.title;
-  //   }
-  // }
 });
 
 

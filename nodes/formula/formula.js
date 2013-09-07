@@ -18,6 +18,7 @@ Formula.type = {
   "id": "formula",
   "parent": "content",
   "properties": {
+    "source_id": "string",
     "label": "string",
     "data": "string",
     "format": "string" // MathML, LaTeX, image

@@ -1,9 +1,16 @@
 /* Table */ 
 
+.content-node.table > .content {
+  padding: 20px;
+}
+
 .content-node.table .table-wrapper {
   width: 100%;
   overflow: auto;
-  padding: 20px;
+}
+
+.content-node.table .caption {
+  padding-top: 20px; 
 }
 
 .content-node.table table {

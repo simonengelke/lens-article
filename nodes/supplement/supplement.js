@@ -1,6 +1,5 @@
 var _ = require('underscore');
 
-// var Node = require('substance-document').Node;
 var Document = require("substance-document");
 
 // Lens.Supplement
@@ -19,7 +18,9 @@ Supplement.type = {
   "id": "supplement",
   "parent": "content",
   "properties": {
+    "source_id": "string",
     "label": "string",
+    "url": "string",
     "caption": "caption", // contains the doi
   }
 };
@@ -35,7 +36,10 @@ Supplement.description = {
     "A Supplement entity.",
   ],
   "properties": {
+    "source_id": "Supplement id as it occurs in the source NLM file",
     "label": "Supplement label",
+    "caption": "References a caption node, that has all the content",
+    "url": "URL of downloadable file"
   }
 };
 
@@ -45,11 +49,11 @@ Supplement.description = {
 
 Supplement.example = {
   "id": "supplement_1",
+  "source_id": "SD1-data",
   "type": "supplement",
   "label": "Supplementary file 1.",
-  // "files": ["file_1", "file_2"],
-  // "doi": "http://dx.doi.org/10.7554/eLife.00868.023",
-  "caption": "paragraph_caption_supplement_1"
+  "url": "http://myserver.com/myfile.pdf",
+  "caption": "caption_supplement_1"
 };
 
 
@@ -70,13 +74,11 @@ Supplement.Prototype = function() {
       return null;
     }
   };
-
 };
 
 Supplement.Prototype.prototype = Document.Composite.prototype;
 Supplement.prototype = new Supplement.Prototype();
 Supplement.prototype.constructor = Supplement;
-
 
 // Generate getters
 // --------
@@ -91,7 +93,6 @@ _.each(Supplement.type.properties, function(prop, key) {
   };
 });
 
-
 // Get the header for resource header display
 // --------
 
@@ -100,7 +101,6 @@ getters["header"] = {
     return this.properties.label;
   }
 };
-
 
 
 Object.defineProperties(Supplement.prototype, getters);

@@ -8,7 +8,6 @@ module.exports = {
   "caption": require("./caption"),
   "image": require("./image"),
   "table": require("./table"),
-  "file": require("./file"),
   "supplement": require("./supplement"),
   "video": require("./video"),
   "person": require("./person"),

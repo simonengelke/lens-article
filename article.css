@@ -130,7 +130,7 @@
   margin-top: 50px;
 }
 
-.article .resources .content-node {
+.article .resources .nodes > .content-node {
   color: #333;
   position: relative;
   background: #EBEBEB;

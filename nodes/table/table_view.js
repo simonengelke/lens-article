@@ -9,9 +9,10 @@ var $$ = require("substance-application").$$;
 // Substance.Paragraph.View
 // ==========================================================================
 
-var TableView = function(node) {
+var TableView = function(node, viewFactory) {
   NodeView.call(this, node);
-
+  this.viewFactory = viewFactory;
+  
   this.$el.attr({id: node.id});
   this.$el.addClass("content-node table");
 };
@@ -69,6 +70,17 @@ TableView.Prototype = function() {
         return $$('.footer', { html: "<b>"+footer.label+"</b> " + footer.content });
       })
     });
+
+    // Display caption
+
+
+    var caption = this.node.getCaption();
+    if (caption) {
+      var captionView = this.viewFactory.createView(caption);
+      var captionEl = captionView.render().el;
+      this.content.appendChild(captionEl);
+      // this.childrenViews.push(captionView);
+    }
 
     this.content.appendChild(footers);
 
