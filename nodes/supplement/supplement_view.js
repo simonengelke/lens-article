@@ -38,6 +38,17 @@ SupplementView.Prototype = function() {
       this.childrenViews.push(captionView);
     }
 
+    // if (node.url) {
+    // }
+
+    var file = $$('div.file', {
+      children: [
+        $$('a', {href: "http://mickey.com/mouse.png", html: '<i class="icon-download-alt"/> http://mickey.com/mouse.png'})
+      ]
+    });
+
+    this.content.appendChild(file);
+
     this.el.appendChild(this.content);
 
     // Maybe we want to bring back the files array

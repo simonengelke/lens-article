@@ -47,8 +47,8 @@ Supplement.example = {
   "id": "supplement_1",
   "type": "supplement",
   "label": "Supplementary file 1.",
-  "files": ["file_1", "file_2"],
-  "doi": "http://dx.doi.org/10.7554/eLife.00868.023",
+  // "files": ["file_1", "file_2"],
+  // "doi": "http://dx.doi.org/10.7554/eLife.00868.023",
   "caption": "paragraph_caption_supplement_1"
 };
 

@@ -6,9 +6,8 @@
   padding-left: 100px;
 }
 
-
 .content-node.figure .content {
-  text-align: center;
+  /*text-align: center;*/
   padding: 0px;
 }
 
@@ -33,9 +32,4 @@
 
 .content-node.figure div .image-wrapper img {
   width: 100%;
-}
-
-.content-node.figure.fullscreen .paragraph .content {
-  padding: 20px 50px;
-  background: #fff;
 }

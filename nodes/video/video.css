@@ -1,4 +1,8 @@
-
+.resources .content-node.video .video-wrapper {
+  background: black;
+  padding: 10px 0;
+  text-align: center;
+}
 
 .resources .content-node.video .content video {
   background: #000;
