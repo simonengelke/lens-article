@@ -11,11 +11,6 @@
   max-height: 500px;
 }
 
-.resources .content-node.video .content {
-  /*background: white;*/
-  /*text-align: center;*/
-}
-
 .resources .content-node.video .content .title {
   padding: 10px 20px;
 }
