@@ -9,7 +9,6 @@ var Table = function(node, doc) {
   Node.call(this, node, doc);
 };
 
-
 // Type definition
 // -----------------
 //
