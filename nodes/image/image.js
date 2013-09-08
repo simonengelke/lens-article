@@ -10,6 +10,7 @@ Image.type = {
   "id": "image",
   "parent": "content",
   "properties": {
+    "source_id": "string",
     // "label": "string",
     // "title": "string",
     // "large": "string",

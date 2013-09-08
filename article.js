@@ -46,6 +46,13 @@ var Article = function(options) {
 
   Document.call(this, options);
 
+  // Index for easy mapping from NLM sourceIds to generated nodeIds
+  // Needed for resolving figrefs / citationrefs etc.
+  this.bySourceId = this.addIndex("by_source_id", {
+    types: ["content"],
+    property: "source_id"
+  });
+
   this.nodeTypes = Article.nodeTypes;
 
   // Seed the doc
@@ -73,7 +80,6 @@ var Article = function(options) {
     }, this);
   }
 };
-
 
 
 // Renders an article
@@ -146,6 +152,16 @@ Article.Renderer.prototype = new Article.Renderer.Prototype();
 Article.Prototype = function() {
   this.fromSnapshot = function(data, options) {
     return Article.fromSnapshot(data, options);
+  };
+
+  // For a given NLM source id, returns the corresponding node in the document graph
+  // --------
+
+  this.getNodeBySourceId = function(sourceId) {
+    var nodes = this.bySourceId.get(sourceId);
+    var nodeId = Object.keys(nodes)[0];
+    var node = nodes[nodeId];
+    return node;
   };
 };
 

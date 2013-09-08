@@ -18,6 +18,7 @@ Table.type = {
   "id": "table",
   "parent": "content",
   "properties": {
+    "source_id": "string",
     "label": "string",
     "content": "string",
     "footers": ["array", "string"],

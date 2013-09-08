@@ -18,6 +18,7 @@ Cover.type = {
   "id": "cover",
   "parent": "content",
   "properties": {
+    "source_id": "string"
     // No properties as they are all derived from the document node
   }
 };

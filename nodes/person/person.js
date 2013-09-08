@@ -18,6 +18,7 @@ Person.type = {
   "id": "person",
   "parent": "content",
   "properties": {
+    "source_id": "string",
     "name": "string", // full author name
     "affiliations": ["array", "institution"],
     "image": "string", // optional
