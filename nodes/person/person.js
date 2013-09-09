@@ -66,6 +66,14 @@ Person.prototype.constructor = Person;
 
 var getters = {};
 
+var getters = {
+  header: {
+    get: function() {
+      return this.properties.name;
+    }
+  }
+};
+
 _.each(Person.type.properties, function(prop, key) {
   getters[key] = {
     get: function() {
@@ -73,6 +81,9 @@ _.each(Person.type.properties, function(prop, key) {
     }
   };
 });
+
+
+
 
 Object.defineProperties(Person.prototype, getters);
 

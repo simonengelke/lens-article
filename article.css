@@ -172,11 +172,16 @@
   color: #fff;
 }
 
+/* active person */
+.article .resources .info .content-node.active .resource-header {
+  background: #5c6570;
+  color: #fff;
+}
+
 .article .resources .content-node .resource-header .reference-count {
   display: none;
   opacity: 0.6;
 }
-
 
 
 .article .resources .content-node .type {
@@ -286,6 +291,18 @@
 
 /* Info View
 ----------------------------------------------------------------------- */
+
+.article .resources .surface.info {
+  display: none;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
 
 .article.info .resources .resource-view.info {
   display: block;

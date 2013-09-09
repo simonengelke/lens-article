@@ -180,7 +180,7 @@ Article.fromSnapshot = function(data, options) {
 // Define available views
 // --------
 
-Article.views = ["content", "figures", "citations"];
+Article.views = ["content", "figures", "citations", "info"];
 
 
 // Register node types
