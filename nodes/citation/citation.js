@@ -1,11 +1,11 @@
 var _ = require('underscore');
 var Node = require('substance-document').Node;
 
-// Lens.ArticleCitation
+// Lens.Citation
 // -----------------
 //
 
-var ArticleCitation = function(node) {
+var Citation = function(node) {
   Node.call(this, node);
 };
 
@@ -13,7 +13,7 @@ var ArticleCitation = function(node) {
 // -----------------
 //
 
-ArticleCitation.type = {
+Citation.type = {
   "id": "article_citation", // type name
   "parent": "content",
   "properties": {
@@ -35,11 +35,11 @@ ArticleCitation.type = {
 // -----------------
 //
 
-ArticleCitation.description = {
-  "name": "Article Citation",
+Citation.description = {
+  "name": "Citation",
   "remarks": [
-    "A journal article citation.",
-    "This element can be used to describe typical journal article citations."
+    "A journal citation.",
+    "This element can be used to describe all kinds of citations."
   ],
   "properties": {
     "title": "The article's title",
@@ -55,11 +55,11 @@ ArticleCitation.description = {
 };
 
 
-// Example ArticleCitation
+// Example Citation
 // -----------------
 //
 
-ArticleCitation.example = {
+Citation.example = {
   "id": "article_nature08160",
   "type": "article_citation",
   "label": "5",
@@ -81,7 +81,7 @@ ArticleCitation.example = {
 };
 
 
-ArticleCitation.Prototype = function() {
+Citation.Prototype = function() {
   // Returns the citation URLs if available
   // Falls back to the DOI url
   // Always returns an array;
@@ -91,9 +91,9 @@ ArticleCitation.Prototype = function() {
   };
 };
 
-ArticleCitation.Prototype.prototype = Node.prototype;
-ArticleCitation.prototype = new ArticleCitation.Prototype();
-ArticleCitation.prototype.constructor = ArticleCitation;
+Citation.Prototype.prototype = Node.prototype;
+Citation.prototype = new Citation.Prototype();
+Citation.prototype.constructor = Citation;
 
 
 // Generate getters
@@ -104,10 +104,10 @@ var getters = {
     get: function() {
       return this.properties.title;
     }
-  },
+  }
 };
 
-_.each(ArticleCitation.type.properties, function(prop, key) {
+_.each(Citation.type.properties, function(prop, key) {
   getters[key] = {
     get: function() {
       return this.properties[key];
@@ -115,6 +115,6 @@ _.each(ArticleCitation.type.properties, function(prop, key) {
   };
 });
 
-Object.defineProperties(ArticleCitation.prototype, getters);
+Object.defineProperties(Citation.prototype, getters);
 
-module.exports = ArticleCitation;
+module.exports = Citation;
