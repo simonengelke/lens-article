@@ -20,6 +20,7 @@ Person.type = {
   "properties": {
     "source_id": "string",
     "name": "string", // full author name
+    "role": "string",
     "affiliations": ["array", "institution"],
     "image": "string", // optional
     "emails": ["array", "string"],

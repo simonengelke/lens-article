@@ -5,7 +5,7 @@
 }
 
 .content-node.cover .content {
-  background: #5c6570;
+  background: none;
 }
 
 .content-node.cover .title {
@@ -16,7 +16,38 @@
   padding-left: 100px;
 }
 
-.content-node.cover .authors {
+.content-node.cover .content .authors {
+  /*padding: 10px 60px;*/
+  /*padding-left: 100px;*/
+  padding: 10px 60px;
+  padding-left: 100px;
+
+  color: rgba(255,255,255, 0.7);
+  padding-bottom: 30px;
+  overflow: auto;
+  /*background: blue;*/
+}
+
+/* One para per author */
+.content-node.cover .authors .paragraph {
+  float: left;
+  padding: 0px;
+  margin: 0px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  /*background: blue;*/
+  color: rgba(255,255,255, 0.7);
+}
+
+/* One para per author */
+.content-node.cover .authors .paragraph:hover {
+  background: rgba(0,0,0,0.1);
+  color: #fff;
+}
+
+
+
+/*.content-node.cover .authors {
   padding: 10px 60px;
   padding-left: 100px;
   color: rgba(255,255,255, 0.7);
@@ -34,10 +65,7 @@
   line-height: 30px;
 }
 
-.content-node.cover .authors .author:hover {
-  background: rgba(0,0,0,0.1);
-  color: #fff;
-}
+
 
 .content-node.cover .authors .author.active {
   color: #fff;

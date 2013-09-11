@@ -35,14 +35,17 @@ CoverView.Prototype = function() {
 
     this.content.appendChild($$('.title', {text: node.title }));
 
+    // <span id="citation_reference_13" class="annotation citation_reference">Manz et al., 2011</span>
+    // Add title paragraph
+    // var titleNode = this.node.getTitle();
+
     var authors = $$('.authors', {
-      children: _.map(node.authors, function(a) {
-        return $$('a.author', {
-          // href: "#",
-          // id: a.id,
-          text: a.name
-        });
-      })
+      children: _.map(node.getAuthors(), function(authorPara) {
+        var paraView = this.viewFactory.createView(authorPara);
+        var paraEl = paraView.render().el;
+        this.content.appendChild(paraEl);
+        return paraEl;
+      }, this)
     });
 
     this.content.appendChild(authors);

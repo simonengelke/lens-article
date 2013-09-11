@@ -255,6 +255,16 @@ Article.annotations = {
     }
   },
 
+  // Dark blueish person references in the cover
+  // They should work everywhere else too
+
+  "person_reference": {
+    "parent": "annotation",
+    "properties": {
+      "target": "person"
+    }
+  },
+
   // Greenish figure references in the text
 
   "figure_reference": {

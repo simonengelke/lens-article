@@ -1,0 +1,12 @@
+/*
+Person 
+--------------------------------------- */
+
+.content-node.person .content {
+  padding: 20px;
+}
+
+.content-node.person .label {
+  margin-top: 10px;
+  color: #777;
+}
