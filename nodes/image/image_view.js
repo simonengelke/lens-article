@@ -48,16 +48,8 @@ ImageView.Prototype = function() {
       title: this.node.title
     });
 
+
     imgChar.appendChild(mediumImage);
-
-    // The large image
-    var largeImage = $$('img.large', {
-      src: this.node.large_url || this.node.large,
-      alt: this.node.title,
-      title: this.node.title
-    });
-
-    imgChar.appendChild(largeImage);
 
     this.content.appendChild(imgChar);
 

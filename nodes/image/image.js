@@ -11,13 +11,8 @@ Image.type = {
   "parent": "content",
   "properties": {
     "source_id": "string",
-    // "label": "string",
-    // "title": "string",
-    // "large": "string",
     "data": "string",
-    "url": "string",
-    // "large_url": "string",
-    // "caption": "paragraph"
+    "url": "string"
   }
 };
 
@@ -32,13 +27,8 @@ Image.description = {
     "This element can be used to describe images in your document."
   ],
   "properties": {
-    // "label": "Figure label, shown in the resource header",
-    // "title": "Image title",
     "data": "Base64 encoded string of medium sized image version",
-    // "large": "Base64 encoded string of full size image",
     "url": "URL to image resource",
-    // "large_url": "URL to full sized image resource",
-    // "caption": "Caption is a reference to a paragraph that describes the image."
   }
 };
 
@@ -46,12 +36,7 @@ Image.description = {
 Image.example = {
   "type": "image",
   "id": "image_fig3",
-  // "label": "Figure 3.",
-  // "doi": "http://dx.doi.org/10.7554/eLife.00311.009",
-  // "title": "Simplified insulin growth factor signaling diagram.",
-  // "caption": "fig2_caption",
   "url": "http://elife.elifesciences.org/content/elife/1/e00311/F3.medium.gif",
-  // "large_url": "http://elife.elifesciences.org/content/elife/1/e00311/F3.large.jpg"
 };
 
 
