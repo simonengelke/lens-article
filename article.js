@@ -443,6 +443,7 @@ Article.describe = function() {
   var id = 0;
 
   _.each(Article.nodeTypes, function(nodeType) {
+    nodeType = nodeType.Model;
     console.log('NAME', nodeType.description.name, nodeType.type.id);
 
     // Create a heading for each node type
@@ -537,6 +538,7 @@ Article.describe = function() {
     doc.show("content", [headingId+"_example", headingId+"_example_codeblock"], -1);
 
   });
+
   return doc.toJSON();
 };
 

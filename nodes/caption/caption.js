@@ -7,6 +7,7 @@ var Caption = function(node, document) {
 };
 
 Caption.type = {
+  "id": "caption",
   "parent": "content",
   "properties": {
     "source_id": "string",
