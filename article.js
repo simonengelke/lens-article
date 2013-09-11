@@ -539,7 +539,7 @@ Article.describe = function() {
 
   });
 
-  return doc.toJSON();
+  return doc;
 };
 
 
