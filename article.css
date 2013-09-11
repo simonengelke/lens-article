@@ -37,9 +37,10 @@
   position: absolute;
   top: 0px;
   bottom: 0px;
-  /*overflow-y: scroll;
-  overflow-x: hidden;*/
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  /*overflow: auto;*/
   -webkit-overflow-scrolling: touch;
 }
 
@@ -48,19 +49,37 @@
   background: #FFFFFF;
 }
 
+.article .document .surface.content::-webkit-scrollbar {
+  width: 2px;
+  height: 2px; 
+}
+
+.article .document .surface.content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.article .document .scrollbar-mask {
+  position: absolute;
+  right: 0px;
+
+}
+
+
 
 /* Context Toggles 
 =======================================================================
 
 /* Switcher */
 .article .context-toggles {
+  background: #F5F5F5;
   overflow: hidden;
-  height: 40px;
+  height: 60px;
   position: absolute;
   right: 20px;
-  left: 5px;
+  left: 0px;
   top: 0px;
   z-index: 3000;
+  padding: 10px 0px;
 }
 
 .article.focus-mode .context-toggles {
@@ -72,52 +91,59 @@
   float: left;
   padding: 0 10px;
   line-height: 40px;
-  font-size: 16px;
-  color: #333;
+  font-size: 14px;
+  color: #777;
   font-family: 'Avenir LT W01 85 Heavy', 'Montserrat', 'Source Sans Pro';
 }
 
+.article .context-toggles .context-toggle i {
+  /*display: none;*/
+}
+
+.article .context-toggles .context-toggle span {
+  /*display: none;*/
+}
+
 .article .context-toggles .context-toggle:hover {
-  background: rgba(0,0,0,0.05);
+  /*background: rgba(0,0,0,0.05);*/
+  color: #555;
 }
 
 /*Active states depend on the global reader context */
 
 .article.figures .context-toggles .context-toggle.figures {
-  color: rgba(255,255,255,0.9);
-  background: #5c6570;
+  /*color: rgba(255,255,255,0.9);*/
+  color: #111;
+  /*background: #5c6570;*/
 }
 
 .article.citations .context-toggles .context-toggle.citations {
-  color: rgba(255,255,255,0.9);
-  background: #5c6570;
+  color: #111;
+  /*color: rgba(255,255,255,0.9);*/
+  /*background: #5c6570;*/
 }
 
 .article.toc .context-toggles .context-toggle.toc {
-  color: rgba(255,255,255,0.9);
-  background: #5c6570;
+  color: #111;
+  /*color: rgba(255,255,255,0.9);*/
+  /*background: #5c6570;*/
 }
 
 .article.info .context-toggles .context-toggle.info {
-  color: rgba(255,255,255,0.9);
-  background: #5c6570;
+  color: #111;
+  /*color: rgba(255,255,255,0.9);*/
+  /*background: #5c6570;*/
 }
-
-
 
 
 /* Resources Panel 
 ======================================================================= */
 
 
-
-
-
-
 .article .resources {
   float: right;
   line-height: 20px;
-  width: 43%;
+  width: 44%;
   font-size: 14px;
   background: #F5F5F5;
   height: 100%;
@@ -127,7 +153,8 @@
 }
 
 .article .resources .surface {
-  margin-top: 50px;
+  /*margin-top: 50px;*/
+  padding-top: 60px;
 }
 
 .article .resources .nodes > .content-node {
@@ -278,10 +305,9 @@
   bottom: 0px;
   left: 0px;
   right: 0px;
-  margin-top: 50px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
+  padding-top: 60px;
 }
 
 .article.toc .resources .resource-view.toc {
