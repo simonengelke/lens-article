@@ -1,6 +1,6 @@
 "use strict";
 
-var CompositeView = require("../composite/composite_view");
+var CompositeView = require("../composite").View;
 var List = require("substance-document").List;
 var $$ = require("substance-application").$$;
 
@@ -18,7 +18,7 @@ CaptionView.Prototype = function() {
   // =============================
   //
 
-  this.render = function() {    
+  this.render = function() {
     this.content = $$('div.content');
 
     var i;

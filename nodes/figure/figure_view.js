@@ -1,6 +1,6 @@
 "use strict";
 
-var CompositeView = require("../composite/composite_view");
+var CompositeView = require("../composite").View;
 var $$ = require ("substance-application").$$;
 
 // Substance.Figure.View
@@ -16,7 +16,7 @@ FigureView.Prototype = function() {
   // =============================
   //
 
-  this.render = function() {    
+  this.render = function() {
     this.el.innerHTML = "";
     this.content = $$('div.content');
 

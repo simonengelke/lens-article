@@ -3,7 +3,7 @@
 var _ = require("underscore");
 var util = require("substance-util");
 var html = util.html;
-var NodeView = require("../node/node_view");
+var NodeView = require("../node").View;
 var $$ = require("substance-application").$$;
 
 // Substance.Paragraph.View
@@ -12,7 +12,7 @@ var $$ = require("substance-application").$$;
 var TableView = function(node, viewFactory) {
   NodeView.call(this, node);
   this.viewFactory = viewFactory;
-  
+
   this.$el.attr({id: node.id});
   this.$el.addClass("content-node table");
 };
