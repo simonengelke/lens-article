@@ -1,6 +1,4 @@
 "use strict";
+var SubstanceNodes = require("substance-nodes");
 
-module.exports = {
-  Model: require('substance-document').Heading,
-  View: require('./heading_view')
-};
+module.exports = SubstanceNodes["heading"];

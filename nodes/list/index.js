@@ -1,6 +1,5 @@
 "use strict";
 
-module.exports = {
-  Model: require('substance-document').List,
-  View: require('./list_view')
-};
+var SubstanceNodes = require("substance-nodes");
+
+module.exports = SubstanceNodes["list"];

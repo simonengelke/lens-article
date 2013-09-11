@@ -3,7 +3,7 @@
 var _ = require("underscore");
 var util = require("substance-util");
 var html = util.html;
-var CompositeView = require("../composite/composite_view");
+var CompositeView = require("../composite").View;
 
 var $$ = require("substance-application").$$;
 
@@ -52,7 +52,7 @@ SupplementView.Prototype = function() {
     this.el.appendChild(this.content);
 
     // Maybe we want to bring back the files array
-    // 
+    //
     // if (node.files) {
     //   var files = $$('.files', {
     //       children: _.map(node.files, function(file) {
