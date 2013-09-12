@@ -1,7 +1,7 @@
 "use strict";
 
-
 module.exports = {
+  "publication_info": require("./publication_info"),
   "affiliation": require("./affiliation"),
   "cover": require("./cover"),
   "paragraph": require("./paragraph"),

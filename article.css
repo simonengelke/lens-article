@@ -433,6 +433,14 @@
 
 
 
+/* Info panel overrides 
+----------------------------------------------------------------------- */
+
+
+#container .article .surface.info .content-node.caption .content {
+  padding: 20px;
+}
+
 
 /* Annotations 
 ----------------------------------------------------------------------- */
