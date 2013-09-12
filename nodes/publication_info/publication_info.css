@@ -1,27 +1,27 @@
 /* Publication Info */
 
-#document .resources .info .content-node.publication_info {
+.content-node.publication-info {
   padding: 30px 0;
   background: #EBEBEB;
   color: #333;
 }
 
-#document .resources .info .content-node.publication_info table {
+.content-node.publication-info table {
   padding: 30px;
   border: none;
   width: 100%;
 }
 
-#document .resources .info .content-node.publication_info .label.links {
+.content-node.publication-info .label.links {
   padding-left: 30px;
 }
 
 
-#document .resources .info .content-node.publication_info .links {
+.content-node.publication-info .links {
   overflow: auto;
 }
 
-#document .resources .info .content-node.publication_info .links .link {
+.content-node.publication-info .links .link {
   margin-top: 10px;
   padding: 10px;
   float: left;
@@ -31,12 +31,12 @@
   border-radius: 5px;
 }
 
-#document .resources .info .content-node.publication_info table.dates {
+.content-node.publication-info table.dates {
   background: #fff;
   margin-top: 30px;
 }
 
-#document .resources .info .content-node.publication_info table.dates td {  
+.content-node.publication-info table.dates td {  
   border: none;
   padding-left: 30px;
   padding-bottom: 10px;
@@ -45,18 +45,18 @@
   width: 33%;
 }
 
-#document .resources .info .content-node.publication_info table.categorization td {
+.content-node.publication-info table.categorization td {
   border: none;
   font-size: 13px;
   padding-left: 30px;
   width: 50%;
 }
 
-#document .resources .info .content-node.publication_info .value {
+.content-node.publication-info .value {
   font-weight: bold;
   font-size: 15px;
 }
 
-#document .resources .info .content-node.publication_info .links {
+.content-node.publication-info .links {
   padding-left: 30px;
 }

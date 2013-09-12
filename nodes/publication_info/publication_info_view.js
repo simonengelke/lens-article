@@ -10,7 +10,7 @@ var $$ = require("substance-application").$$;
 var PublicationInfoView = function(node, viewFactory) {
   NodeView.call(this, node, viewFactory);
 
-  this.$el.addClass('image');
+  this.$el.addClass('publication-info');
   this.$el.attr('id', this.node.id);
 };
 
@@ -79,7 +79,31 @@ PublicationInfoView.Prototype = function() {
   this.render = function() {
     NodeView.prototype.render.call(this);
 
-    this.el.innerHTML = "NOT YET IMPLEMENTED";
+    var tableRows = [
+      $$('tr', {
+        children: [
+          $$('td', {
+            children: [
+              $$('div.label', {text: "Subject"}),
+              $$('div.value', {text: "Biochemistry, Biophysics and structural biology"})
+            ]
+          }),
+          $$('td', {
+            children: [
+              $$('div.label', {text: "Organism"}),
+              $$('div.value', {text: "Mouse"})
+            ]
+          })
+        ]
+      })
+    ];
+
+    this.el.innerHTML = "under_construction";
+    var catTbl = $$('table.categorization', {
+      children: [ $$('tbody', { children: tableRows }) ]
+    });
+
+    this.el.appendChild(catTbl);
     // this._imgPos = _indexOf.call(imgChar.childNodes, img);
 
     return this;
