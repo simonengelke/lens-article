@@ -6,6 +6,11 @@ Person
   padding: 20px;
 }
 
+.content-node.person .affiliation {
+  margin-top: 10px;
+  font-size: 17px;
+}
+
 .content-node.person .label {
   margin-top: 10px;
   color: #777;

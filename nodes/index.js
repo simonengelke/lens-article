@@ -2,6 +2,7 @@
 
 
 module.exports = {
+  "affiliation": require("./affiliation"),
   "cover": require("./cover"),
   "paragraph": require("./paragraph"),
   "heading": require("./heading"),

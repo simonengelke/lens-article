@@ -21,7 +21,8 @@ Person.type = {
     "source_id": "string",
     "name": "string", // full author name
     "role": "string",
-    "affiliations": ["array", "institution"],
+    "affiliations": ["array", "affiliation"],
+    "fundings": ["array", "string"],
     "image": "string", // optional
     "emails": ["array", "string"],
     "contribution": "string"
@@ -54,7 +55,11 @@ Person.example = {
 
 
 Person.Prototype = function() {
-
+  this.getAffiliations = function() {
+    return _.map(this.properties.affiliations, function(affId) {
+      return this.document.get(affId);
+    }, this);
+  }
 };
 
 Person.Prototype.prototype = Node.prototype;

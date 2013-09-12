@@ -29,35 +29,45 @@ PersonView.Prototype = function() {
     // -------
 
     this.content.appendChild($$('.affiliations', {
-      children: [
-        $$('.affiliation', {text: "Affiliation 1"}),
-        $$('.affiliation', {text: "Affiliation 2"})
-      ]
+      children: _.map(this.node.getAffiliations(), function(aff) {
+        
+        var affText = _.compact([
+          aff.department, 
+          aff.institution,
+          aff.city,
+          aff.country
+        ]).join(', ');
+
+        return $$('.affiliation', {text: affText});
+      })
     }));
 
     // Contribution
     // -------
 
     this.content.appendChild($$('.label', {text: 'Contribution'}));
-    this.content.appendChild($$('.contribution', {text: 'Conception and design, Analysis and interpretation of data, Drafting or revising the article'}));
+    this.content.appendChild($$('.contribution', {text: this.node.contribution}));
 
     // Funding
     // -------
 
-    this.content.appendChild($$('.label', {text: 'Funding'}));
-    this.content.appendChild($$('.fundings', {
-      children: [
-        $$('.funding', {text: "National Institutes of Health, R01-GM092917"}),
-        $$('.funding', {text: "Pew Biomedical Scholar Program"}),
-        $$('.funding', {text: "National Institutes of Health Predoctoral Training Grant, GM007759"})
-      ]
-    }));
+    if (this.node.fundings.length > 0) {
+      this.content.appendChild($$('.label', {text: 'Funding'}));
+      this.content.appendChild($$('.fundings', {
+        children: _.map(this.node.fundings, function(funding) {
+          return $$('.funding', {text: funding});
+        })
+      }));
+    }
 
-
-    this.content.appendChild($$('.label', {text: 'For correspondence'}));
-    this.content.appendChild($$('.label', {children: [
-      $$('a', {href: "mailto:x@example.com", text: "x@example.com"})
-    ]}));
+    if (this.node.emails.length > 0) {
+      this.content.appendChild($$('.label', {text: 'For correspondence'}));
+      this.content.appendChild($$('.label', {
+        children: _.map(this.node.emails, function(email) {
+          return $$('a', {href: "mailto:x@example.com", text: email});
+        })
+      }));
+    }
 
     return this;
   };
