@@ -458,13 +458,14 @@ Article.describe = function() {
 
     // Turn remarks and description into an introduction paragraph
     var introText = nodeType.description.remarks.join(' ');
-    var introId = "paragraph_"+nodeType.type.id+"_intro";
+    var introId = "text_"+nodeType.type.id+"_intro";
 
     doc.create({
       id: introId,
-      type: "paragraph",
+      type: "text",
       content: introText,
     });
+
 
     // Show it in the content view
     doc.show("content", [headingId, introId], -1);
@@ -474,11 +475,9 @@ Article.describe = function() {
     // --------
     //
 
-    // console.log('PROPERTY DESCRIPTIONS', nodeType.description);
-
     doc.create({
       id: headingId+"_properties",
-      type: "paragraph",
+      type: "text",
       content: nodeType.description.name+ " uses the following properties:"
     });
 
@@ -488,10 +487,10 @@ Article.describe = function() {
 
     _.each(nodeType.description.properties, function(propertyDescr, key) {
 
-      var listItemId = "paragraph_" + (++id);
+      var listItemId = "text_" + (++id);
       doc.create({
         id: listItemId,
-        type: "paragraph",
+        type: "text",
         content: key +": " + propertyDescr
       });
 
@@ -517,16 +516,14 @@ Article.describe = function() {
     // And show it
     doc.show("content", [headingId+"_property_list"], -1);
 
-
     // Include example
     // --------
     //
 
     doc.create({
       id: headingId+"_example",
-      type: "paragraph",
+      type: "text",
       content: "Here's an example:"
-      // level: 2
     });
 
     doc.create({
