@@ -5,6 +5,7 @@ module.exports = {
   "affiliation": require("./affiliation"),
   "cover": require("./cover"),
   "paragraph": require("./paragraph"),
+  "richparagraph": require("./richparagraph"),
   "heading": require("./heading"),
   "figure": require("./figure"),
   "caption": require("./caption"),

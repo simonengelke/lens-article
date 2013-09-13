@@ -21,7 +21,8 @@ Formula.type = {
     "source_id": "string",
     "label": "string",
     "data": "string",
-    "format": "string" // MathML, LaTeX, image
+    "format": "string", // MathML, LaTeX, image
+    "inline": "boolean"
   }
 };
 
@@ -56,7 +57,7 @@ Formula.example = {
 };
 
 Formula.Prototype = function() {
-
+  this.inline = false;
 };
 
 Formula.Prototype.prototype = Node.prototype;
