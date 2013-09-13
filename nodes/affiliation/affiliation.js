@@ -8,7 +8,7 @@ var Affiliation = function(node, doc) {
 };
 
 Affiliation.type = {
-  "id": "image",
+  "id": "affiliation",
   "parent": "content",
   "properties": {
     "source_id": "string",

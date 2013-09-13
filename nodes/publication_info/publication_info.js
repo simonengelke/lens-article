@@ -8,12 +8,24 @@ var PublicationInfo = function(node, doc) {
 };
 
 PublicationInfo.type = {
-  "id": "image",
+  "id": "publication_info",
   "parent": "content",
   "properties": {
-    "source_id": "string",
+    "received_on": "string",
+    "accpeted_on": "string",
+    "published_on": "string",
+    "journal": "string",
+    "article_type": "string",
+    "keywords": ["array", "string"],
+    "research_organisms": ["array", "string"],
+    "subjects": ["array", "string"],
+    "pdf_link": "string",
+    "xml_link": "string",
+    "json_link": "string",
+    "doi": "string"
   }
 };
+
 
 PublicationInfo.description = {
   "name": "PublicationInfo",
@@ -22,19 +34,55 @@ PublicationInfo.description = {
     "Summarizes the article's meta information. Meant to be customized by publishers"
   ],
   "properties": {
-    "coming": "soon"
+    "received_on": "Submission received",
+    "accpeted_on": "Paper accepted on",
+    "published_on": "Paper published on",
+    "journal": "The Journal",
+    "article_type": "Research Article vs. Insight, vs. Correction etc.",
+    "keywords": "Article's keywords",
+    "research_organisms": "Research Organisms",
+    "subjects": "Article Subjects",
+    "pdf_link": "A link referencing the PDF version for print",
+    "xml_link": "A link referencing the original NLM XML file",
+    "json_link": "A link pointing to the JSON version of the article",
+    "doi": "Article DOI"
   }
 };
 
 
 PublicationInfo.example = {
-  "id": "affiliation_1",
-  "source_id": "article_meta",
+  "id": "publication_info",
+  "received_on": "2012-06-20",
+  "accepted_on": "2012-09-05",
+  "published_on": "2012-11-13",
+  "journal": "eLife",
+  "article_type": "Research Article",
+  "keywords": [
+    "innate immunity",
+    "histones",
+    "lipid droplet",
+    "anti-bacterial"
+  ],
+  "research_organisms": [
+    "B. subtilis",
+    "D. melanogaster",
+    "E. coli",
+    "Mouse"
+  ],
+  "subjects": [
+    "Immunology",
+    "Microbiology and infectious disease"
+  ],
+  "pdf_link": "http://elife.elifesciences.org/content/1/e00003.full-text.pdf",
+  "xml_link": "https://s3.amazonaws.com/elife-cdn/elife-articles/00003/elife00003.xml",
+  "json_link": "http://cdn.elifesciences.org/documents/elife/00003.json",
+  "doi": "http://dx.doi.org/10.7554/eLife.00003"
 };
+
 
 PublicationInfo.Prototype = function() {
-
 };
+
 
 PublicationInfo.Prototype.prototype = Node.prototype;
 PublicationInfo.prototype = new PublicationInfo.Prototype();
