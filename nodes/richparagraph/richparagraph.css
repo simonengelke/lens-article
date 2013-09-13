@@ -1,14 +1,16 @@
 .document .content-node.richparagraph {
-  padding-left: 100px;
+  /*padding-left: 100px;*/
+  padding: 20px 60px 20px 100px;
+  /*padding-left: 100px;*/
 }
 
-.content-node.richparagraph .content-node.paragraph {
+.content-node.richparagraph .content-node.text {
   padding: 0px;
   display:inline;
   width: auto;
 }
 
-.content-node.richparagraph .content-node.paragraph div {
+.content-node.richparagraph .content-node.text div {
   display:inline;
   width: auto;
 }

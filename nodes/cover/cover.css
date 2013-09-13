@@ -29,7 +29,7 @@
 }
 
 /* One para per author */
-.content-node.cover .authors .paragraph {
+.content-node.cover .authors .text {
   float: left;
   padding: 0px;
   margin: 0px;
@@ -41,7 +41,7 @@
 }
 
 /* One para per author */
-.content-node.cover .authors .paragraph:hover {
+.content-node.cover .authors .text:hover {
   background: rgba(0,0,0,0.1);
   color: #fff;
 }
