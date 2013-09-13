@@ -101,12 +101,12 @@
   border-left: 10px solid black;
 }
 
-.article.figures .content-node.active .focus .focus-mode.figure .arrow {
+.article.figures .content-node.active .focus .focus-mode .arrow {
   border-left: 10px solid rgba(145, 187, 4, 1.0);
   display: block;
 }
 
-.article.citations .content-node.active .focus .focus-mode.citation .arrow {
+.article.citations .content-node.active .focus .focus-mode .arrow {
   border-left: 10px solid rgba(11, 157, 217, 1);
   display: block;
 }
