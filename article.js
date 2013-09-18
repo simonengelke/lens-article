@@ -86,17 +86,18 @@ var Article = function(options) {
 // --------
 //
 
-Article.Renderer = function(doc) {
-  this.doc = doc;
-  // var that = this;
+Article.Renderer = function(docCtrl, options) {
+  this.docCtrl = docCtrl;
 
   this.nodeTypes = Article.nodeTypes;
+
+  this.options = options || {};
 
   // Collect all node views
   this.nodes = {};
 
   // Build views
-  _.each(this.doc.getNodes(), function(node) {
+  _.each(this.docCtrl.getNodes(), function(node) {
     this.nodes[node.id] = this.createView(node);
   }, this);
 
@@ -125,7 +126,7 @@ Article.Renderer.Prototype = function() {
     var nodeView = new NodeView(node, this);
 
     // we connect the listener here to avoid to pass the document itself into the nodeView
-    nodeView.listenTo(this.doc, "operation:applied", nodeView.onGraphUpdate);
+    nodeView.listenTo(this.docCtrl, "operation:applied", nodeView.onGraphUpdate);
     return nodeView;
   };
 
@@ -134,16 +135,24 @@ Article.Renderer.Prototype = function() {
   //
 
   this.render = function() {
+    _.each(this.nodes, function(nodeView) {
+      nodeView.dispose();
+    });
+
     var frag = document.createDocumentFragment();
 
-    // Note: taking the treeView to render nodes
-    // This assumes, that Composite nodes initiate rendering of child-nodes on their own
-    var docNodeIds = this.doc.container.treeView;
-    _.each(docNodeIds, function(id) {
-      frag.appendChild(this.nodes[id].render().el);
+    var docNodes = this.docCtrl.container.getTopLevelNodes();
+    _.each(docNodes, function(n) {
+      var view = this.createView(n);
+      frag.appendChild(view.render().el);
+      // Lets you customize the resulting DOM sticking on the el element
+      // Example: Lens focus controls
+      if (this.options.afterRender) this.options.afterRender(this.docCtrl, view);
     }, this);
+    
     return frag;
   };
+
 };
 
 Article.Renderer.prototype = new Article.Renderer.Prototype();

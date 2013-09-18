@@ -17,6 +17,7 @@ FigureView.Prototype = function() {
   //
 
   this.render = function() {
+
     this.el.innerHTML = "";
     this.content = $$('div.content');
 
