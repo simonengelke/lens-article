@@ -41,9 +41,11 @@ SupplementView.Prototype = function() {
     // if (node.url) {
     // }
 
+    var ext = _.last(node.url.split('.'));
+
     var file = $$('div.file', {
       children: [
-        $$('a', {href: "http://mickey.com/mouse.png", html: '<i class="icon-download-alt"/> http://mickey.com/mouse.png'})
+        $$('a', {href: node.url, html: '<i class="icon-download-alt"/> Download '+ ext.toUpperCase() })
       ]
     });
 
