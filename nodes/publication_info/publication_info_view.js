@@ -64,6 +64,10 @@ PublicationInfoView.Prototype = function() {
 
     this.el.appendChild(catTbl);
     this.el.appendChild($$('.label.links', {text: "Links"}));
+      
+    // Prepare for download the JSON
+    var json = JSON.stringify(this.node.document.toJSON(), null, '  ');
+    var bb = new Blob([json], {type: "application/json"});
 
     var links = $$('.links', {
       children: [
@@ -72,7 +76,7 @@ PublicationInfoView.Prototype = function() {
           html: '<i class="icon-download-alt"></i> PDF'
         }),
         $$('a.link.json-link', {
-          href: this.node.json_link,
+          href: window.URL.createObjectURL(bb),
           html: '<i class="icon-download-alt"></i> JSON'
         }),
         $$('a.link.xml-link', {
