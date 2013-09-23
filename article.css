@@ -145,7 +145,6 @@
   line-height: 20px;
   width: 44%;
   font-size: 14px;
-  background: #F5F5F5;
   height: 100%;
   position: relative;
   /*overflow: hidden;*/
@@ -160,7 +159,7 @@
 .article .resources .nodes > .content-node {
   color: #333;
   position: relative;
-  background: #EBEBEB;
+  background: rgba(0,0,0,0.05);
   margin-bottom: 30px;
   margin-right: 20px;
   padding: 0px;
