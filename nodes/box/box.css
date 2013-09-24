@@ -1,0 +1,7 @@
+/*
+Box 
+--------------------------------------- */
+
+.content-node.box > .content {
+  padding: 20px;
+}

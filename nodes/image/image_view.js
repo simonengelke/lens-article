@@ -43,11 +43,8 @@ ImageView.Prototype = function() {
 
     // The thumbnail (medium image)
     var mediumImage = $$('img.medium', {
-      src: this.node.url || this.node.medium,
-      alt: this.node.title,
-      title: this.node.title
+      src: this.node.url || this.node.medium
     });
-
 
     imgChar.appendChild(mediumImage);
 

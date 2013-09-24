@@ -1,7 +1,7 @@
 var _ = require('underscore');
 var Node = require('substance-document').Node;
 
-// Lens.Video
+// Lens.Person
 // -----------------
 //
 
