@@ -47,7 +47,7 @@ Box.description = {
 Box.example = {
   "id": "box_1",
   "type": "box",
-  "name": "Box 1",
+  "label": "Box 1",
   "children": ["paragraph_1", "paragraph_2"]
 };
 
