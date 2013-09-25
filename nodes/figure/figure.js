@@ -13,7 +13,8 @@ Figure.type = {
     "source_id": "string",
     "label": "string",
     "url": "string",
-    "caption": "caption"
+    "caption": "caption",
+    "attrib": "string"
   }
 };
 
@@ -31,7 +32,10 @@ Figure.description = {
     "A figure is a figure is figure.",
   ],
   "properties": {
-    
+    "label": "Label used as header for the figure cards",
+    "url": "Image url",
+    "caption": "A reference to a caption node that describes the figure",
+    "attrib": "Figure attribution"
   }
 };
 
@@ -66,7 +70,7 @@ Figure.Prototype.prototype = Document.Composite.prototype;
 Figure.prototype = new Figure.Prototype();
 Figure.prototype.constructor = Figure;
 
-Document.Node.defineProperties(Figure.prototype, ["source_id", "label", "url", "caption"]);
+Document.Node.defineProperties(Figure.prototype, ["source_id", "label", "url", "caption", "attrib"]);
 
 Object.defineProperties(Figure.prototype, {
   // Used as a resource header

@@ -28,11 +28,6 @@ FigureView.Prototype = function() {
 
     this.content.appendChild(imgEl);
 
-    // var i;
-    // // dispose existing children views if called multiple times
-    // for (i = 0; i < this.childrenViews.length; i++) {
-    //   this.childrenViews[i].dispose();
-    // }
 
     var caption = this.node.getCaption();
     if (caption) {
@@ -40,6 +35,12 @@ FigureView.Prototype = function() {
       var captionEl = captionView.render().el;
       this.content.appendChild(captionEl);
       this.childrenViews.push(captionView);
+    }
+
+    // Attrib
+    if (this.node.attrib) {
+      console.log('ATTRIB!!');
+      this.content.appendChild($$('.figure-attribution', {text: this.node.attrib}));
     }
 
     this.el.appendChild(this.content);
