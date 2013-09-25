@@ -48,6 +48,14 @@ PersonView.Prototype = function() {
     this.content.appendChild($$('.label', {text: 'Contribution'}));
     this.content.appendChild($$('.contribution', {text: this.node.contribution}));
 
+    // Equal contribution
+    // -------
+
+    if (this.node.equal_contrib && this.node.equal_contrib.length > 0) {
+      this.content.appendChild($$('.label', {text: 'Contributed equally with'}));
+      this.content.appendChild($$('.equal-contribution', {text: this.node.equal_contrib}));
+    }
+
     // Funding
     // -------
 

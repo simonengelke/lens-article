@@ -25,7 +25,8 @@ Person.type = {
     "fundings": ["array", "string"],
     "image": "string", // optional
     "emails": ["array", "string"],
-    "contribution": "string"
+    "contribution": "string",
+    "equal_contrib": ["array", "string"]
   }
 };
 
@@ -43,6 +44,7 @@ Person.description = {
   }
 };
 
+
 // Example Video
 // -----------------
 //
@@ -50,7 +52,13 @@ Person.description = {
 Person.example = {
   "id": "person_1",
   "type": "person",
-  "name": "John Doe"
+  "name": "John Doe",
+  "affiliations": ["affiliation_1", "affiliation_2"],
+  "role": "Author",
+  "fundings": ["Funding Organisation 1"],
+  "emails": ["a@b.com"],
+  "contribution": "Revising the article, data cleanup",
+  "equal_contrib": ["John Doe", "Jane Doe"]
 };
 
 
