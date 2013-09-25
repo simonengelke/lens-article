@@ -12,7 +12,7 @@ PublicationInfo.type = {
   "parent": "content",
   "properties": {
     "received_on": "string",
-    "accpeted_on": "string",
+    "accepted_on": "string",
     "published_on": "string",
     "journal": "string",
     "article_type": "string",
@@ -35,7 +35,7 @@ PublicationInfo.description = {
   ],
   "properties": {
     "received_on": "Submission received",
-    "accpeted_on": "Paper accepted on",
+    "accepted_on": "Paper accepted on",
     "published_on": "Paper published on",
     "journal": "The Journal",
     "article_type": "Research Article vs. Insight, vs. Correction etc.",

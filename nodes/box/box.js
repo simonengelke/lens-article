@@ -19,7 +19,7 @@ Box.type = {
   "parent": "content",
   "properties": {
     "source_id": "string",
-    "label": "string", // full author name
+    "label": "string",
     "children": ["array", "paragraph"]
   }
 };
