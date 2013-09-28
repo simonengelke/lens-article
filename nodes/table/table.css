@@ -1,19 +1,19 @@
 /* Table */ 
 
-.content-node.table > .content {
+.lens-article .content-node.table > .content {
   padding: 20px;
 }
 
-.content-node.table .table-wrapper {
+.lens-article .content-node.table .table-wrapper {
   width: 100%;
   overflow: auto;
 }
 
-.content-node.table .caption {
+.lens-article .content-node.table .caption {
   padding-top: 20px; 
 }
 
-.content-node.table table {
+.lens-article .content-node.table table {
   position: relative;
   border-collapse: collapse;
   border-spacing: 0;
@@ -21,30 +21,29 @@
   margin: 0 auto;
 }
 
-.content-node.table thead tr {
+.lens-article .content-node.table thead tr {
   background: #eee;
 }
 
-.content-node.table thead td {
+.lens-article .content-node.table thead td {
   font-weight: bold;
 }
 
 /* Table sub tags */
-.content-node.table table sub {
-   vertical-align: baseline;
-   position: relative;
-   top: 0.4em;
-   font-size: 11px;
+.lens-article .content-node.table table sub {
+  vertical-align: baseline;
+  position: relative;
+  top: 0.4em;
+  font-size: 11px;
 }
 
-.content-node.table table td {
+.lens-article .content-node.table table td {
   padding: 5px;
   font-size: 12px;
   border: 1px solid lightgrey;
 }
 
-.content-node.table .footers {
-
+.lens-article .content-node.table .footers {
   padding: 0 20px;
   padding-top: 10px;
   font-size: 12px;
