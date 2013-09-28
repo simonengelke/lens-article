@@ -10,6 +10,7 @@ module.exports = {
   "figure": require("./figure"),
   "caption": require("./caption"),
   "image": require("./image"),
+  "webresource": require("./web_resource"),
   "table": require("./table"),
   "supplement": require("./supplement"),
   "video": require("./video"),
