@@ -1,26 +1,26 @@
-.content-node.cover {
+.lens-article .content-node.cover {
   background: #5c6570;
   color: white;
 }
 
-.content-node.cover .content {
+.lens-article .content-node.cover .content {
   background: none;
 }
 
-.content-node.cover .title {
+.lens-article .content-node.cover .title {
   font-family: 'Avenir LT W01 85 Heavy', 'Montserrat', 'Source Sans Pro';
   line-height: 1.3em;
   font-size: 40px;
 }
 
-.content-node.cover .content .authors {
+.lens-article .content-node.cover .content .authors {
   padding-top: 30px;
   color: rgba(255,255,255, 0.7);
   overflow: auto;
 }
 
 /* One para per author */
-.content-node.cover .authors .text {
+.lens-article .content-node.cover .authors .text {
   float: left;
   padding: 0px;
   margin: 0px;
@@ -31,7 +31,7 @@
 }
 
 /* One para per author */
-.content-node.cover .authors .text:hover {
+.lens-article .content-node.cover .authors .text:hover {
   background: rgba(0,0,0,0.1);
   color: #fff;
 }

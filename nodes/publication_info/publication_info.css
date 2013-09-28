@@ -1,31 +1,30 @@
 /* Publication Info */
 
-.content-node.publication-info {
+.lens-article .content-node.publication-info {
   /*padding: 30px 0;*/
   background: #EBEBEB;
   color: #333;
 }
 
-.content-node.publication-info .content {
+.lens-article .content-node.publication-info .content {
   background: #EBEBEB;
 }
 
-.content-node.publication-info table {
+.lens-article .content-node.publication-info table {
   padding: 30px 0;
   border: none;
   width: 100%;
 }
 
-.content-node.publication-info .label.links {
+.lens-article .content-node.publication-info .label.links {
   padding-left: 30px;
 }
 
-
-.content-node.publication-info .links {
+.lens-article .content-node.publication-info .links {
   overflow: auto;
 }
 
-.content-node.publication-info .links .link {
+.lens-article .content-node.publication-info .links .link {
   margin-top: 10px;
   padding: 10px;
   float: left;
@@ -35,12 +34,12 @@
   border-radius: 5px;
 }
 
-.content-node.publication-info table.dates {
+.lens-article .content-node.publication-info table.dates {
   background: #fff;
   margin-top: 30px;
 }
 
-.content-node.publication-info table.dates td {  
+.lens-article .content-node.publication-info table.dates td {  
   border: none;
   padding-left: 30px;
   padding-bottom: 10px;
@@ -49,18 +48,18 @@
   width: 33%;
 }
 
-.content-node.publication-info table.categorization td {
+.lens-article .content-node.publication-info table.categorization td {
   border: none;
   font-size: 13px;
   padding-left: 30px;
   width: 50%;
 }
 
-.content-node.publication-info .value {
+.lens-article .content-node.publication-info .value {
   font-weight: bold;
   font-size: 15px;
 }
 
-.content-node.publication-info .links {
+.lens-article .content-node.publication-info .links {
   padding-left: 30px;
 }
