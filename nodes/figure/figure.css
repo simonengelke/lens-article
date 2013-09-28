@@ -2,31 +2,11 @@
 -------------------------------------------------------------------------------*/
 
 .content-node.figure { 
-/*  padding: 20px 60px;
-  padding-left: 100px;*/
-}
-
-.content-node.figure .content {
-  /*text-align: center;*/
-  padding: 0px;
 }
 
 .content-node.figure div.image-wrapper {
   text-align: center;
-  /*width: 100%;*/
-}
-
-.content-node.figure div.image-char img {
-  
-}
-
-.content-node.figure > .content {
-  background: #fff;
-  padding: 20px;
-}
-
-.content-node.figure .paragraph .content {
-  background: #fff;
+  padding-bottom: 20px;
 }
 
 .content-node.figure div .image-wrapper img {

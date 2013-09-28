@@ -3,7 +3,7 @@ Person
 --------------------------------------- */
 
 .content-node.person .content {
-  padding: 20px;
+  /*padding: 20px;*/
 }
 
 .content-node.person .affiliation {

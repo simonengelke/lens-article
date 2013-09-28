@@ -3,14 +3,15 @@ Citations
 --------------------------------------- */
 
 .content-node.citation .content .authors {
-  padding-top: 20px;
+  /*padding-top: 20px;*/
   font-size: 17px;
 }
 
 .content-node.citation .content .source {
   color: #777;
+  padding-top: 20px;
 }
 
 .content-node.citation .content > div {
-  padding: 10px 20px;
+  /*padding: 10px 20px;*/
 }

@@ -62,8 +62,8 @@ PublicationInfoView.Prototype = function() {
       children: [ $$('tbody', { children: tableRows }) ]
     });
 
-    this.el.appendChild(catTbl);
-    this.el.appendChild($$('.label.links', {text: "Links"}));
+    this.content.appendChild(catTbl);
+    this.content.appendChild($$('.label.links', {text: "Links"}));
       
     // Prepare for download the JSON
     var json = JSON.stringify(this.node.document.toJSON(), null, '  ');
@@ -90,7 +90,7 @@ PublicationInfoView.Prototype = function() {
       ]
     });
 
-    this.el.appendChild(links);
+    this.content.appendChild(links);
 
     var dateRows = [
       $$('tr', {
@@ -121,7 +121,7 @@ PublicationInfoView.Prototype = function() {
       children: [ $$('tbody', { children: dateRows }) ]
     });
 
-    this.el.appendChild(datesTbl);
+    this.content.appendChild(datesTbl);
     return this;
   };
 

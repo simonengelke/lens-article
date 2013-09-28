@@ -1,9 +1,13 @@
 /* Publication Info */
 
 .content-node.publication-info {
-  padding: 30px 0;
+  /*padding: 30px 0;*/
   background: #EBEBEB;
   color: #333;
+}
+
+.content-node.publication-info .content {
+  background: #EBEBEB;
 }
 
 .content-node.publication-info table {

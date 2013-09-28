@@ -1,6 +1,5 @@
 .resources .content-node.video .video-wrapper {
   background: black;
-  padding: 10px 0;
   text-align: center;
 }
 
@@ -11,21 +10,6 @@
   max-height: 500px;
 }
 
-.resources .content-node.video .content .title {
-  padding: 10px 20px;
-}
-
-.resources .content-node.video .content .doi {
-  padding: 10px 20px;
-}
-
-/* Video Caption  */
-.resources .content-node.video .content .paragraph {
-  padding: 10px 20px;
-  margin-bottom: 0px; /* override default margin of paragraphs */
-  background: #fff;
-}
-
 /* Fullscreen overrides */
 
 .resources .content-node.video.fullscreen .content .video-wrapper {
@@ -33,4 +17,3 @@
   padding: 50px 0;
   text-align: center;
 }
-
