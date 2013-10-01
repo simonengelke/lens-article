@@ -72,7 +72,7 @@ PersonView.Prototype = function() {
       this.content.appendChild($$('.label', {text: 'For correspondence'}));
       this.content.appendChild($$('.label', {
         children: _.map(this.node.emails, function(email) {
-          return $$('a', {href: "mailto:x@example.com", text: email});
+          return $$('a', {href: "mailto:"+email, text: email});
         })
       }));
     }
