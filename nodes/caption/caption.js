@@ -38,7 +38,11 @@ Caption.description = {
 //
 
 Caption.example = {
-  "no_example": "yet"
+  "id": "caption_1",
+  "children": [
+    "paragraph_1",
+    "paragraph_2"
+  ]
 };
 
 Caption.Prototype = function() {

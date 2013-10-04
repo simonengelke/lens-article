@@ -44,7 +44,10 @@ Figure.description = {
 //
 
 Figure.example = {
-  "no_example": "yet"
+  "id": "figure_1",
+  "label": "Figure 1",
+  "url": "http://example.com/fig1.png",
+  "caption": "caption_1"
 };
 
 Figure.Prototype = function() {
