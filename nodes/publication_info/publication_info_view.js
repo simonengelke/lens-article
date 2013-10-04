@@ -98,19 +98,19 @@ PublicationInfoView.Prototype = function() {
           $$('td', {
             children: [
               $$('div.label', {text: "Received"}),
-              $$('div.value', {text: this.node.received_on})
+              $$('div.value', {text: this.node.received_on || "-" })
             ]
           }),
           $$('td', {
             children: [
               $$('div.label', {text: "Accepted"}),
-              $$('div.value', {text: this.node.accepted_on})
+              $$('div.value', {text: this.node.accepted_on || "-" })
             ]
           }),
           $$('td', {
             children: [
               $$('div.label', {text: "Published"}),
-              $$('div.value', {text: this.node.published_on})
+              $$('div.value', {text: this.node.published_on || "-" })
             ]
           })
         ]
@@ -127,7 +127,6 @@ PublicationInfoView.Prototype = function() {
 
   this.dispose = function() {
     NodeView.prototype.dispose.call(this);
-
   };
 };
 
