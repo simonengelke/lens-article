@@ -39,7 +39,7 @@ Figure.description = {
   }
 };
 
-// Example File
+// Example Figure
 // -----------------
 //
 
