@@ -1,5 +1,5 @@
 "use strict";
 
 module.exports = {
-  Model: require("./affiliation")
+  Model: require('./affiliation')
 };

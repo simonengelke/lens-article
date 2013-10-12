@@ -1,7 +1,6 @@
 "use strict";
 module.exports = {
   "publication_info": require("./publication_info"),
-  "affiliation": require("./affiliation"),
   "box": require("./box"),
   "cover": require("./cover"),
   "text": require("./text"),
@@ -18,5 +17,6 @@ module.exports = {
   "citation": require("./citation"),
   "formula": require('./formula'),
   "list": require("./list"),
-  "codeblock": require("./codeblock")
+  "codeblock": require("./codeblock"),
+  "affiliation": require("./_affiliation")
 };
