@@ -69,6 +69,8 @@ PublicationInfoView.Prototype = function() {
     var json = JSON.stringify(this.node.document.toJSON(), null, '  ');
     var bb = new Blob([json], {type: "application/json"});
 
+
+
     var links = $$('.links', {
       children: [
         $$('a.link pdf-link', {
@@ -76,7 +78,7 @@ PublicationInfoView.Prototype = function() {
           html: '<i class="icon-download-alt"></i> PDF'
         }),
         $$('a.link.json-link', {
-          href: window.URL.createObjectURL(bb),
+          href: window.URL ? window.URL.createObjectURL(bb) : "#",
           html: '<i class="icon-download-alt"></i> JSON'
         }),
         $$('a.link.xml-link', {
