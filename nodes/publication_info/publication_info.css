@@ -6,9 +6,8 @@
   color: #333;
 }
 
-.lens-article .content-node.publication-info .content {
-  /*background: #EBEBEB;*/
-  background: rgba(0,0,0,0.01);
+.article .resources .nodes > .content-node.publication-info > .content {
+  border-top: 1px solid #ddd;
 }
 
 .lens-article .content-node.publication-info table {
@@ -18,7 +17,7 @@
 }
 
 .lens-article .content-node.publication-info .label.links {
-  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .lens-article .content-node.publication-info .links {
@@ -42,7 +41,7 @@
 
 .lens-article .content-node.publication-info table.dates td {  
   border: none;
-  padding-left: 30px;
+  padding-right: 30px;
   padding-bottom: 10px;
   text-align: center;
   font-size: 13px;
@@ -52,7 +51,7 @@
 .lens-article .content-node.publication-info table.categorization td {
   border: none;
   font-size: 13px;
-  padding-left: 30px;
+  padding-right: 30px;
   width: 50%;
 }
 
@@ -62,5 +61,5 @@
 }
 
 .lens-article .content-node.publication-info .links {
-  padding-left: 30px;
+  padding-right: 30px;
 }
