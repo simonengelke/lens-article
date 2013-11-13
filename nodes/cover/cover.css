@@ -3,6 +3,16 @@
   color: rgba(0,0,0,0.8);
 }
 
+.lens-article .content-node.cover .breadcrumbs {
+  /*background: #5c6570;*/
+  font-size: 14px;
+  padding-bottom: 20px;
+}
+
+.lens-article .content-node.cover .breadcrumbs a {
+  margin-right: 20px;
+}
+
 .lens-article .content-node.cover .content {
   background: none;
 }
@@ -16,6 +26,7 @@
 .lens-article .content-node.cover .content .authors {
   padding-top: 30px;
   /*color: rgba(255,255,255, 0.7);*/
+  color: #1B6685;
   overflow: auto;
 }
 

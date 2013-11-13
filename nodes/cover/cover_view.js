@@ -33,11 +33,16 @@ CoverView.Prototype = function() {
     NodeView.prototype.render.call(this);
     var node = this.node;
 
+    if (node.breadcrumbs && node.breadcrumbs.length > 0) {
+      var breadcrumbs = $$('.breadcrumbs', {
+        children: _.map(node.breadcrumbs, function(bc) {
+          return $$('a', {href: bc.url, text: bc.name})
+        })
+      });
+    }
+  
+    this.content.appendChild(breadcrumbs);
     this.content.appendChild($$('.title', {text: node.title }));
-
-    // <span id="citation_reference_13" class="annotation citation_reference">Manz et al., 2011</span>
-    // Add title paragraph
-    // var titleNode = this.node.getTitle();
 
     var authors = $$('.authors', {
       children: _.map(node.getAuthors(), function(authorPara) {
@@ -48,7 +53,15 @@ CoverView.Prototype = function() {
       }, this)
     });
 
+    // var orgLink = $$('a.original', {
+    //   href: node.document.get('publication_info').doi,
+    //   text: "Classic View"
+    // });
+
+    // this.content.appendChild(orgLink);
+
     this.content.appendChild(authors);
+
     return this;
   }
 };

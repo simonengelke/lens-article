@@ -18,7 +18,8 @@ Cover.type = {
   "parent": "content",
   "properties": {
     "source_id": "string",
-    "authors": ["array", "paragraph"]
+    "authors": ["array", "paragraph"],
+    "breadcrumbs": "object"
     // No properties as they are all derived from the document node
   }
 };
@@ -77,6 +78,12 @@ Object.defineProperties(Cover.prototype, {
     // Expand author id's to corresponding person nodes
     get: function() {
       return this.document.authors;
+    }
+  },
+  breadcrumbs: {
+    // Expand author id's to corresponding person nodes
+    get: function() {
+      return this.properties.breadcrumbs;
     }
   }
 });
