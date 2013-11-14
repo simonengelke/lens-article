@@ -19,15 +19,30 @@ var Renderer = function(view) {
       html: node.authors.join(', ')
     }));
 
+
     // Add Source
     // -------
 
+    var source = [];
+
+    if (node.source && node.volume) {
+      source.push([node.source, node.volume].join(', ')+": ");
+    }
+
+    if (node.fpage && node.lpage) {
+      source.push([node.fpage, node.lpage].join('-')+", ");
+    }
+
+    if (node.publisher_name && node.publisher_location) {
+      source.push([node.publisher_name, node.publisher_location].join(', ')+", ");
+    }
+
+    if (node.year) {
+      source.push(node.year);
+    }
+
     frag.appendChild($$('.source', {
-      html: [
-        [node.source, node.volume].join(', ')+": ",
-        [node.fpage, node.lpage].join('-')+", ",
-        node.year
-      ].join('')
+      html: source.join('')
     }));
 
     // Add DOI (if available)

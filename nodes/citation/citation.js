@@ -24,6 +24,8 @@ Citation.type = {
     "doi": "string",
     "source": "string",
     "volume": "string",
+    "publisher_name": "string",
+    "publisher_location": "string",
     "fpage": "string",
     "lpage": "string",
     "year": "string",
@@ -47,12 +49,15 @@ Citation.description = {
     "doi": "DOI reference",
     "source": "Usually the journal name",
     "volume": "Issue number",
+    "publisher_name": "Publisher Name",
+    "publisher_location": "Publisher Location",
     "fpage": "First page",
     "lpage": "Last page",
     "year": "The year of publication",
     "citation_urls": "A list of links for accessing the article on the web"
   }
 };
+
 
 
 // Example Citation
@@ -94,7 +99,6 @@ Citation.Prototype = function() {
 Citation.Prototype.prototype = Node.prototype;
 Citation.prototype = new Citation.Prototype();
 Citation.prototype.constructor = Citation;
-
 
 // Generate getters
 // --------
