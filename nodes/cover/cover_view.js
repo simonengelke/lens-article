@@ -39,9 +39,10 @@ CoverView.Prototype = function() {
           return $$('a', {href: bc.url, text: bc.name})
         })
       });
+      this.content.appendChild(breadcrumbs);
     }
   
-    this.content.appendChild(breadcrumbs);
+    
     this.content.appendChild($$('.title', {text: node.title }));
 
     var authors = $$('.authors', {
