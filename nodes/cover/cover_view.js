@@ -36,12 +36,18 @@ CoverView.Prototype = function() {
     if (node.breadcrumbs && node.breadcrumbs.length > 0) {
       var breadcrumbs = $$('.breadcrumbs', {
         children: _.map(node.breadcrumbs, function(bc) {
-          return $$('a', {href: bc.url, text: bc.name})
+          var html;
+
+          if (bc.image) {
+            html = '<img src="'+bc.image+'" title="'+bc.name+'"/>';
+          } else {
+            html = bc.name;  
+          }
+          return $$('a', {href: bc.url, html: html})
         })
       });
       this.content.appendChild(breadcrumbs);
     }
-  
     
     this.content.appendChild($$('.title', {text: node.title }));
 

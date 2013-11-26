@@ -1,16 +1,20 @@
 .lens-article .content-node.cover {
-  /*background: #5c6570;*/
   color: rgba(0,0,0,0.8);
 }
 
 .lens-article .content-node.cover .breadcrumbs {
-  /*background: #5c6570;*/
   font-size: 14px;
-  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: auto;
 }
 
 .lens-article .content-node.cover .breadcrumbs a {
   margin-right: 20px;
+  display: block;
+  float: left;
+  line-height: 40px;
+  height: 40px;
 }
 
 .lens-article .content-node.cover .content {
@@ -25,7 +29,6 @@
 
 .lens-article .content-node.cover .content .authors {
   padding-top: 30px;
-  /*color: rgba(255,255,255, 0.7);*/
   color: #1B6685;
   overflow: auto;
 }
@@ -38,5 +41,4 @@
   font-size: 20px;
   margin-right: 10px;
   margin-bottom: 8px;
-  /*color: rgba(255,255,255, 0.7);*/
 }

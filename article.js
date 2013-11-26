@@ -458,7 +458,7 @@ Article.describe = function() {
 
   _.each(Article.nodeTypes, function(nodeType) {
     nodeType = nodeType.Model;
-    console.log('NAME', nodeType.description.name, nodeType.type.id);
+    // console.log('NAME', nodeType.description.name, nodeType.type.id);
 
     // Create a heading for each node type
     var headingId = "heading_"+nodeType.type.id;
