@@ -3,6 +3,7 @@
 var _ = require("underscore");
 var util = require("substance-util");
 var Document = require("substance-document");
+var $$ = require("substance-application").$$;
 
 // Lens.Article
 // -----------------
@@ -145,7 +146,8 @@ Article.Renderer.Prototype = function() {
     _.each(docNodes, function(n) {
       this.renderNode(n, frag);
     }, this);
-    
+
+
     return frag;
   };
 
@@ -153,6 +155,15 @@ Article.Renderer.Prototype = function() {
   this.renderNode = function(n, frag) {
     var view = this.createView(n);
     frag.appendChild(view.render().el);
+
+    if (n.type === "heading") {
+      view.el.appendChild($$('a.top', {
+        href: "#",
+        html: '<i class="icon-chevron-up"></i>'
+      }));
+    }
+
+
     // Lets you customize the resulting DOM sticking on the el element
     // Example: Lens focus controls
     if (this.options.afterRender) this.options.afterRender(this.docCtrl, view);
