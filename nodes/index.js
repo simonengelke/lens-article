@@ -13,7 +13,7 @@ module.exports = {
   "table": require("./table"),
   "supplement": require("./supplement"),
   "video": require("./video"),
-  "person": require("./person"),
+  "contributor": require("./contributor"),
   "citation": require("./citation"),
   "formula": require('./formula'),
   "list": require("./list"),

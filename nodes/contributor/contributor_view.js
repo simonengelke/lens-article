@@ -6,17 +6,17 @@ var html = util.html;
 var NodeView = require("../node").View;
 var $$ = require("substance-application").$$;
 
-// Lens.Person.View
+// Lens.Contributor.View
 // ==========================================================================
 
-var PersonView = function(node) {
+var ContributorView = function(node) {
   NodeView.call(this, node);
 
   this.$el.attr({id: node.id});
   this.$el.addClass("content-node person");
 };
 
-PersonView.Prototype = function() {
+ContributorView.Prototype = function() {
 
   // Render it
   // --------
@@ -82,7 +82,7 @@ PersonView.Prototype = function() {
 
 };
 
-PersonView.Prototype.prototype = NodeView.prototype;
-PersonView.prototype = new PersonView.Prototype();
+ContributorView.Prototype.prototype = NodeView.prototype;
+ContributorView.prototype = new ContributorView.Prototype();
 
-module.exports = PersonView;
+module.exports = ContributorView;

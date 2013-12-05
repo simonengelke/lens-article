@@ -280,13 +280,13 @@ Article.annotations = {
     }
   },
 
-  // Dark blueish person references in the cover
+  // Dark blueish contributor references in the cover
   // They should work everywhere else too
 
-  "person_reference": {
+  "contributor_reference": {
     "parent": "annotation",
     "properties": {
-      "target": "person"
+      "target": "contributor"
     }
   },
 
@@ -391,7 +391,7 @@ Article.types = {
       "guid": "string",
       "creator": "string",
       "title": "string",
-      "authors": ["array", "person"],
+      "authors": ["array", "contributor"],
       "abstract": "string"
     }
   },
@@ -424,7 +424,7 @@ var ARTICLE_DOC_SEED = {
         "content"
       ],
       "title": "The Anatomy of a Lens Article",
-      "authors": ["person_1", "person_2", "person_3"],
+      "authors": ["contributor_1", "contributor_2", "contributor_3"],
       "guid": "lens_article"
     },
 
@@ -442,21 +442,21 @@ var ARTICLE_DOC_SEED = {
       "type": "cover"
     },
 
-    "person_1": {
-      "id": "person_1",
-      "type": "person",
+    "contributor_1": {
+      "id": "contributor_1",
+      "type": "contributor",
       "name": "Michael Aufreiter"
     },
 
-    "person_2": {
-      "id": "person_2",
-      "type": "person",
+    "contributor_2": {
+      "id": "contributor_2",
+      "type": "contributor",
       "name": "Ivan Grubisic"
     },
 
-    "person_3": {
-      "id": "person_3",
-      "type": "person",
+    "contributor_3": {
+      "id": "contributor_3",
+      "type": "contributor",
       "name": "Rebecca Close"
     }
   }
@@ -617,8 +617,8 @@ Object.defineProperties(Article.prototype, {
     get: function () {
       var docNode = this.get("document");
       if (docNode.authors) {
-        return _.map(docNode.authors, function(personId) {
-          return this.get(personId);
+        return _.map(docNode.authors, function(contributorId) {
+          return this.get(contributorId);
         }, this);
       } else {
         return "";

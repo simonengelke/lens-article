@@ -1,0 +1,17 @@
+/*
+Contributor 
+--------------------------------------- */
+
+.lens-article .content-node.contributor .content {
+  
+}
+
+.lens-article .content-node.contributor .affiliation {
+  margin-top: 10px;
+  font-size: 17px;
+}
+
+.lens-article .content-node.contributor .label {
+  margin-top: 10px;
+  color: #777;
+}
