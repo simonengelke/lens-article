@@ -28,7 +28,11 @@ Affiliation.description = {
     "Name of a institution or organization, such as a university or corporation, that is the affiliation for a contributor such as an author or an editor."
   ],
   "properties": {
-    "coming": "soon"
+    "institution": "Name of institution",
+    "department": "Department name",
+    "country": "Country where institution is located",
+    "city": "City of institution",
+    "label": "Affilation label. Usually a number counting up"
   }
 };
 

@@ -40,7 +40,14 @@ Contributor.description = {
     "A contributor entity.",
   ],
   "properties": {
-    "name": "Full name.",
+    "name": "Full name",
+    "affiliations": "A list of affiliation ids",
+    "role": "Role of contributor (e.g. Author, Editor)",
+    "fundings": "A list of funding descriptions",
+    "emails": "A list of emails",
+    "contribution": "Description of contribution",
+    "equal_contrib": "A list of people who contributed equally"
+
   }
 };
 
