@@ -28,9 +28,12 @@ Contributor.type = {
     "contribution": "string",
     "deceased": "boolean",
     "members": ["array", "string"],
-    "equal_contrib": ["array", "string"]
+    "orcid": "string",
+    "equal_contrib": ["array", "string"],
+    "competing_interests": ["array", "string"]
   }
 };
+
 
 // This is used for the auto-generated docs
 // -----------------
@@ -48,8 +51,10 @@ Contributor.description = {
     "fundings": "A list of funding descriptions",
     "deceased": false,
     "emails": "A list of emails",
+    "orcid": "ORCID",
     "contribution": "Description of contribution",
     "equal_contrib": "A list of people who contributed equally",
+    "competing_interests": "A list of conflicts",
     "members": "a list of group members"
   }
 };

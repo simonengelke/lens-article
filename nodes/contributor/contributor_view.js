@@ -58,6 +58,18 @@ ContributorView.Prototype = function() {
       this.content.appendChild($$('.equal-contribution', {text: this.node.equal_contrib}));
     }
 
+    // Emails
+    // -------
+    
+    if (this.node.emails.length > 0) {
+      this.content.appendChild($$('.label', {text: 'For correspondence'}));
+      this.content.appendChild($$('.emails', {
+        children: _.map(this.node.emails, function(email) {
+          return $$('a', {href: "mailto:"+email, text: email});
+        })
+      }));
+    }
+
     // Funding
     // -------
 
@@ -70,13 +82,25 @@ ContributorView.Prototype = function() {
       }));
     }
 
-    if (this.node.emails.length > 0) {
-      this.content.appendChild($$('.label', {text: 'For correspondence'}));
-      this.content.appendChild($$('.emails', {
-        children: _.map(this.node.emails, function(email) {
-          return $$('a', {href: "mailto:"+email, text: email});
+
+    // Competing interests
+    // -------
+    
+    if (this.node.competing_interests.length > 0) {
+      this.content.appendChild($$('.label', {text: 'Competing Interests'}));
+      this.content.appendChild($$('.competing-interests', {
+        children: _.map(this.node.competing_interests, function(ci) {
+          return $$('.conflict', {text: ci});
         })
       }));
+    }
+
+    // ORCID if available
+    // -------
+    
+    if (this.node.orcid) {
+      this.content.appendChild($$('.label', { text: 'ORCID' }));
+      this.content.appendChild($$('a.orcid', { href: this.node.orcid, text: this.node.orcid }));
     }
 
     // Group member (in case contributor is a person group)
