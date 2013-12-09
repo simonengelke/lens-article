@@ -13,7 +13,7 @@ var ContributorView = function(node) {
   NodeView.call(this, node);
 
   this.$el.attr({id: node.id});
-  this.$el.addClass("content-node person");
+  this.$el.addClass("content-node contributor");
 };
 
 ContributorView.Prototype = function() {
@@ -45,8 +45,10 @@ ContributorView.Prototype = function() {
     // Contribution
     // -------
 
-    this.content.appendChild($$('.label', {text: 'Contribution'}));
-    this.content.appendChild($$('.contribution', {text: this.node.contribution}));
+    if (this.node.contribution) {
+      this.content.appendChild($$('.label', {text: 'Contribution'}));
+      this.content.appendChild($$('.contribution', {text: this.node.contribution}));
+    }
 
     // Equal contribution
     // -------
@@ -70,9 +72,21 @@ ContributorView.Prototype = function() {
 
     if (this.node.emails.length > 0) {
       this.content.appendChild($$('.label', {text: 'For correspondence'}));
-      this.content.appendChild($$('.label', {
+      this.content.appendChild($$('.emails', {
         children: _.map(this.node.emails, function(email) {
           return $$('a', {href: "mailto:"+email, text: email});
+        })
+      }));
+    }
+
+    // Group member (in case contributor is a person group)
+    // -------
+
+    if (this.node.members.length > 0) {
+      this.content.appendChild($$('.label', {text: 'Group Members'}));
+      this.content.appendChild($$('.members', {
+        children: _.map(this.node.members, function(member) {
+          return $$('.member', {text: member});
         })
       }));
     }
