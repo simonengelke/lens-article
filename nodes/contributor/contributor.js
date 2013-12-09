@@ -26,6 +26,8 @@ Contributor.type = {
     "image": "string", // optional
     "emails": ["array", "string"],
     "contribution": "string",
+    "deceased": "boolean",
+    "members": ["array", "string"],
     "equal_contrib": ["array", "string"]
   }
 };
@@ -44,10 +46,11 @@ Contributor.description = {
     "affiliations": "A list of affiliation ids",
     "role": "Role of contributor (e.g. Author, Editor)",
     "fundings": "A list of funding descriptions",
+    "deceased": false,
     "emails": "A list of emails",
     "contribution": "Description of contribution",
-    "equal_contrib": "A list of people who contributed equally"
-
+    "equal_contrib": "A list of people who contributed equally",
+    "members": "a list of group members"
   }
 };
 
