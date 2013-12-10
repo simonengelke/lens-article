@@ -42,6 +42,14 @@ ContributorView.Prototype = function() {
       })
     }));
 
+    // Present Address
+    // -------
+
+    if (this.node.present_address) {
+      this.content.appendChild($$('.label', {text: 'Present address'}));
+      this.content.appendChild($$('.contribution', {text: this.node.present_address}));
+    }
+
     // Contribution
     // -------
 

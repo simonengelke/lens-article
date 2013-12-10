@@ -22,6 +22,7 @@ Contributor.type = {
     "name": "string", // full name
     "role": "string",
     "affiliations": ["array", "affiliation"],
+    "present_address": ["string"],
     "fundings": ["array", "string"],
     "image": "string", // optional
     "emails": ["array", "string"],
@@ -47,6 +48,7 @@ Contributor.description = {
   "properties": {
     "name": "Full name",
     "affiliations": "A list of affiliation ids",
+    "present_address": "Present address of the contributor",
     "role": "Role of contributor (e.g. Author, Editor)",
     "fundings": "A list of funding descriptions",
     "deceased": false,
