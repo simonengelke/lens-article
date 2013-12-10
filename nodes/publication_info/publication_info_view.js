@@ -32,6 +32,17 @@ PublicationInfoView.Prototype = function() {
       $$('tr', {
         children: [
           $$('td', {
+            colspan: 2,
+            children: [
+              $$('div.label', {text: "Article Type"}),
+              $$('div', {text: "Research Article"})
+            ]
+          })
+        ]
+      }),
+      $$('tr', {
+        children: [
+          $$('td', {
             children: [
               $$('div.label', {text: "Subject"}),
               $$('div.value', {text: this.node.subjects.join(', ')})
@@ -57,13 +68,31 @@ PublicationInfoView.Prototype = function() {
         ]
       })
     ];
+
+
+    // Display related article if there is any
+    // ----------------
+
+    if (this.node.related_article) {
+      tableRows.push($$('tr', {
+        children: [
+          $$('td', {
+            colspan: 2,
+            children: [
+              $$('div.label', {text: "Related Article"}),
+              $$('a.value', {href: this.node.related_article, text: this.node.related_article})
+            ]
+          })
+        ]
+      }));
+    }
+    
     
     var catTbl = $$('table.categorization', {
       children: [ $$('tbody', { children: tableRows }) ]
     });
 
     this.content.appendChild(catTbl);
-    this.content.appendChild($$('.label.links', {text: "Links"}));
       
     // Prepare for download the JSON
     var json = JSON.stringify(this.node.document.toJSON(), null, '  ');

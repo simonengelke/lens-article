@@ -7,6 +7,7 @@ var PublicationInfo = function(node, doc) {
   Node.call(this, node, doc);
 };
 
+
 PublicationInfo.type = {
   "id": "publication_info",
   "parent": "content",
@@ -22,7 +23,8 @@ PublicationInfo.type = {
     "pdf_link": "string",
     "xml_link": "string",
     "json_link": "string",
-    "doi": "string"
+    "doi": "string",
+    "related_article": "string"
   }
 };
 
@@ -45,7 +47,8 @@ PublicationInfo.description = {
     "pdf_link": "A link referencing the PDF version for print",
     "xml_link": "A link referencing the original NLM XML file",
     "json_link": "A link pointing to the JSON version of the article",
-    "doi": "Article DOI"
+    "doi": "Article DOI",
+    "related_article": "DOI of related article if there is any"
   }
 };
 

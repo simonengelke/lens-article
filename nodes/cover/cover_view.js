@@ -37,7 +37,6 @@ CoverView.Prototype = function() {
       var breadcrumbs = $$('.breadcrumbs', {
         children: _.map(node.breadcrumbs, function(bc) {
           var html;
-
           if (bc.image) {
             html = '<img src="'+bc.image+'" title="'+bc.name+'"/>';
           } else {
@@ -48,7 +47,7 @@ CoverView.Prototype = function() {
       });
       this.content.appendChild(breadcrumbs);
     }
-    
+
     this.content.appendChild($$('.title', {text: node.title }));
 
     var authors = $$('.authors', {
@@ -60,12 +59,11 @@ CoverView.Prototype = function() {
       }, this)
     });
 
-    // var orgLink = $$('a.original', {
-    //   href: node.document.get('publication_info').doi,
-    //   text: "Classic View"
-    // });
-
-    // this.content.appendChild(orgLink);
+    authors.appendChild($$('.content-node.text.plain', {
+      children: [
+        $$('.content', {text: this.node.document.on_behalf_of})
+      ]
+    }));
 
     this.content.appendChild(authors);
 

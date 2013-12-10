@@ -3,6 +3,7 @@
 .lens-article .content-node.publication-info {
   /*padding: 30px 0;*/
   /*background: rgba(0,0,0,0.1);*/
+  font-size: 17px;
   color: #333;
 }
 
@@ -17,6 +18,8 @@
 }
 
 .lens-article .content-node.publication-info .label {
+  margin-top: 10px;
+  font-size: 13px;
   color: #666;
 }
 
@@ -43,18 +46,24 @@
   margin-top: 30px;
 }
 
+.lens-article .content-node.publication-info table.dates .value {
+  font-style: normal;
+
+}
+
 .lens-article .content-node.publication-info table.dates td {  
   border: none;
   padding-right: 30px;
   padding-bottom: 10px;
-  text-align: center;
-  font-size: 13px;
+  /*text-align: center;*/
+  /*font-size: 13px;*/
   width: 33%;
 }
 
 .lens-article .content-node.publication-info table.categorization td {
+  vertical-align: top;
   border: none;
-  font-size: 13px;
+  /*font-size*/: 13px;
   padding-right: 30px;
   width: 50%;
 }
@@ -62,7 +71,15 @@
 .lens-article .content-node.publication-info .value {
   /*font-weight: bold;*/
   font-style: italic;
-  font-size: 15px;
+  /*font-size: 15px;*/
+  /*margin-top: 10px;*/
+  
+}
+
+
+
+.lens-article .content-node.publication-info a.value {
+  font-style: normal;
 }
 
 .lens-article .content-node.publication-info .links {

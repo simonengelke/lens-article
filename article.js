@@ -392,6 +392,7 @@ Article.types = {
       "creator": "string",
       "title": "string",
       "authors": ["array", "contributor"],
+      "on_behalf_of": "string",
       "abstract": "string"
     }
   },
@@ -611,6 +612,14 @@ Object.defineProperties(Article.prototype, {
     },
     set: function(abstract) {
       this.get("document").abstract = abstract;
+    }
+  },
+  on_behalf_of: {
+    get: function () {
+      return this.get("document").on_behalf_of;
+    },
+    set: function(on_behalf_of) {
+      this.get("document").on_behalf_of = on_behalf_of;
     }
   },
   authors: {
