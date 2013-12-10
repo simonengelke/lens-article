@@ -35,7 +35,7 @@ PublicationInfoView.Prototype = function() {
             colspan: 2,
             children: [
               $$('div.label', {text: "Article Type"}),
-              $$('div', {text: "Research Article"})
+              $$('div', {text: this.node.article_type})
             ]
           })
         ]
@@ -87,7 +87,7 @@ PublicationInfoView.Prototype = function() {
       }));
     }
     
-    
+
     var catTbl = $$('table.categorization', {
       children: [ $$('tbody', { children: tableRows }) ]
     });
@@ -97,8 +97,6 @@ PublicationInfoView.Prototype = function() {
     // Prepare for download the JSON
     var json = JSON.stringify(this.node.document.toJSON(), null, '  ');
     var bb = new Blob([json], {type: "application/json"});
-
-
 
     var links = $$('.links', {
       children: [
