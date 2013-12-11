@@ -24,6 +24,10 @@ Box
   /*background: #ccc;*/
 }
 
+.surface.content .content-node.box > .content {
+  border: 1px dotted #ddd;
+}
+
 .surface.content .content-node.box .content {
-  background: #eee;
+  background: #fbfbfb;
 }
