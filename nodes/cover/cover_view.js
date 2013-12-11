@@ -48,6 +48,17 @@ CoverView.Prototype = function() {
       this.content.appendChild(breadcrumbs);
     }
 
+    var pubInfo = this.node.document.get('publication_info');
+    if (pubInfo) {
+      var pubDate = pubInfo.published_on;
+      console.log('PUBDATE', pubDate);
+      if (pubDate) {
+        this.content.appendChild($$('.published-on', {
+          text: new Date(pubDate).toDateString()
+        }));
+      }
+    }
+
     this.content.appendChild($$('.title', {text: node.title }));
 
     var authors = $$('.authors', {

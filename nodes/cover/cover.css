@@ -29,6 +29,12 @@
   font-size: 40px;
 }
 
+.lens-article .content-node.cover .published-on {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: #666;
+}
+
 .lens-article .content-node.cover .content .authors {
   padding-top: 30px;
   color: #1B6685;
