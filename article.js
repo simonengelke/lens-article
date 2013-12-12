@@ -320,6 +320,13 @@ Article.annotations = {
     "properties": {
       "target": "content"
     }
+  },
+
+  "author_callout": {
+    "parent": "annotation",
+    "properties": {
+      "style": "string"
+    }
   }
 
 };
