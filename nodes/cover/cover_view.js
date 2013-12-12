@@ -60,6 +60,7 @@ CoverView.Prototype = function() {
 
     this.content.appendChild($$('.title', {text: node.title }));
 
+
     var authors = $$('.authors', {
       children: _.map(node.getAuthors(), function(authorPara) {
         var paraView = this.viewFactory.createView(authorPara);
@@ -76,6 +77,15 @@ CoverView.Prototype = function() {
     }));
 
     this.content.appendChild(authors);
+
+    if (pubInfo) {
+      var doi = pubInfo.doi;
+      if (doi) {
+        this.content.appendChild($$('.doi', {
+          html: 'DOI: <a href="'+doi+'">'+doi+'</a>'
+        }));
+      }
+    }
 
     return this;
   }
