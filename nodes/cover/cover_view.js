@@ -49,11 +49,18 @@ CoverView.Prototype = function() {
     }
 
     var pubInfo = this.node.document.get('publication_info');
+
+    var localDate = new Date(pubInfo.published_on);
+    var utcDate = new Date();
+    utcDate.setUTCDate(localDate.getDate());
+    utcDate.setUTCMonth(localDate.getMonth());
+    utcDate.setUTCFullYear(localDate.getFullYear());
+
     if (pubInfo) {
       var pubDate = pubInfo.published_on;
       if (pubDate) {
         this.content.appendChild($$('.published-on', {
-          text: new Date(pubDate).toDateString()
+          text: utcDate.toUTCString().slice(0, 16) // new Date(pubDate).toDateString()
         }));
       }
     }
