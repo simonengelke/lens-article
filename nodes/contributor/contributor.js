@@ -100,9 +100,7 @@ var getters = {};
 var getters = {
   header: {
     get: function() {
-      var res = [this.properties.name];
-      if (this.properties.deceased) res.push("†");
-      return res.join(" ");
+      return this.properties.name;
     }
   }
 };

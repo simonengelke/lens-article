@@ -42,6 +42,8 @@ ContributorView.Prototype = function() {
       })
     }));
 
+
+
     // Present Address
     // -------
 
@@ -66,6 +68,7 @@ ContributorView.Prototype = function() {
       this.content.appendChild($$('.equal-contribution', {text: this.node.equal_contrib}));
     }
 
+
     // Emails
     // -------
     
@@ -77,6 +80,7 @@ ContributorView.Prototype = function() {
         })
       }));
     }
+
 
     // Funding
     // -------
@@ -103,6 +107,7 @@ ContributorView.Prototype = function() {
       }));
     }
 
+
     // ORCID if available
     // -------
     
@@ -110,6 +115,7 @@ ContributorView.Prototype = function() {
       this.content.appendChild($$('.label', { text: 'ORCID' }));
       this.content.appendChild($$('a.orcid', { href: this.node.orcid, text: this.node.orcid }));
     }
+
 
     // Group member (in case contributor is a person group)
     // -------
@@ -121,6 +127,14 @@ ContributorView.Prototype = function() {
           return $$('.member', {text: member});
         })
       }));
+    }
+
+    // Deceased?
+    // -------
+
+    if (this.node.deceased) {
+      // this.content.appendChild($$('.label', {text: 'Present address'}));
+      this.content.appendChild($$('.label', {text: "* Deceased"}));
     }
 
     return this;
