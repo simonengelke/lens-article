@@ -52,19 +52,12 @@ CoverView.Prototype = function() {
 
     if (pubInfo) {
       var localDate = new Date(pubInfo.published_on);
-      var utcDate = new Date();
-      utcDate.setUTCDate(localDate.getDate());
-      utcDate.setUTCMonth(localDate.getMonth());
-      utcDate.setUTCFullYear(localDate.getFullYear());
-      utcDate.setUTCHours(0);
-      utcDate.setUTCMinutes(0);
-      utcDate.setUTCSeconds(0);
 
       if (pubInfo) {
         var pubDate = pubInfo.published_on;
         if (pubDate) {
           this.content.appendChild($$('.published-on', {
-            text: utcDate.toUTCString().slice(0, 16)
+            text: localDate.toUTCString().slice(0, 16)
           }));
         }
       }
