@@ -19,7 +19,7 @@ var Article = function(options) {
   options.schema = util.deepclone(Document.schema);
 
   options.schema.id = "lens-article";
-  options.schema.version = "0.1.0";
+  options.schema.version = "0.3.0";
 
   // Merge in custom types
   _.each(Article.types, function(type, key) {
@@ -477,7 +477,6 @@ Article.describe = function() {
 
   _.each(Article.nodeTypes, function(nodeType) {
     nodeType = nodeType.Model;
-    // console.log('NAME', nodeType.description.name, nodeType.type.id);
 
     // Create a heading for each node type
     var headingId = "heading_"+nodeType.type.id;
@@ -566,7 +565,6 @@ Article.describe = function() {
     });
 
     doc.show("content", [headingId+"_example", headingId+"_example_codeblock"], -1);
-
   });
 
   return doc;
