@@ -50,23 +50,27 @@ CoverView.Prototype = function() {
 
     var pubInfo = this.node.document.get('publication_info');
 
-    var localDate = new Date(pubInfo.published_on);
-    var utcDate = new Date();
-    utcDate.setUTCDate(localDate.getDate());
-    utcDate.setUTCMonth(localDate.getMonth());
-    utcDate.setUTCFullYear(localDate.getFullYear());
-
     if (pubInfo) {
-      var pubDate = pubInfo.published_on;
-      if (pubDate) {
-        this.content.appendChild($$('.published-on', {
-          text: utcDate.toUTCString().slice(0, 16) // new Date(pubDate).toDateString()
-        }));
+      var localDate = new Date(pubInfo.published_on);
+      var utcDate = new Date();
+      utcDate.setUTCDate(localDate.getDate());
+      utcDate.setUTCMonth(localDate.getMonth());
+      utcDate.setUTCFullYear(localDate.getFullYear());
+      utcDate.setUTCHours(0);
+      utcDate.setUTCMinutes(0);
+      utcDate.setUTCSeconds(0);
+
+      if (pubInfo) {
+        var pubDate = pubInfo.published_on;
+        if (pubDate) {
+          this.content.appendChild($$('.published-on', {
+            text: utcDate.toUTCString().slice(0, 16)
+          }));
+        }
       }
     }
 
     this.content.appendChild($$('.title', {text: node.title }));
-
 
     var authors = $$('.authors', {
       children: _.map(node.getAuthors(), function(authorPara) {
