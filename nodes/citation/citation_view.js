@@ -24,7 +24,12 @@ var Renderer = function(view) {
     // -------
 
     var source = [];
-
+    
+    // Hack for handling unstructured citation types and render prettier
+    if (node.source && node.volume === ''){
+      source.push(node.source);
+    }
+    
     if (node.source && node.volume) {
       source.push([node.source, node.volume].join(', ')+": ");
     }
